@@ -1,0 +1,85 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "simple_list.schema.json",
+    "title": "Simple List",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "type": {
+        "const": "list"
+      },
+      "underline": {
+        "type": "boolean"
+      },
+      "italic": {
+        "type": "boolean"
+      },
+      "bold": {
+        "type": "boolean"
+      },
+      "html": {
+        "type": "string"
+      },
+      "text": {
+        "type": "string"
+      },
+      "align": {
+        "enum": [
+          "left",
+          "center",
+          "right"
+        ]
+      },
+      "tag": {
+        "enum": [
+          "ol",
+          "ul"
+        ]
+      },
+      "size": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "color": {
+        "type": "string"
+      },
+      "linkColor": {
+        "type": "string"
+      },
+      "letter-spacing": {
+        "type": "integer",
+        "minimum": -99,
+        "maximum": 99
+      },
+      "line-height": {
+        "type": "number",
+        "minimum": 0.5,
+        "maximum": 3,
+        "multipleOf": 0.00001
+      },
+      "padding-top": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-right": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-bottom": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-left": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "locked": {
+        "type": "boolean"
+      },
+      "direction": {
+        "enum": [
+          "ltr",
+          "rtl"
+        ]
+      },
+      "customFields": {
+        "type": "object"
+      }
+    }
+  }

@@ -1,0 +1,114 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "simple_row.schema.json",
+    "title": "Simple Row",
+    "type": "object",
+    "required": [
+      "name",
+      "columns"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "locked": {
+        "type": "boolean"
+      },
+      "colStackOnMobile": {
+        "type": "boolean"
+      },
+      "rowReverseColStackOnMobile": {
+        "type": "boolean"
+      },
+      "contentAreaBackgroundColor": {
+        "type": "string"
+      },
+      "background-color": {
+        "type": "string"
+      },
+      "background-image": {
+        "type": "string"
+      },
+      "background-position": {
+        "type": "string"
+      },
+      "background-repeat": {
+        "type": "string"
+      },
+      "customFields": {
+        "type": "object"
+      },
+      "border-radius": {
+        "$ref": "definitions.schema.json#/definitions/borderRadius"
+      },
+      "border-color": {
+        "type": "string"
+      },
+      "border-width": {
+        "$ref": "definitions.schema.json#/definitions/borderWidth"
+      },
+      "columnsBorderRadius": {
+        "$ref": "definitions.schema.json#/definitions/borderRadius"
+      },
+      "columnsSpacing": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 99
+      },
+      "vertical-align": {
+        "type": "string",
+        "enum": [
+          "top",
+          "middle",
+          "bottom"
+        ]
+      },
+      "display-condition": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "before": {
+            "type": "string"
+          },
+          "after": {
+            "type": "string"
+          }
+        }
+      },
+      "metadata": {
+        "type": "object"
+      },
+      "padding-top": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-right": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-bottom": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-left": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "columns": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 12,
+        "items": {
+          "$ref": "simple_column.schema.json"
+        }
+      }
+    }
+  }

@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "simple_html.schema.json",
+    "title": "Simple Html",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "type": {
+        "const": "html"
+      },
+      "html": {
+        "type": "string"
+      },
+      "customFields": {
+        "type": "object"
+      },
+      "locked": {
+        "type": "boolean"
+      }
+    }
+  }

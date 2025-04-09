@@ -1,0 +1,1465 @@
+{
+  "page": {
+      "body": {
+          "container": {
+              "style": {
+                  "background-color": "#F5F5F5"
+              }
+          },
+          "content": {
+              "computedStyle": {
+                  "linkColor": "#3498DB",
+                  "messageBackgroundColor": "#FFFFFF",
+                  "messageWidth": "570px"
+              },
+              "style": {
+                  "color": "#000000",
+                  "font-family": "Arial, Helvetica Neue, Helvetica, sans-serif"
+              }
+          },
+          "webFonts": []
+      },
+      "description": "",
+      "head": {
+          "meta": {
+              "description": "Discover our latest smart devices with exclusive launch discounts",
+              "lang": "en",
+              "preheader": "Check out our newest smart devices with special introductory pricing and bundle discounts",
+              "subject": "Just Launched: New TechPulse Smart Devices + 25% Off Bundle Deal",
+              "title": "New Tech Arrivals | TechPulse March 2025"
+          }
+      },
+      "rows": [
+          {
+              "columns": [
+                  {
+                      "grid-columns": 4,
+                      "modules": [],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "48a52b2a-be74-4006-a502-6c42c4307342"
+                  },
+                  {
+                      "grid-columns": 4,
+                      "modules": [
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "class": "center autowidth",
+                                      "width": "100%"
+                                  },
+                                  "image": {
+                                      "alt": "TechPulse Logo",
+                                      "href": "https://techpulse.com",
+                                      "prefix": "",
+                                      "src": "https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeTestingMachineV3/testmachine/message-tip.png",
+                                      "target": "_blank"
+                                  },
+                                  "style": {
+                                      "border-radius": "0px",
+                                      "padding-bottom": "0px",
+                                      "padding-left": "0px",
+                                      "padding-right": "0px",
+                                      "padding-top": "0px",
+                                      "width": "100%"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-image",
+                              "uuid": "2bdddc85-54f0-44de-a029-77b92a99f484"
+                          }
+                      ],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "9c8dd3ef-990c-42fa-a2ae-053cda961089"
+                  },
+                  {
+                      "grid-columns": 4,
+                      "modules": [],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "a9d2e2c3-0f52-43f3-a6a7-bd3620c71f68"
+                  }
+              ],
+              "container": {
+                  "style": {
+                      "background-color": "#F5F5F5",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat"
+                  }
+              },
+              "content": {
+                  "computedStyle": {
+                      "hideContentOnDesktop": false,
+                      "hideContentOnMobile": false,
+                      "rowColStackOnMobile": true,
+                      "rowReverseColStackOnMobile": false,
+                      "verticalAlign": "top"
+                  },
+                  "style": {
+                      "background-color": "#FFFFFF",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat",
+                      "color": "#000000",
+                      "width": "500px"
+                  }
+              },
+              "empty": false,
+              "locked": false,
+              "synced": false,
+              "type": "",
+              "uuid": "88dc221b-f26e-4ed1-bcd0-fb03f74c74b7"
+          },
+          {
+              "columns": [
+                  {
+                      "grid-columns": 12,
+                      "modules": [
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "heading": {
+                                      "style": {
+                                          "color": "#1A5276",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "24px",
+                                          "font-weight": "700",
+                                          "letter-spacing": "0px",
+                                          "line-height": "100.000%",
+                                          "link-color": "#3498DB",
+                                          "text-align": "center"
+                                      },
+                                      "text": "Discover Our Latest Smart Tech",
+                                      "title": "h1"
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "0px",
+                                      "padding-right": "0px",
+                                      "padding-top": "20px",
+                                      "text-align": "center",
+                                      "width": "100%"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-heading",
+                              "uuid": "a30790a7-083c-4f25-942e-6cc3bb21ddfe"
+                          }
+                      ],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "84fe5bb5-b343-4eea-a406-fb035e02ad96"
+                  }
+              ],
+              "container": {
+                  "style": {
+                      "background-color": "#F5F5F5",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat"
+                  }
+              },
+              "content": {
+                  "computedStyle": {
+                      "hideContentOnDesktop": false,
+                      "hideContentOnMobile": false,
+                      "rowColStackOnMobile": true,
+                      "rowReverseColStackOnMobile": false,
+                      "verticalAlign": "top"
+                  },
+                  "style": {
+                      "background-color": "#FFFFFF",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat",
+                      "color": "#000000",
+                      "width": "500px"
+                  }
+              },
+              "empty": false,
+              "locked": false,
+              "synced": false,
+              "type": "",
+              "uuid": "6eb3bd8b-f5a8-4025-985a-4156a914ca2e"
+          },
+          {
+              "columns": [
+                  {
+                      "grid-columns": 12,
+                      "modules": [
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "paragraph": {
+                                      "computedStyle": {
+                                          "linkColor": "#3498DB",
+                                          "paragraphSpacing": "16px"
+                                      },
+                                      "html": "Thank you for subscribing to TechPulse updates. We're thrilled to introduce our newest innovative devices that will transform your daily tech experience.",
+                                      "style": {
+                                          "color": "#333333",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "16px",
+                                          "font-weight": "400",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "text-align": "center"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-paragraph",
+                              "uuid": "7db7e935-2720-409d-b5ca-6a9f1edc9e82"
+                          }
+                      ],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "37aa9202-e984-4af5-adc8-375a524f6150"
+                  }
+              ],
+              "container": {
+                  "style": {
+                      "background-color": "#F5F5F5",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat"
+                  }
+              },
+              "content": {
+                  "computedStyle": {
+                      "hideContentOnDesktop": false,
+                      "hideContentOnMobile": false,
+                      "rowColStackOnMobile": true,
+                      "rowReverseColStackOnMobile": false,
+                      "verticalAlign": "top"
+                  },
+                  "style": {
+                      "background-color": "#FFFFFF",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat",
+                      "color": "#000000",
+                      "width": "500px"
+                  }
+              },
+              "empty": false,
+              "locked": false,
+              "synced": false,
+              "type": "",
+              "uuid": "6ccc9c85-cfff-4d2e-a34b-886b495fe72d"
+          },
+          {
+              "columns": [
+                  {
+                      "grid-columns": 12,
+                      "modules": [
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "align": "center"
+                                  },
+                                  "divider": {
+                                      "style": {
+                                          "border-top": "1px solid #DDDDDD",
+                                          "width": "80%"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-divider",
+                              "uuid": "7625b5da-5d6e-471e-b76a-1c7b3fc1fc90"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "heading": {
+                                      "style": {
+                                          "color": "#2980B9",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "20px",
+                                          "font-weight": "700",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "link-color": "#3498DB",
+                                          "text-align": "center"
+                                      },
+                                      "text": "New Arrivals - March 2025",
+                                      "title": "h2"
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "0px",
+                                      "padding-right": "0px",
+                                      "padding-top": "20px",
+                                      "text-align": "center",
+                                      "width": "100%"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-heading",
+                              "uuid": "9c9cdccc-b6b5-4364-942a-53f4fdcc0387"
+                          }
+                      ],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "2663c313-4ae8-4363-9a84-7f34898332ba"
+                  }
+              ],
+              "container": {
+                  "style": {
+                      "background-color": "#F5F5F5",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat"
+                  }
+              },
+              "content": {
+                  "computedStyle": {
+                      "hideContentOnDesktop": false,
+                      "hideContentOnMobile": false,
+                      "rowColStackOnMobile": true,
+                      "rowReverseColStackOnMobile": false,
+                      "verticalAlign": "top"
+                  },
+                  "style": {
+                      "background-color": "#FFFFFF",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat",
+                      "color": "#000000",
+                      "width": "500px"
+                  }
+              },
+              "empty": false,
+              "locked": false,
+              "synced": false,
+              "type": "",
+              "uuid": "4b0b3c9e-5d9b-49f5-ae20-92514034d096"
+          },
+          {
+              "columns": [
+                  {
+                      "grid-columns": 4,
+                      "modules": [
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "heading": {
+                                      "style": {
+                                          "color": "#555555",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "18px",
+                                          "font-weight": "700",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "link-color": "#3498DB",
+                                          "text-align": "center"
+                                      },
+                                      "text": "PulseWatch Pro",
+                                      "title": "h3"
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "0px",
+                                      "padding-right": "0px",
+                                      "padding-top": "0px",
+                                      "text-align": "center",
+                                      "width": "100%"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-heading",
+                              "uuid": "ccee9287-a7c6-4cd2-87cc-f1274a0fb15b"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "class": "center autowidth",
+                                      "width": "100%"
+                                  },
+                                  "image": {
+                                      "alt": "",
+                                      "href": "",
+                                      "prefix": "",
+                                      "src": "https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeTestingMachineV3/testmachine/homepage-category-tiles-floorcare.jpg",
+                                      "target": "_blank"
+                                  },
+                                  "style": {
+                                      "border-radius": "0px",
+                                      "padding-bottom": "0px",
+                                      "padding-left": "0px",
+                                      "padding-right": "0px",
+                                      "padding-top": "0px",
+                                      "width": "100%"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-image",
+                              "uuid": "41084e49-507f-494b-b32a-4089e1ba2cdf"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "paragraph": {
+                                      "computedStyle": {
+                                          "linkColor": "#3498DB",
+                                          "paragraphSpacing": "16px"
+                                      },
+                                      "html": "$249.99 <strike>$299.99</strike>",
+                                      "style": {
+                                          "color": "#000000",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "16px",
+                                          "font-weight": "700",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "text-align": "center"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-paragraph",
+                              "uuid": "2b70c3bc-51b3-4530-86b0-7027c3b5b9af"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "paragraph": {
+                                      "computedStyle": {
+                                          "linkColor": "#3498DB",
+                                          "paragraphSpacing": "16px"
+                                      },
+                                      "html": "Health tracking with 7-day battery life and advanced sleep monitoring",
+                                      "style": {
+                                          "color": "#555555",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "14px",
+                                          "font-weight": "400",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "text-align": "center"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-paragraph",
+                              "uuid": "5f85a7dc-ad7e-421e-a7eb-51c20b446d56"
+                          }
+                      ],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "42c71af5-5fcc-46b8-aaa6-3de79a89e9a8"
+                  },
+                  {
+                      "grid-columns": 4,
+                      "modules": [
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "heading": {
+                                      "style": {
+                                          "color": "#555555",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "18px",
+                                          "font-weight": "700",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "link-color": "#3498DB",
+                                          "text-align": "center"
+                                      },
+                                      "text": "SoundWave Mini",
+                                      "title": "h3"
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "0px",
+                                      "padding-right": "0px",
+                                      "padding-top": "0px",
+                                      "text-align": "center",
+                                      "width": "100%"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-heading",
+                              "uuid": "d1a17662-a24f-4980-b19d-efa54e91f977"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "class": "center autowidth",
+                                      "width": "100%"
+                                  },
+                                  "image": {
+                                      "alt": "",
+                                      "href": "",
+                                      "prefix": "",
+                                      "src": "https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeTestingMachineV3/testmachine/571h-homepage-category-picker.jpg",
+                                      "target": "_blank"
+                                  },
+                                  "style": {
+                                      "border-radius": "0px",
+                                      "padding-bottom": "0px",
+                                      "padding-left": "0px",
+                                      "padding-right": "0px",
+                                      "padding-top": "0px",
+                                      "width": "100%"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-image",
+                              "uuid": "81d98f6d-e825-48cc-909a-7fe1e12fe118"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "paragraph": {
+                                      "computedStyle": {
+                                          "linkColor": "#3498DB",
+                                          "paragraphSpacing": "16px"
+                                      },
+                                      "html": "$129.99 <strike>$149.99</strike>",
+                                      "style": {
+                                          "color": "#000000",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "16px",
+                                          "font-weight": "700",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "text-align": "center"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-paragraph",
+                              "uuid": "d7a032e4-0dde-4fb5-a487-9b14071a70c8"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "paragraph": {
+                                      "computedStyle": {
+                                          "linkColor": "#3498DB",
+                                          "paragraphSpacing": "16px"
+                                      },
+                                      "html": "Waterproof wireless speaker with 20-hour playtime and voice assistant",
+                                      "style": {
+                                          "color": "#555555",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "14px",
+                                          "font-weight": "400",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "text-align": "center"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-paragraph",
+                              "uuid": "46a950e4-6918-43fa-9b03-5cd5bc18853d"
+                          }
+                      ],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "be3348a3-fdfb-4f70-ab76-f4cda69c79f9"
+                  },
+                  {
+                      "grid-columns": 4,
+                      "modules": [
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "heading": {
+                                      "style": {
+                                          "color": "#555555",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "18px",
+                                          "font-weight": "700",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "link-color": "#3498DB",
+                                          "text-align": "center"
+                                      },
+                                      "text": "AirPure 2000",
+                                      "title": "h3"
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "0px",
+                                      "padding-right": "0px",
+                                      "padding-top": "0px",
+                                      "text-align": "center",
+                                      "width": "100%"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-heading",
+                              "uuid": "a9b21a49-ee61-4c30-b4b1-1305a7cde497"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "class": "center autowidth",
+                                      "width": "100%"
+                                  },
+                                  "image": {
+                                      "alt": "",
+                                      "href": "",
+                                      "prefix": "",
+                                      "src": "https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeTestingMachineV3/testmachine/homepage-category-tiles-air-treatment-2.jpg",
+                                      "target": "_blank"
+                                  },
+                                  "style": {
+                                      "border-radius": "0px",
+                                      "padding-bottom": "0px",
+                                      "padding-left": "0px",
+                                      "padding-right": "0px",
+                                      "padding-top": "0px",
+                                      "width": "100%"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-image",
+                              "uuid": "c130e7f3-2197-4dee-9f43-e7fb7d15b8e6"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "paragraph": {
+                                      "computedStyle": {
+                                          "linkColor": "#3498DB",
+                                          "paragraphSpacing": "16px"
+                                      },
+                                      "html": "$179.99 <strike>$199.99</strike>",
+                                      "style": {
+                                          "color": "#000000",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "16px",
+                                          "font-weight": "700",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "text-align": "center"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-paragraph",
+                              "uuid": "64fe7b71-ba30-4000-88bf-6cc3710ee7e6"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "paragraph": {
+                                      "computedStyle": {
+                                          "linkColor": "#3498DB",
+                                          "paragraphSpacing": "16px"
+                                      },
+                                      "html": "Smart air purifier with HEPA filtration, WiFi connectivity, and air quality sensing",
+                                      "style": {
+                                          "color": "#555555",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "14px",
+                                          "font-weight": "400",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "text-align": "center"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-paragraph",
+                              "uuid": "06397148-2731-4094-abfa-2f9f0d8844d1"
+                          }
+                      ],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "66291b4e-0c61-4a18-b6f5-f57f7a35466a"
+                  }
+              ],
+              "container": {
+                  "style": {
+                      "background-color": "#F5F5F5",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat"
+                  }
+              },
+              "content": {
+                  "computedStyle": {
+                      "columnsSpacing": "20px",
+                      "hideContentOnDesktop": false,
+                      "hideContentOnMobile": false,
+                      "rowColStackOnMobile": true,
+                      "rowReverseColStackOnMobile": false,
+                      "verticalAlign": "top"
+                  },
+                  "style": {
+                      "background-color": "#FFFFFF",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat",
+                      "color": "#000000",
+                      "padding-left": "10px",
+                      "padding-right": "10px",
+                      "width": "500px"
+                  }
+              },
+              "empty": false,
+              "locked": false,
+              "synced": false,
+              "type": "",
+              "uuid": "53c49917-66bc-426f-b662-b9515c6c56f8"
+          },
+          {
+              "columns": [
+                  {
+                      "grid-columns": 4,
+                      "modules": [
+                          {
+                              "descriptor": {
+                                  "button": {
+                                      "href": "https://techpulse.com/pulsewatch",
+                                      "label": "<div class=\"txtTinyMce-wrapper\" style=\"\" data-mce-style=\"\"><p style=\"word-break:break-word;\" data-mce-style=\"word-break:break-word;\">View Details</p></div>",
+                                      "style": {
+                                          "background-color": "#3498DB",
+                                          "border-bottom": "0 solid transparent",
+                                          "border-left": "0 solid transparent",
+                                          "border-radius": "4px",
+                                          "border-right": "0 solid transparent",
+                                          "border-top": "0 solid transparent",
+                                          "color": "#FFFFFF",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "16px",
+                                          "line-height": "200%",
+                                          "padding-bottom": "5px",
+                                          "padding-left": "20px",
+                                          "padding-right": "20px",
+                                          "padding-top": "5px",
+                                          "width": "auto"
+                                      },
+                                      "target": "_self"
+                                  },
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px",
+                                      "text-align": "center"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-button",
+                              "uuid": "5c2539cd-9e7b-475a-ab29-68714df3f716"
+                          }
+                      ],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "33b3bece-cff6-44ea-a658-23af72a9a740"
+                  },
+                  {
+                      "grid-columns": 4,
+                      "modules": [
+                          {
+                              "descriptor": {
+                                  "button": {
+                                      "href": "https://techpulse.com/soundwave",
+                                      "label": "<div class=\"txtTinyMce-wrapper\" style=\"\" data-mce-style=\"\"><p style=\"word-break:break-word;\" data-mce-style=\"word-break:break-word;\">View Details</p></div>",
+                                      "style": {
+                                          "background-color": "#3498DB",
+                                          "border-bottom": "0 solid transparent",
+                                          "border-left": "0 solid transparent",
+                                          "border-radius": "4px",
+                                          "border-right": "0 solid transparent",
+                                          "border-top": "0 solid transparent",
+                                          "color": "#FFFFFF",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "16px",
+                                          "line-height": "200%",
+                                          "padding-bottom": "5px",
+                                          "padding-left": "20px",
+                                          "padding-right": "20px",
+                                          "padding-top": "5px",
+                                          "width": "auto"
+                                      },
+                                      "target": "_self"
+                                  },
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px",
+                                      "text-align": "center"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-button",
+                              "uuid": "bb91805e-0f42-4ba9-bb93-b903f71602fb"
+                          }
+                      ],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "d9df3e77-9f97-4a27-b668-e0bb49b56b09"
+                  },
+                  {
+                      "grid-columns": 4,
+                      "modules": [
+                          {
+                              "descriptor": {
+                                  "button": {
+                                      "href": "https://techpulse.com/airpure",
+                                      "label": "<div class=\"txtTinyMce-wrapper\" style=\"\" data-mce-style=\"\"><p style=\"word-break:break-word;\" data-mce-style=\"word-break:break-word;\">View Details</p></div>",
+                                      "style": {
+                                          "background-color": "#3498DB",
+                                          "border-bottom": "0 solid transparent",
+                                          "border-left": "0 solid transparent",
+                                          "border-radius": "4px",
+                                          "border-right": "0 solid transparent",
+                                          "border-top": "0 solid transparent",
+                                          "color": "#FFFFFF",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "16px",
+                                          "line-height": "200%",
+                                          "padding-bottom": "5px",
+                                          "padding-left": "20px",
+                                          "padding-right": "20px",
+                                          "padding-top": "5px",
+                                          "width": "auto"
+                                      },
+                                      "target": "_self"
+                                  },
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px",
+                                      "text-align": "center"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-button",
+                              "uuid": "55d7341c-05d1-4799-9434-d313b418eecf"
+                          }
+                      ],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "f738a40c-beb2-40a5-9c87-7df354eea557"
+                  }
+              ],
+              "container": {
+                  "style": {
+                      "background-color": "#F5F5F5",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat"
+                  }
+              },
+              "content": {
+                  "computedStyle": {
+                      "columnsSpacing": "20px",
+                      "hideContentOnDesktop": false,
+                      "hideContentOnMobile": false,
+                      "rowColStackOnMobile": true,
+                      "rowReverseColStackOnMobile": false,
+                      "verticalAlign": "top"
+                  },
+                  "style": {
+                      "background-color": "#FFFFFF",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat",
+                      "color": "#000000",
+                      "padding-left": "10px",
+                      "padding-right": "10px",
+                      "width": "500px"
+                  }
+              },
+              "empty": false,
+              "locked": false,
+              "synced": false,
+              "type": "",
+              "uuid": "4901718c-926a-4f61-9acf-93ede3c9f086"
+          },
+          {
+              "columns": [
+                  {
+                      "grid-columns": 12,
+                      "modules": [
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "align": "center"
+                                  },
+                                  "divider": {
+                                      "style": {
+                                          "border-top": "1px solid #DDDDDD",
+                                          "width": "80%"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-divider",
+                              "uuid": "39e05e71-8718-4bd1-8da5-cbe10ba26fd3"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "heading": {
+                                      "style": {
+                                          "color": "#E74C3C",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "20px",
+                                          "font-weight": "700",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "link-color": "#3498DB",
+                                          "text-align": "center"
+                                      },
+                                      "text": "Limited Time Bundle Deal",
+                                      "title": "h2"
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "0px",
+                                      "padding-right": "0px",
+                                      "padding-top": "20px",
+                                      "text-align": "center",
+                                      "width": "100%"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-heading",
+                              "uuid": "4c8c42dc-de64-47d0-9cea-145a0cb868d0"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "paragraph": {
+                                      "computedStyle": {
+                                          "linkColor": "#3498DB",
+                                          "paragraphSpacing": "16px"
+                                      },
+                                      "html": "Purchase any two devices and receive 25% off using code: TECHBUNDLE25",
+                                      "style": {
+                                          "color": "#000000",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "18px",
+                                          "font-weight": "700",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "text-align": "center"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-paragraph",
+                              "uuid": "52c8a036-9dd4-4e4f-aced-74d955e67d25"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "paragraph": {
+                                      "computedStyle": {
+                                          "linkColor": "#3498DB",
+                                          "paragraphSpacing": "16px"
+                                      },
+                                      "html": "Valid through March 31, 2025. Cannot be combined with other offers.",
+                                      "style": {
+                                          "color": "#555555",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "14px",
+                                          "font-weight": "400",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "text-align": "center"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-paragraph",
+                              "uuid": "0c5ab19b-75d9-464d-bc8f-847cba799d96"
+                          },
+                          {
+                              "descriptor": {
+                                  "button": {
+                                      "href": "https://techpulse.com/bundle-offer",
+                                      "label": "<div class=\"txtTinyMce-wrapper\" style=\"\" data-mce-style=\"\"><p style=\"word-break:break-word;\" data-mce-style=\"word-break:break-word;\">Shop Bundle Offer</p></div>",
+                                      "style": {
+                                          "background-color": "#E74C3C",
+                                          "border-bottom": "0 solid transparent",
+                                          "border-left": "0 solid transparent",
+                                          "border-radius": "4px",
+                                          "border-right": "0 solid transparent",
+                                          "border-top": "0 solid transparent",
+                                          "color": "#FFFFFF",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "16px",
+                                          "line-height": "200%",
+                                          "padding-bottom": "5px",
+                                          "padding-left": "20px",
+                                          "padding-right": "20px",
+                                          "padding-top": "5px",
+                                          "width": "auto"
+                                      },
+                                      "target": "_self"
+                                  },
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px",
+                                      "text-align": "center"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-button",
+                              "uuid": "7ffba0d1-d557-4df7-8a76-6c27f460bdc4"
+                          }
+                      ],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "90ae8963-abb1-4aa3-aee0-24b5b7b8b8b6"
+                  }
+              ],
+              "container": {
+                  "style": {
+                      "background-color": "#F5F5F5",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat"
+                  }
+              },
+              "content": {
+                  "computedStyle": {
+                      "hideContentOnDesktop": false,
+                      "hideContentOnMobile": false,
+                      "rowColStackOnMobile": true,
+                      "rowReverseColStackOnMobile": false,
+                      "verticalAlign": "top"
+                  },
+                  "style": {
+                      "background-color": "#FFFFFF",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat",
+                      "color": "#000000",
+                      "width": "500px"
+                  }
+              },
+              "empty": false,
+              "locked": false,
+              "synced": false,
+              "type": "",
+              "uuid": "ce4e94a8-8075-4ccf-bbad-ef8fe5f8c735"
+          },
+          {
+              "columns": [
+                  {
+                      "grid-columns": 12,
+                      "modules": [
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "align": "center"
+                                  },
+                                  "divider": {
+                                      "style": {
+                                          "border-top": "1px solid #DDDDDD",
+                                          "width": "80%"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-divider",
+                              "uuid": "b35f48c6-7886-4b35-a20c-e643e9e251f4"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "paragraph": {
+                                      "computedStyle": {
+                                          "linkColor": "#3498DB",
+                                          "paragraphSpacing": "16px"
+                                      },
+                                      "html": "© 2025 TechPulse Inc. All rights reserved.",
+                                      "style": {
+                                          "color": "#7F8C8D",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "14px",
+                                          "font-weight": "400",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "text-align": "center"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-paragraph",
+                              "uuid": "f7cfeb03-477f-4718-8c8b-3c266c76ac7b"
+                          },
+                          {
+                              "descriptor": {
+                                  "computedStyle": {
+                                      "hideContentOnDesktop": false,
+                                      "hideContentOnMobile": false
+                                  },
+                                  "paragraph": {
+                                      "computedStyle": {
+                                          "linkColor": "#3498DB",
+                                          "paragraphSpacing": "16px"
+                                      },
+                                      "html": "1234 Innovation Drive, San Francisco, CA 94107<br>To manage your email preferences or unsubscribe, <a href='https://techpulse.com/email-preferences' style='color:#3498DB;'>click here</a>.",
+                                      "style": {
+                                          "color": "#7F8C8D",
+                                          "direction": "ltr",
+                                          "font-family": "inherit",
+                                          "font-size": "12px",
+                                          "font-weight": "400",
+                                          "letter-spacing": "0px",
+                                          "line-height": "120%",
+                                          "text-align": "center"
+                                      }
+                                  },
+                                  "style": {
+                                      "padding-bottom": "10px",
+                                      "padding-left": "10px",
+                                      "padding-right": "10px",
+                                      "padding-top": "10px"
+                                  }
+                              },
+                              "locked": false,
+                              "type": "mailup-bee-newsletter-modules-paragraph",
+                              "uuid": "e49f5a68-02e3-4429-8dc2-f592055a69e2"
+                          }
+                      ],
+                      "style": {
+                          "background-color": "transparent",
+                          "border-bottom": "0 solid transparent",
+                          "border-left": "0 solid transparent",
+                          "border-right": "0 solid transparent",
+                          "border-top": "0 solid transparent",
+                          "padding-bottom": "5px",
+                          "padding-left": "0px",
+                          "padding-right": "0px",
+                          "padding-top": "5px"
+                      },
+                      "uuid": "c4dda801-9014-43d8-b3a5-1e19b6b769eb"
+                  }
+              ],
+              "container": {
+                  "style": {
+                      "background-color": "#F5F5F5",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat"
+                  }
+              },
+              "content": {
+                  "computedStyle": {
+                      "hideContentOnDesktop": false,
+                      "hideContentOnMobile": false,
+                      "rowColStackOnMobile": true,
+                      "rowReverseColStackOnMobile": false,
+                      "verticalAlign": "top"
+                  },
+                  "style": {
+                      "background-color": "#FFFFFF",
+                      "background-image": "none",
+                      "background-position": "top left",
+                      "background-repeat": "no-repeat",
+                      "color": "#000000",
+                      "width": "500px"
+                  }
+              },
+              "empty": false,
+              "locked": false,
+              "synced": false,
+              "type": "",
+              "uuid": "da339cf9-fc14-4e3b-90d3-5a03b2293143"
+          }
+      ],
+      "template": {
+          "version": "2.0.0"
+      },
+      "title": ""
+  }
+}

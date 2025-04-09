@@ -1,0 +1,339 @@
+{
+  "template": {
+    "type": "email",
+    "rows": [
+      {
+        "name": "logo_row",
+        "columns": [
+          {
+            "weight": 4,
+            "modules": []
+          },
+          {
+            "weight": 4,
+            "modules": [
+              {
+                "type": "image",
+                "src": "https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeTestingMachineV3/testmachine/message-tip.png",
+                "alt": "TechPulse Logo",
+                "href": "https://techpulse.com"
+              }
+            ]
+          },
+          {
+            "weight": 4,
+            "modules": []
+          }
+        ]
+      },
+      {
+        "name": "header_row",
+        "columns": [
+          {
+            "weight": 12,
+            "modules": [
+              {
+                "type": "title",
+                "text": "Discover Our Latest Smart Tech",
+                "title": "h1",
+                "size": 24,
+                "line-height":1,
+                "bold": true,
+                "align": "center",
+                "color": "#1A5276",
+                "padding-top": 20,
+                "padding-bottom": 10
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "intro_row",
+        "columns": [
+          {
+            "weight": 12,
+            "modules": [
+              {
+                "type": "paragraph",
+                "text": "Thank you for subscribing to TechPulse updates. We're thrilled to introduce our newest innovative devices that will transform your daily tech experience.",
+                "align": "center",
+                "color": "#333333",
+                "size": 16
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "feature_row",
+        "columns": [
+          {
+            "weight": 12,
+            "modules": [
+              {
+                "type": "divider",
+                "color": "#DDDDDD",
+                "height": 1,
+                "width": 80
+              },
+              {
+                "type": "title",
+                "text": "New Arrivals - March 2025",
+                "title": "h2",
+                "size": 20,
+                "bold": true,
+                "align": "center",
+                "color": "#2980B9",
+                "padding-top": 20,
+                "padding-bottom": 10
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "product_row",
+        "columnsSpacing": 20,
+        "padding-left": 10,
+        "padding-right": 10,
+        "columns": [
+          {
+            "weight": 4,
+            "modules": [
+              {
+                "type": "title",
+                "text": "PulseWatch Pro",
+                "title": "h3",
+                "size": 18,
+                "padding-bottom":10,
+                "align": "center",
+                "bold": true
+              },
+              {
+                "type": "image",
+                "src": "https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeTestingMachineV3/testmachine/homepage-category-tiles-floorcare.jpg"
+              },
+              {
+                "type": "paragraph",
+                "text": "$249.99 <strike>$299.99</strike>",
+                "align": "center",
+                "bold": true,
+                "size": 16
+              },
+              {
+                "type": "paragraph",
+                "text": "Health tracking with 7-day battery life and advanced sleep monitoring",
+                "align": "center",
+                "color": "#555555",
+                "size": 14
+              }
+            ]
+          },
+          {
+            "weight": 4,
+            "modules": [
+              {
+                "type": "title",
+                "text": "SoundWave Mini",
+                "title": "h3",
+                "size": 18,
+                "align": "center",
+                "padding-bottom":10,
+                "bold": true
+              },
+              {
+                "type": "image",
+                "src": "https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeTestingMachineV3/testmachine/571h-homepage-category-picker.jpg"
+              },
+              {
+                "type": "paragraph",
+                "text": "$129.99 <strike>$149.99</strike>",
+                "align": "center",
+                "bold": true,
+                "size": 16
+              },
+              {
+                "type": "paragraph",
+                "text": "Waterproof wireless speaker with 20-hour playtime and voice assistant",
+                "align": "center",
+                "color": "#555555",
+                "size": 14
+              }
+            ]
+          },
+          {
+            "weight": 4,
+            "modules": [
+              {
+                "type": "title",
+                "text": "AirPure 2000",
+                "title": "h3",
+                "size": 18,
+                "align": "center",
+                "padding-bottom":10,
+                "bold": true
+              },
+              {
+                "type": "image",
+                "src": "https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeTestingMachineV3/testmachine/homepage-category-tiles-air-treatment-2.jpg"
+              },
+              {
+                "type": "paragraph",
+                "text": "$179.99 <strike>$199.99</strike>",
+                "align": "center",
+                "bold": true,
+                "size": 16
+              },
+              {
+                "type": "paragraph",
+                "text": "Smart air purifier with HEPA filtration, WiFi connectivity, and air quality sensing",
+                "align": "center",
+                "color": "#555555",
+                "size": 14
+              }
+            ]
+          }
+        ]
+      },
+			{
+        "name": "product_row_cta",
+        "columnsSpacing": 20,
+        "padding-left": 10,
+        "padding-right": 10,
+        "columns": [
+          {
+            "weight": 4,
+						"padding-top":0,
+            "modules": [
+              {
+                "type": "button",
+                "text": "View Details",
+                "href": "https://techpulse.com/pulsewatch",
+                "color": "#FFFFFF",
+                "background-color": "#3498DB"
+              }
+            ]
+          },
+          {
+            "weight": 4,
+						"padding-top":0,
+            "modules": [
+              {
+                "type": "button",
+                "text": "View Details",
+                "href": "https://techpulse.com/soundwave",
+                "color": "#FFFFFF",
+                "background-color": "#3498DB"
+              }
+            ]
+          },
+          {
+            "weight": 4,
+						"padding-top":0,
+            "modules": [
+              {
+                "type": "button",
+                "text": "View Details",
+                "href": "https://techpulse.com/airpure",
+                "color": "#FFFFFF",
+                "background-color": "#3498DB"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "special_offer_row",
+        "columns": [
+          {
+            "weight": 12,
+            "modules": [
+              {
+                "type": "divider",
+                "color": "#DDDDDD",
+                "height": 1,
+                "width": 80
+              },
+              {
+                "type": "title",
+                "text": "Limited Time Bundle Deal",
+                "title": "h2",
+                "size": 20,
+                "bold": true,
+                "align": "center",
+                "color": "#E74C3C",
+                "padding-top": 20,
+                "padding-bottom": 10
+              },
+              {
+                "type": "paragraph",
+                "text": "Purchase any two devices and receive 25% off using code: TECHBUNDLE25",
+                "align": "center",
+                "bold": true,
+                "size": 18
+              },
+              {
+                "type": "paragraph",
+                "text": "Valid through March 31, 2025. Cannot be combined with other offers.",
+                "align": "center",
+                "color": "#555555",
+                "size": 14
+              },
+              {
+                "type": "button",
+                "text": "Shop Bundle Offer",
+                "href": "https://techpulse.com/bundle-offer",
+                "color": "#FFFFFF",
+                "background-color": "#E74C3C"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "footer_row",
+        "columns": [
+          {
+            "weight": 12,
+            "modules": [
+              {
+                "type": "divider",
+                "color": "#DDDDDD",
+                "height": 1,
+                "width": 80
+              },
+              {
+                "type": "paragraph",
+                "text": "© 2025 TechPulse Inc. All rights reserved.",
+                "align": "center",
+                "color": "#7F8C8D",
+                "size": 14
+              },
+              {
+                "type": "paragraph",
+                "text": "1234 Innovation Drive, San Francisco, CA 94107<br>To manage your email preferences or unsubscribe, <a href='https://techpulse.com/email-preferences' style='color:#3498DB;'>click here</a>.",
+                "align": "center",
+                "color": "#7F8C8D",
+                "size": 12
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "settings": {
+      "linkColor": "#3498DB",
+      "background-color": "#F5F5F5",
+      "contentAreaBackgroundColor": "#FFFFFF",
+      "width": 570
+    },
+    "metadata": {
+      "lang": "en",
+      "title": "New Tech Arrivals | TechPulse March 2025",
+      "description": "Discover our latest smart devices with exclusive launch discounts",
+      "subject": "Just Launched: New TechPulse Smart Devices + 25% Off Bundle Deal",
+      "preheader": "Check out our newest smart devices with special introductory pricing and bundle discounts"
+    }
+  }
+}

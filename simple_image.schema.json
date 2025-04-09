@@ -1,0 +1,50 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "simple_image.schema.json",
+    "title": "Simple Image",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "type": {
+        "const": "image"
+      },
+      "alt": {
+        "type": "string"
+      },
+      "href": {
+        "type": "string"
+      },
+      "src": {
+        "type": "string",
+        "format": "urlOrMergeTags"
+      },
+      "dynamicSrc": {
+        "type": "string"
+      },
+      "target": {
+        "enum": [
+          "_blank",
+          "_self",
+          "_top"
+        ]
+      },
+      "padding-top": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-right": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-bottom": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-left": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "locked": {
+        "type": "boolean"
+      },
+      "customFields": {
+        "type": "object"
+      }
+    }
+  }

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AI Email Design Dashboard</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* General Styles */
+      :root {
+        --primary: #7747FF;
+        --primary-rgb: 119, 71, 255;
+        --accent: #82EDA8;
+        --accent-rgb: 130, 237, 168;
+        --background: #FBF9FF;
+        --dark-bg: #26045D;
+        --light-shapes: #F1F0EE;
+        --body-text: #272D3D;
+        --alt-text: #140231;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background);
+        color: var(--body-text);
+        line-height: 1.6;
+      }
+
+      .dashboard {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 30px;
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .metric-card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .metric-card h3 {
+        color: var(--primary);
+        margin-top: 0;
+        font-size: 1rem;
+      }
+
+      .metric-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--dark-bg);
+        margin: 10px 0;
+      }
+
+      .metric-change {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .graph-placeholder {
+        height: 150px;
+        background-color: var(--light-shapes);
+        border-radius: 8px;
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--body-text);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .graph-bar {
+        position: absolute;
+        bottom: 20px;
+        width: 15%;
+        background-color: var(--primary);
+      }
+
+      .content-area {
+        background-color: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: var(--dark-bg);
+        margin-bottom: 15px;
+      }
+
+      .subtitle {
+        color: var(--body-text);
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+      }
+
+      .hero-image {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+
+      .button-group {
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .ai-button-container {
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: white;
+        background-color: var(--primary);
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: rgba(var(--primary-rgb), 0.9);
+        transform: translateY(-2px);
+      }
+
+      .btn-accent {
+        background-color: var(--accent);
+      }
+
+      .btn-accent:hover {
+        background-color: rgba(var(--accent-rgb), 0.9);
+      }
+
+      /* Chatbot Section */
+      .chatbot-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        width: 90%;
+        max-width: 500px;
+        transition: all 0.3s ease;
+        display: none;
+        z-index: 1000;
+      }
+
+      .chatbot-header {
+        margin-bottom: 20px;
+      }
+
+      .chatbot-header h2 {
+        color: var(--dark-bg);
+        margin: 0 0 10px 0;
+      }
+
+      .chatbot-header p {
+        color: var(--body-text);
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      .chatbot-tips {
+        background-color: var(--light-shapes);
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .chatbot-tips h4 {
+        color: var(--primary);
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      .chatbot-tips ul {
+        padding-left: 20px;
+        margin: 0;
+      }
+
+      .chatbot-tips li {
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+      }
+
+      .chatbot-input {
+        display: flex;
+        gap: 10px;
+      }
+
+      #chatbot-input {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: 'Inter', sans-serif;
+      }
+
+      #chatbot-send {
+        padding: 12px 20px;
+        font-size: 1rem;
+        color: white;
+        background-color: var(--primary);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      #chatbot-send:hover {
+        background-color: rgba(var(--primary-rgb), 0.9);
+      }
+
+      /* Confirmation Dialog */
+      .confirmation-dialog {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        display: none;
+        z-index: 1001;
+      }
+
+      .confirmation-dialog h2 {
+        color: var(--primary);
+        margin-top: 0;
+      }
+
+      .confirmation-dialog p {
+        margin-bottom: 25px;
+      }
+
+      /* View Backend Button */
+      .view-backend-btn {
+        margin-top: 30px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .dashboard {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <h3>Email Open Rate</h3>
+          <div class="metric-value">24.7%</div>
+          <div class="metric-change">↑ 3.2% from last month</div>
+          <div class="graph-placeholder">
+            <div class="graph-bar" style="left: 15%; height: 40%;"></div>
+            <div class="graph-bar" style="left: 35%; height: 60%;"></div>
+            <div class="graph-bar" style="left: 55%; height: 30%; opacity: 0.5;"></div>
+            <div class="graph-bar" style="left: 75%; height: 80%;"></div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <h3>Click-Through Rate</h3>
+          <div class="metric-value">5.8%</div>
+          <div class="metric-change">↑ 1.1% from last month</div>
+          <div class="graph-placeholder">
+            <div class="graph-bar" style="left: 15%; height: 30%;"></div>
+            <div class="graph-bar" style="left: 35%; height: 45%;"></div>
+            <div class="graph-bar" style="left: 55%; height: 40%; opacity: 0.5;"></div>
+            <div class="graph-bar" style="left: 75%; height: 50%;"></div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <h3>Campaigns This Month</h3>
+          <div class="metric-value">12</div>
+          <div class="metric-change">3 in progress</div>
+          <div class="graph-placeholder">
+            <div class="graph-bar" style="left: 15%; height: 40%;"></div>
+            <div class="graph-bar" style="left: 35%; height: 60%;"></div>
+            <div class="graph-bar" style="left: 55%; height: 30%; opacity: 0.5;"></div>
+            <div class="graph-bar" style="left: 75%; height: 80%;"></div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <h3>List Growth</h3>
+          <div class="metric-value">+1,243</div>
+          <div class="metric-change">↑ 8% from last month</div>
+          <div class="graph-placeholder">
+            <div class="graph-bar" style="left: 15%; height: 50%;"></div>
+            <div class="graph-bar" style="left: 35%; height: 70%;"></div>
+            <div class="graph-bar" style="left: 55%; height: 40%; opacity: 0.5;"></div>
+            <div class="graph-bar" style="left: 75%; height: 90%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-area">
+        <img
+          class="hero-image"
+          src="https://blog.ongig.com/wp-content/uploads/2021/10/Social-Media-Influencer-Job-Description.jpg"
+          alt="Creative marketing design"
+        />
+        <h1>Welcome to the Future of Email Design!</h1>
+        <p class="subtitle">
+          Calling all <strong>marketers</strong>, <strong>designers</strong>, and
+          <strong>content creators</strong>! Unleash your creativity and craft
+          stunning emails effortlessly.
+        </p>
+        <div class="ai-button-container">
+          <button id="ai-button" class="btn btn-accent">
+            🤖 Use AI to build your first design
+          </button>
+        </div>
+        <div class="button-group">
+          <a
+            href="https://docs.beefree.io/beefree-sdk/rows/reusable-content/create/save/implement-hosted-saved-rows"
+            target="_blank"
+            class="btn"
+          >
+            Quick Start
+          </a>
+          <a
+            href="https://github.com/mailupinc/beefreeSDKwhiteLabelDocs"
+            target="_blank"
+            class="btn"
+          >
+            Knowledge Base
+          </a>
+        </div>
+        <div class="view-backend-btn">
+          <button id="view-backend-btn" class="btn">View Backend</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot Section -->
+    <div class="chatbot-container" id="chatbot-container">
+      <div class="chatbot-header">
+        <h2>AI Email Design Assistant</h2>
+        <p>Describe your email design and our AI will create it for you</p>
+      </div>
+      <div class="chatbot-tips">
+        <h4>Tips for best results:</h4>
+        <ul>
+          <li>Be specific about the purpose (promotional, newsletter, etc.)</li>
+          <li>Mention any important content sections you want included</li>
+          <li>Describe the style or mood (professional, playful, etc.)</li>
+          <li>Reference any brand colors or design elements</li>
+          <li>Specify if you need mobile-optimized or responsive design</li>
+        </ul>
+      </div>
+      <div class="chatbot-input">
+        <input
+          id="chatbot-input"
+          type="text"
+          placeholder="Example: Create a promotional email for our summer sale with product images, discount codes, and a bright, colorful design..."
+        />
+        <button id="chatbot-send">Generate</button>
+      </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <div class="confirmation-dialog" id="confirmation-dialog">
+      <h2>Hooray! 🎉</h2>
+      <p>Your AI-generated email design is ready!</p>
+      <button id="customize-btn" class="btn btn-accent">Customize my new email</button>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const aiButton = document.getElementById('ai-button');
+        const chatbotSend = document.getElementById('chatbot-send');
+        const confirmationDialog = document.getElementById('confirmation-dialog');
+        const customizeBtn = document.getElementById('customize-btn');
+        const viewBackendBtn = document.getElementById('view-backend-btn');
+
+        // Open chatbot popup when AI button is clicked
+        aiButton.addEventListener('click', () => {
+          chatbotContainer.style.display = 'block';
+        });
+
+        // Chatbot Logic
+        chatbotSend.addEventListener('click', () => {
+          const input = document.getElementById('chatbot-input').value;
+          if (input) {
+            // Hide the chatbox
+            chatbotContainer.style.display = 'none';
+            
+            // Show confirmation dialog
+            confirmationDialog.style.display = 'block';
+          }
+        });
+
+        // Customize button - go to builder
+        customizeBtn.addEventListener('click', () => {
+          window.location.href = 'builder.html';
+        });
+
+        // View backend button
+        viewBackendBtn.addEventListener('click', () => {
+          window.location.href = 'backend.html';
+        });
+      });
+    </script>
+  </body>
+</html>
