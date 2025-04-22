@@ -30,19 +30,19 @@ Each file in the following table defines a specific content block type available
 
 | Schema File | Description |
 |-------------|-------------|
-| [definitions.schema.json](https://github.com/BeefreeSDK/blob/main/definitions.schema.json) | Contains shared definitions and reusable schema components used across all simple schema modules. |
-| [simple_button.schema.json](https://github.com/BeefreeSDK/blob/main/simple_button.schema.json) | Describes the structure for a customizable button. |
-| [simple_column.schema.json](https://github.com/BeefreeSDK/blob/main/simple_column.schema.json) | Defines the layout and content rules for a column. |
-| [simple_divider.schema.json](https://github.com/BeefreeSDK/blob/main/simple_divider.schema.json) | Describes available Divider content block properties. |
-| [simple_html.schema.json](https://github.com/BeefreeSDK/blob/main/simple_html.schema.json) | Enables the insertion of raw HTML blocks for advanced customization beyond standard modules. |
-| [simple_icons.schema.json](https://github.com/BeefreeSDK/blob/main/simple_icons.schema.json) | Describes available Icon content block properties. |
-| [simple_image.schema.json](https://github.com/BeefreeSDK/blob/main/simple_image.schema.json) | Describes the available Image content block properties. |
-| [simple_list.schema.json](https://github.com/BeefreeSDK/blob/main/simple_list.schema.json) | Describes an unordered or ordered list with multiple items and styling options. |
-| [simple_menu.schema.json](https://github.com/BeefreeSDK/blob/main/simple_menu.schema.json) | Describes available Menu content block properties. |
-| [simple_paragraph.schema.json](https://github.com/BeefreeSDK/blob/main/simple_paragraph.schema.json) | Describes available Paragraph content block properties. |
-| [simple_row.schema.json](https://github.com/BeefreeSDK/blob/main/simple_row.schema.json) | Manages layout rows, defining structure and grouping content. |
-| [simple_template.schema.json](https://github.com/BeefreeSDK/blob/main/simple_template.schema.json) | Top-level schema representing the entire design template, including layout, metadata, and content. |
-| [simple_title.schema.json](https://github.com/BeefreeSDK/blob/main/simple_title.schema.json) | Defines header or title elements with configurable properties. |
+| [definitions.schema.json](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/blob/main/definitions.schema.json) | Contains shared definitions and reusable schema components used across all simple schema modules. |
+| [simple_button.schema.json](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/blob/main/simple_button.schema.json) | Describes the structure for a customizable button. |
+| [simple_column.schema.json](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/blob/main/simple_column.schema.json) | Defines the layout and content rules for a column. |
+| [simple_divider.schema.json](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/blob/main/simple_divider.schema.json) | Describes available Divider content block properties. |
+| [simple_html.schema.json](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/blob/main/simple_html.schema.json) | Enables the insertion of raw HTML blocks for advanced customization beyond standard modules. |
+| [simple_icons.schema.json](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/blob/main/simple_icons.schema.json) | Describes available Icon content block properties. |
+| [simple_image.schema.json](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/blob/main/simple_image.schema.json) | Describes the available Image content block properties. |
+| [simple_list.schema.json](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/blob/main/simple_list.schema.json) | Describes an unordered or ordered list with multiple items and styling options. |
+| [simple_menu.schema.json](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/blob/main/simple_menu.schema.json) | Describes available Menu content block properties. |
+| [simple_paragraph.schema.json](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/blob/main/simple_paragraph.schema.json) | Describes available Paragraph content block properties. |
+| [simple_row.schema.json](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/blob/main/simple_row.schema.json) | Manages layout rows, defining structure and grouping content. |
+| [simple_template.schema.json](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/blob/main/simple_template.schema.json) | Top-level schema representing the entire design template, including layout, metadata, and content. |
+| [simple_title.schema.json](https://github.com/BeefreeSDK/beefree-sdk-simple-schema/blob/main/simple_title.schema.json) | Defines header or title elements with configurable properties. |
 
 
 ## API Endpoint
