@@ -1,4 +1,3 @@
-simple_paragraph.schema.json
 # Chat Example with Prompts
 ## Overview
 This markdown file includes a copy of a chat prompting an AI model to generate three Simple Schema-compatible templates. 
@@ -12,44 +11,17 @@ It includes the following:
 ## The Chat and Prompts
 In this section you can reference the chat and prompts.
 
-### Attachments 
-JSON 1.61KB
-
-simple_image.schema.json
-
-JSON 1.08KB
-
-simple_html.schema.json
-
-JSON 420B
-
-simple_template.schema.json
-
-JSON 1.6KB
-
-simple_row.schema.json
-
-JSON 2.53KB
-
-simple_icons.schema.json
-
-JSON 1.93KB
-
-simple_divider.schema.json
-
-JSON 1012B
-
-simple_menu.schema.json
-
-JSON 1.59KB
-
-simple_title.schema.json
-
-JSON 1.74KB
-
-simple_list.schema.json
-
-JSON 1.68KB
+### Attachments
+- simple_paragraph.schema.json
+- simple_image.schema.json
+- simple_html.schema.json
+- simple_template.schema.json
+- simple_row.schema.json
+- simple_icons.schema.json
+- simple_divider.schema.json
+- simple_menu.schema.json
+- simple_title.schema.json
+- simple_list.schema.json
 
 ## Initial Prompt
 
