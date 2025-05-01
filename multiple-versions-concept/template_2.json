@@ -1,0 +1,1976 @@
+{
+	"page": {
+		"body": {
+			"container": {
+				"style": {
+					"background-color": "#ffffff"
+				}
+			},
+			"content": {
+				"computedStyle": {
+					"linkColor": "#e67e22",
+					"messageBackgroundColor": "#ffffff",
+					"messageWidth": "600px"
+				},
+				"style": {
+					"color": "#000000",
+					"font-family": "Arial, Helvetica Neue, Helvetica, sans-serif"
+				}
+			},
+			"webFonts": []
+		},
+		"description": "",
+		"head": {
+			"meta": {
+				"preheader": "Treat your furry friend and meet dogs looking for homes!",
+				"subject": "Exclusive Pet Products & Adoption Opportunities",
+				"title": "Pamper Your Pup - Special Offers!"
+			}
+		},
+		"rows": [
+			{
+				"columns": [
+					{
+						"grid-columns": 12,
+						"modules": [
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"heading": {
+										"style": {
+											"color": "#e67e22",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "36px",
+											"font-weight": "700",
+											"letter-spacing": "1px",
+											"line-height": "110.000%",
+											"link-color": "#e67e22",
+											"text-align": "center"
+										},
+										"text": "Pamper Your Pup!",
+										"title": "h1"
+									},
+									"style": {
+										"padding-bottom": "0px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"text-align": "center",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-heading",
+								"uuid": "f635ee43-3b88-4512-bb6b-6f479ef3559b"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"class": "center autowidth",
+										"width": "100%"
+									},
+									"image": {
+										"alt": "Happy dog",
+										"href": "",
+										"prefix": "",
+										"src": "https://cdn.royalcanin-weshare-online.io/HiJiPmYBaxEApS7LmAfe/v1/ed7a-how-to-buy-a-puppy-article-dog?w=1440&fm=jpg&auto=format%2Ccompress",
+										"target": "_blank"
+									},
+									"style": {
+										"border-radius": "0px",
+										"padding-bottom": "15px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "15px",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-image",
+								"uuid": "c4d27efe-33fd-48d4-be8e-a9e7d3c4e854"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"paragraph": {
+										"computedStyle": {
+											"linkColor": "#e67e22",
+											"paragraphSpacing": "16px"
+										},
+										"html": "Special offers just for you and your furry friend!",
+										"style": {
+											"color": "#7f8c8d",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "18px",
+											"font-weight": "400",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"text-align": "center"
+										}
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-paragraph",
+								"uuid": "14502c53-c122-42cc-9aa2-7ada602be8d4"
+							}
+						],
+						"style": {
+							"background-color": "transparent",
+							"border-bottom": "0 solid transparent",
+							"border-left": "0 solid transparent",
+							"border-right": "0 solid transparent",
+							"border-top": "0 solid transparent",
+							"padding-bottom": "5px",
+							"padding-left": "0px",
+							"padding-right": "0px",
+							"padding-top": "5px"
+						},
+						"uuid": "8e655cc8-5f78-476f-8791-941ce1072392"
+					}
+				],
+				"container": {
+					"style": {
+						"background-color": "#fff5e6",
+						"background-image": "none",
+						"background-position": "top left",
+						"background-repeat": "no-repeat"
+					}
+				},
+				"content": {
+					"computedStyle": {
+						"hideContentOnDesktop": false,
+						"hideContentOnMobile": false,
+						"rowColStackOnMobile": true,
+						"rowReverseColStackOnMobile": false,
+						"verticalAlign": "top"
+					},
+					"style": {
+						"background-color": "#ffffff",
+						"background-image": "none",
+						"background-position": "top left",
+						"background-repeat": "no-repeat",
+						"color": "#000000",
+						"padding-bottom": "30px",
+						"padding-left": "20px",
+						"padding-right": "20px",
+						"padding-top": "30px",
+						"width": "500px"
+					}
+				},
+				"empty": false,
+				"locked": false,
+				"synced": false,
+				"type": "",
+				"uuid": "b2fb68e9-b9e3-406d-b115-e8c67d9b60e2"
+			},
+			{
+				"columns": [
+					{
+						"grid-columns": 4,
+						"modules": [
+							{
+								"descriptor": {
+									"computedStyle": {
+										"class": "center autowidth",
+										"width": "100%"
+									},
+									"image": {
+										"alt": "Beef Jerky",
+										"href": "",
+										"prefix": "",
+										"src": "https://live.staticflickr.com/65535/50896392422_e53414b6e4_c.jpg",
+										"target": "_blank"
+									},
+									"style": {
+										"border-radius": "0px",
+										"padding-bottom": "10px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-image",
+								"uuid": "e3359ea5-673e-4399-be58-171c7894c9a3"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"heading": {
+										"style": {
+											"color": "#e67e22",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "22px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"link-color": "#e67e22",
+											"text-align": "center"
+										},
+										"text": "Beef Jerky",
+										"title": "h3"
+									},
+									"style": {
+										"padding-bottom": "0px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"text-align": "center",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-heading",
+								"uuid": "75093e1f-20cb-44ea-b5b6-08623e9bd5d9"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"paragraph": {
+										"computedStyle": {
+											"linkColor": "#e67e22",
+											"paragraphSpacing": "16px"
+										},
+										"html": "$25",
+										"style": {
+											"color": "#2c3e50",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "20px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"text-align": "center"
+										}
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-paragraph",
+								"uuid": "485f7bd1-1e11-46ee-b778-a034711a86c8"
+							},
+							{
+								"descriptor": {
+									"button": {
+										"href": "https://www.petco.com/shop/en/petcostore",
+										"label": "<div class=\"txtTinyMce-wrapper\" style=\"\" data-mce-style=\"\"><p style=\"word-break:break-word;\" data-mce-style=\"word-break:break-word;\">GET IT</p></div>",
+										"style": {
+											"background-color": "#3AAEE0",
+											"border-bottom": "0 solid transparent",
+											"border-left": "0 solid transparent",
+											"border-radius": "4px",
+											"border-right": "0 solid transparent",
+											"border-top": "0 solid transparent",
+											"color": "#ffffff",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "16px",
+											"line-height": "200%",
+											"padding-bottom": "5px",
+											"padding-left": "20px",
+											"padding-right": "20px",
+											"padding-top": "5px",
+											"width": "auto"
+										},
+										"target": "_blank"
+									},
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px",
+										"text-align": "center"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-button",
+								"uuid": "bba4559b-2634-4ddd-88bf-8b3ad20dd9cc"
+							}
+						],
+						"style": {
+							"background-color": "#ffffff",
+							"border-bottom": "0 solid transparent",
+							"border-left": "0 solid transparent",
+							"border-right": "0 solid transparent",
+							"border-top": "0 solid transparent",
+							"padding-bottom": "5px",
+							"padding-left": "0px",
+							"padding-right": "0px",
+							"padding-top": "5px"
+						},
+						"uuid": "0f3f1c17-8427-4496-9919-6a7551a2379a"
+					},
+					{
+						"grid-columns": 4,
+						"modules": [
+							{
+								"descriptor": {
+									"computedStyle": {
+										"class": "center autowidth",
+										"width": "100%"
+									},
+									"image": {
+										"alt": "Chicken Jerky",
+										"href": "",
+										"prefix": "",
+										"src": "https://farm8.staticflickr.com/7821/47428588502_a0326d727d_c.jpg",
+										"target": "_blank"
+									},
+									"style": {
+										"border-radius": "0px",
+										"padding-bottom": "10px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-image",
+								"uuid": "e33c3634-140f-46b1-80fd-2ec2f3dc7420"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"heading": {
+										"style": {
+											"color": "#e67e22",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "22px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"link-color": "#e67e22",
+											"text-align": "center"
+										},
+										"text": "Chicken Jerky",
+										"title": "h3"
+									},
+									"style": {
+										"padding-bottom": "0px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"text-align": "center",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-heading",
+								"uuid": "19048b55-d409-4ea6-a2b4-efb8bfa5d365"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"paragraph": {
+										"computedStyle": {
+											"linkColor": "#e67e22",
+											"paragraphSpacing": "16px"
+										},
+										"html": "$15",
+										"style": {
+											"color": "#2c3e50",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "20px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"text-align": "center"
+										}
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-paragraph",
+								"uuid": "86a8ba57-9a03-4d01-bac0-4fc44f9160f1"
+							},
+							{
+								"descriptor": {
+									"button": {
+										"href": "https://www.petco.com/shop/en/petcostore",
+										"label": "<div class=\"txtTinyMce-wrapper\" style=\"\" data-mce-style=\"\"><p style=\"word-break:break-word;\" data-mce-style=\"word-break:break-word;\">GET IT</p></div>",
+										"style": {
+											"background-color": "#3AAEE0",
+											"border-bottom": "0 solid transparent",
+											"border-left": "0 solid transparent",
+											"border-radius": "4px",
+											"border-right": "0 solid transparent",
+											"border-top": "0 solid transparent",
+											"color": "#ffffff",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "16px",
+											"line-height": "200%",
+											"padding-bottom": "5px",
+											"padding-left": "20px",
+											"padding-right": "20px",
+											"padding-top": "5px",
+											"width": "auto"
+										},
+										"target": "_blank"
+									},
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px",
+										"text-align": "center"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-button",
+								"uuid": "3f8d3978-89ce-47ff-97f5-afb44d75242d"
+							}
+						],
+						"style": {
+							"background-color": "#ffffff",
+							"border-bottom": "0 solid transparent",
+							"border-left": "0 solid transparent",
+							"border-right": "0 solid transparent",
+							"border-top": "0 solid transparent",
+							"padding-bottom": "5px",
+							"padding-left": "0px",
+							"padding-right": "0px",
+							"padding-top": "5px"
+						},
+						"uuid": "590f7e1d-6458-4695-b1ff-c5d5f7597bbc"
+					},
+					{
+						"grid-columns": 4,
+						"modules": [
+							{
+								"descriptor": {
+									"computedStyle": {
+										"class": "center autowidth",
+										"width": "100%"
+									},
+									"image": {
+										"alt": "Salmon Jerky",
+										"href": "",
+										"prefix": "",
+										"src": "https://dogchild.co/cdn/shop/articles/Mira_Recipe_Photos_1_2_3efe03a0-9ec2-431d-804b-18ba47daad92.jpg?v=1716572499&width=1500",
+										"target": "_blank"
+									},
+									"style": {
+										"border-radius": "0px",
+										"padding-bottom": "10px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-image",
+								"uuid": "7efb2012-49d7-46be-8659-398fdbdd5772"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"heading": {
+										"style": {
+											"color": "#e67e22",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "22px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"link-color": "#e67e22",
+											"text-align": "center"
+										},
+										"text": "Salmon Jerky",
+										"title": "h3"
+									},
+									"style": {
+										"padding-bottom": "0px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"text-align": "center",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-heading",
+								"uuid": "f832dfb7-04ee-4acb-9010-db4539cc2ba3"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"paragraph": {
+										"computedStyle": {
+											"linkColor": "#e67e22",
+											"paragraphSpacing": "16px"
+										},
+										"html": "$35",
+										"style": {
+											"color": "#2c3e50",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "20px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"text-align": "center"
+										}
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-paragraph",
+								"uuid": "aab1ebb3-a017-4289-8931-16697cf09867"
+							},
+							{
+								"descriptor": {
+									"button": {
+										"href": "https://www.petco.com/shop/en/petcostore",
+										"label": "<div class=\"txtTinyMce-wrapper\" style=\"\" data-mce-style=\"\"><p style=\"word-break:break-word;\" data-mce-style=\"word-break:break-word;\">GET IT</p></div>",
+										"style": {
+											"background-color": "#3AAEE0",
+											"border-bottom": "0 solid transparent",
+											"border-left": "0 solid transparent",
+											"border-radius": "4px",
+											"border-right": "0 solid transparent",
+											"border-top": "0 solid transparent",
+											"color": "#ffffff",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "16px",
+											"line-height": "200%",
+											"padding-bottom": "5px",
+											"padding-left": "20px",
+											"padding-right": "20px",
+											"padding-top": "5px",
+											"width": "auto"
+										},
+										"target": "_blank"
+									},
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px",
+										"text-align": "center"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-button",
+								"uuid": "101e41df-3db3-4d68-a8cc-529a3699f41e"
+							}
+						],
+						"style": {
+							"background-color": "#ffffff",
+							"border-bottom": "0 solid transparent",
+							"border-left": "0 solid transparent",
+							"border-right": "0 solid transparent",
+							"border-top": "0 solid transparent",
+							"padding-bottom": "5px",
+							"padding-left": "0px",
+							"padding-right": "0px",
+							"padding-top": "5px"
+						},
+						"uuid": "dd574f18-81f2-4826-a304-4dd59625f688"
+					}
+				],
+				"container": {
+					"style": {
+						"background-color": "#e6f9ff",
+						"background-image": "none",
+						"background-position": "top left",
+						"background-repeat": "no-repeat"
+					}
+				},
+				"content": {
+					"computedStyle": {
+						"hideContentOnDesktop": false,
+						"hideContentOnMobile": false,
+						"rowColStackOnMobile": true,
+						"rowReverseColStackOnMobile": false,
+						"verticalAlign": "top"
+					},
+					"style": {
+						"background-color": "#ffffff",
+						"background-image": "none",
+						"background-position": "top left",
+						"background-repeat": "no-repeat",
+						"color": "#000000",
+						"padding-bottom": "25px",
+						"padding-left": "15px",
+						"padding-right": "15px",
+						"padding-top": "25px",
+						"width": "500px"
+					}
+				},
+				"empty": false,
+				"locked": false,
+				"synced": false,
+				"type": "",
+				"uuid": "af2f1375-3665-4d4c-bf2e-e380dfe7f34d"
+			},
+			{
+				"columns": [
+					{
+						"grid-columns": 3,
+						"modules": [
+							{
+								"descriptor": {
+									"computedStyle": {
+										"class": "center autowidth",
+										"width": "100%"
+									},
+									"image": {
+										"alt": "Bath Service",
+										"href": "",
+										"prefix": "",
+										"src": "https://m.media-amazon.com/images/I/7188TSds9dL._AC_SL1500_.jpg",
+										"target": "_blank"
+									},
+									"style": {
+										"border-radius": "0px",
+										"padding-bottom": "10px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-image",
+								"uuid": "c2cc997a-a643-40e5-9509-b93e43bf7241"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"heading": {
+										"style": {
+											"color": "#16a085",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "20px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"link-color": "#e67e22",
+											"text-align": "center"
+										},
+										"text": "Bath",
+										"title": "h3"
+									},
+									"style": {
+										"padding-bottom": "0px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"text-align": "center",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-heading",
+								"uuid": "495cff76-37db-4364-b7c3-7e60bcdd530d"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"paragraph": {
+										"computedStyle": {
+											"linkColor": "#e67e22",
+											"paragraphSpacing": "16px"
+										},
+										"html": "$75",
+										"style": {
+											"color": "#2c3e50",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "18px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"text-align": "center"
+										}
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-paragraph",
+								"uuid": "31ad65c2-609d-4a9b-8593-a852e6db8473"
+							},
+							{
+								"descriptor": {
+									"button": {
+										"href": "https://www.petco.com/shop/en/petcostore",
+										"label": "<div class=\"txtTinyMce-wrapper\" style=\"\" data-mce-style=\"\"><p style=\"word-break:break-word;\" data-mce-style=\"word-break:break-word;\">BOOK</p></div>",
+										"style": {
+											"background-color": "#3AAEE0",
+											"border-bottom": "0 solid transparent",
+											"border-left": "0 solid transparent",
+											"border-radius": "4px",
+											"border-right": "0 solid transparent",
+											"border-top": "0 solid transparent",
+											"color": "#ffffff",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "16px",
+											"line-height": "200%",
+											"padding-bottom": "5px",
+											"padding-left": "20px",
+											"padding-right": "20px",
+											"padding-top": "5px",
+											"width": "auto"
+										},
+										"target": "_blank"
+									},
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px",
+										"text-align": "center"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-button",
+								"uuid": "57f23cf3-00d5-4359-b580-795b80370e17"
+							}
+						],
+						"style": {
+							"background-color": "#ffffff",
+							"border-bottom": "0 solid transparent",
+							"border-left": "0 solid transparent",
+							"border-right": "0 solid transparent",
+							"border-top": "0 solid transparent",
+							"padding-bottom": "5px",
+							"padding-left": "0px",
+							"padding-right": "0px",
+							"padding-top": "5px"
+						},
+						"uuid": "099b4251-f2a7-4bf8-8b27-286c194dfd18"
+					},
+					{
+						"grid-columns": 3,
+						"modules": [
+							{
+								"descriptor": {
+									"computedStyle": {
+										"class": "center autowidth",
+										"width": "100%"
+									},
+									"image": {
+										"alt": "Nail Trim",
+										"href": "",
+										"prefix": "",
+										"src": "https://images.ctfassets.net/sa0sroutfts9/rUfll3zjHSoPrBwEUse5i/442c86acd6832914b3e94f3d864ca4e9/dog-looking-at-camera-with-purple-nail-clippers-in-mouth.jpg?w=1756&h=988&fit=fill&fm=avif&q=50",
+										"target": "_blank"
+									},
+									"style": {
+										"border-radius": "0px",
+										"padding-bottom": "10px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-image",
+								"uuid": "0781236d-4cd6-47a9-8487-4616c02f2dea"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"heading": {
+										"style": {
+											"color": "#16a085",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "20px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"link-color": "#e67e22",
+											"text-align": "center"
+										},
+										"text": "Nail Trim",
+										"title": "h3"
+									},
+									"style": {
+										"padding-bottom": "0px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"text-align": "center",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-heading",
+								"uuid": "e2dcd0d3-12bc-44a1-8a21-cd73bbd84119"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"paragraph": {
+										"computedStyle": {
+											"linkColor": "#e67e22",
+											"paragraphSpacing": "16px"
+										},
+										"html": "$45",
+										"style": {
+											"color": "#2c3e50",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "18px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"text-align": "center"
+										}
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-paragraph",
+								"uuid": "cf9ccf7f-9420-466c-86a0-2daea5ed4d48"
+							},
+							{
+								"descriptor": {
+									"button": {
+										"href": "https://www.petco.com/shop/en/petcostore",
+										"label": "<div class=\"txtTinyMce-wrapper\" style=\"\" data-mce-style=\"\"><p style=\"word-break:break-word;\" data-mce-style=\"word-break:break-word;\">BOOK</p></div>",
+										"style": {
+											"background-color": "#3AAEE0",
+											"border-bottom": "0 solid transparent",
+											"border-left": "0 solid transparent",
+											"border-radius": "4px",
+											"border-right": "0 solid transparent",
+											"border-top": "0 solid transparent",
+											"color": "#ffffff",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "16px",
+											"line-height": "200%",
+											"padding-bottom": "5px",
+											"padding-left": "20px",
+											"padding-right": "20px",
+											"padding-top": "5px",
+											"width": "auto"
+										},
+										"target": "_blank"
+									},
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px",
+										"text-align": "center"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-button",
+								"uuid": "531ad713-877a-48e2-a9a4-4d2008068e55"
+							}
+						],
+						"style": {
+							"background-color": "#ffffff",
+							"border-bottom": "0 solid transparent",
+							"border-left": "0 solid transparent",
+							"border-right": "0 solid transparent",
+							"border-top": "0 solid transparent",
+							"padding-bottom": "5px",
+							"padding-left": "0px",
+							"padding-right": "0px",
+							"padding-top": "5px"
+						},
+						"uuid": "fa1ed4ec-2f2c-4830-881a-4fa8d4c544f4"
+					},
+					{
+						"grid-columns": 3,
+						"modules": [
+							{
+								"descriptor": {
+									"computedStyle": {
+										"class": "center autowidth",
+										"width": "100%"
+									},
+									"image": {
+										"alt": "Brush Teeth",
+										"href": "",
+										"prefix": "",
+										"src": "https://assets.elanco.com/8e0bf1c2-1ae4-001f-9257-f2be3c683fb1/d2c8edb1-9709-4891-821c-568db5fe8c04/owner-use-tricks-to-brush-dog-teeth-1100w.jpg?w=3840&q=75&auto=format",
+										"target": "_blank"
+									},
+									"style": {
+										"border-radius": "0px",
+										"padding-bottom": "10px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-image",
+								"uuid": "7371a3be-2a8e-4448-baf8-fb844b49d9c0"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"heading": {
+										"style": {
+											"color": "#16a085",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "20px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"link-color": "#e67e22",
+											"text-align": "center"
+										},
+										"text": "Brush Teeth",
+										"title": "h3"
+									},
+									"style": {
+										"padding-bottom": "0px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"text-align": "center",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-heading",
+								"uuid": "c49b446c-17ff-45ac-b9e8-75dbde369412"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"paragraph": {
+										"computedStyle": {
+											"linkColor": "#e67e22",
+											"paragraphSpacing": "16px"
+										},
+										"html": "$15",
+										"style": {
+											"color": "#2c3e50",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "18px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"text-align": "center"
+										}
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-paragraph",
+								"uuid": "f847cba4-b505-49a8-b5e8-f4d7bcaf2503"
+							},
+							{
+								"descriptor": {
+									"button": {
+										"href": "https://www.petco.com/shop/en/petcostore",
+										"label": "<div class=\"txtTinyMce-wrapper\" style=\"\" data-mce-style=\"\"><p style=\"word-break:break-word;\" data-mce-style=\"word-break:break-word;\">BOOK</p></div>",
+										"style": {
+											"background-color": "#3AAEE0",
+											"border-bottom": "0 solid transparent",
+											"border-left": "0 solid transparent",
+											"border-radius": "4px",
+											"border-right": "0 solid transparent",
+											"border-top": "0 solid transparent",
+											"color": "#ffffff",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "16px",
+											"line-height": "200%",
+											"padding-bottom": "5px",
+											"padding-left": "20px",
+											"padding-right": "20px",
+											"padding-top": "5px",
+											"width": "auto"
+										},
+										"target": "_blank"
+									},
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px",
+										"text-align": "center"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-button",
+								"uuid": "e2bd8cc9-31b3-4e2c-ba78-fbda537838e2"
+							}
+						],
+						"style": {
+							"background-color": "#ffffff",
+							"border-bottom": "0 solid transparent",
+							"border-left": "0 solid transparent",
+							"border-right": "0 solid transparent",
+							"border-top": "0 solid transparent",
+							"padding-bottom": "5px",
+							"padding-left": "0px",
+							"padding-right": "0px",
+							"padding-top": "5px"
+						},
+						"uuid": "9784178b-b9b7-4ee3-8a34-1c63d26b71c6"
+					},
+					{
+						"grid-columns": 3,
+						"modules": [
+							{
+								"descriptor": {
+									"computedStyle": {
+										"class": "center autowidth",
+										"width": "100%"
+									},
+									"image": {
+										"alt": "Deep Clean",
+										"href": "",
+										"prefix": "",
+										"src": "https://www.dogster.com/wp-content/uploads/2023/03/Hepper-Deep-Clean-Pet-Shampoo.jpeg.webp",
+										"target": "_blank"
+									},
+									"style": {
+										"border-radius": "0px",
+										"padding-bottom": "10px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-image",
+								"uuid": "96883f10-fe35-48ba-89f3-8af642654961"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"heading": {
+										"style": {
+											"color": "#16a085",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "20px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"link-color": "#e67e22",
+											"text-align": "center"
+										},
+										"text": "Deep Clean",
+										"title": "h3"
+									},
+									"style": {
+										"padding-bottom": "0px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"text-align": "center",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-heading",
+								"uuid": "fde9acb1-b080-49c2-b62e-d72479d81896"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"paragraph": {
+										"computedStyle": {
+											"linkColor": "#e67e22",
+											"paragraphSpacing": "16px"
+										},
+										"html": "$105",
+										"style": {
+											"color": "#2c3e50",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "18px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"text-align": "center"
+										}
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-paragraph",
+								"uuid": "68e10839-e220-4934-8b88-33c5705397a9"
+							},
+							{
+								"descriptor": {
+									"button": {
+										"href": "https://www.petco.com/shop/en/petcostore",
+										"label": "<div class=\"txtTinyMce-wrapper\" style=\"\" data-mce-style=\"\"><p style=\"word-break:break-word;\" data-mce-style=\"word-break:break-word;\">BOOK</p></div>",
+										"style": {
+											"background-color": "#3AAEE0",
+											"border-bottom": "0 solid transparent",
+											"border-left": "0 solid transparent",
+											"border-radius": "4px",
+											"border-right": "0 solid transparent",
+											"border-top": "0 solid transparent",
+											"color": "#ffffff",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "16px",
+											"line-height": "200%",
+											"padding-bottom": "5px",
+											"padding-left": "20px",
+											"padding-right": "20px",
+											"padding-top": "5px",
+											"width": "auto"
+										},
+										"target": "_blank"
+									},
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px",
+										"text-align": "center"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-button",
+								"uuid": "6171efad-e6aa-4325-8935-a748b13e0f9d"
+							}
+						],
+						"style": {
+							"background-color": "#ffffff",
+							"border-bottom": "0 solid transparent",
+							"border-left": "0 solid transparent",
+							"border-right": "0 solid transparent",
+							"border-top": "0 solid transparent",
+							"padding-bottom": "5px",
+							"padding-left": "0px",
+							"padding-right": "0px",
+							"padding-top": "5px"
+						},
+						"uuid": "8d85a5de-126b-455c-a930-b62a1e3ee8bd"
+					}
+				],
+				"container": {
+					"style": {
+						"background-color": "#ffffff",
+						"background-image": "none",
+						"background-position": "top left",
+						"background-repeat": "no-repeat"
+					}
+				},
+				"content": {
+					"computedStyle": {
+						"hideContentOnDesktop": false,
+						"hideContentOnMobile": false,
+						"rowColStackOnMobile": true,
+						"rowReverseColStackOnMobile": false,
+						"verticalAlign": "top"
+					},
+					"style": {
+						"background-color": "#ffffff",
+						"background-image": "none",
+						"background-position": "top left",
+						"background-repeat": "no-repeat",
+						"color": "#000000",
+						"padding-bottom": "25px",
+						"padding-left": "15px",
+						"padding-right": "15px",
+						"padding-top": "25px",
+						"width": "500px"
+					}
+				},
+				"empty": false,
+				"locked": false,
+				"synced": false,
+				"type": "",
+				"uuid": "2cab8ec8-630b-42d8-bd2c-e151da8e7e34"
+			},
+			{
+				"columns": [
+					{
+						"grid-columns": 6,
+						"modules": [
+							{
+								"descriptor": {
+									"computedStyle": {
+										"class": "center autowidth",
+										"width": "100%"
+									},
+									"image": {
+										"alt": "Joy",
+										"href": "",
+										"prefix": "",
+										"src": "https://cdn.royalcanin-weshare-online.io/pCJJPmYBaxEApS7LeAbn/v1/ed7h-how-to-buy-a-puppy-hero-dog?w=1440&fm=jpg&auto=format%2Ccompress",
+										"target": "_blank"
+									},
+									"style": {
+										"border-radius": "0px",
+										"padding-bottom": "10px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-image",
+								"uuid": "1c21df7d-b667-45a6-aedc-470e06644c49"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"heading": {
+										"style": {
+											"color": "#e67e22",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "24px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"link-color": "#e67e22",
+											"text-align": "center"
+										},
+										"text": "Joy",
+										"title": "h3"
+									},
+									"style": {
+										"padding-bottom": "0px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"text-align": "center",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-heading",
+								"uuid": "d2b2c256-7825-4231-8c7e-47f30c28bb79"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"paragraph": {
+										"computedStyle": {
+											"linkColor": "#e67e22",
+											"paragraphSpacing": "16px"
+										},
+										"html": "A playful companion who brings happiness everywhere she goes.",
+										"style": {
+											"color": "#000000",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "14px",
+											"font-weight": "400",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"text-align": "center"
+										}
+									},
+									"style": {
+										"padding-bottom": "15px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-paragraph",
+								"uuid": "3feaf66c-5c5f-4930-a4a0-f021a539feee"
+							}
+						],
+						"style": {
+							"background-color": "#ffffff",
+							"border-bottom": "0 solid transparent",
+							"border-left": "0 solid transparent",
+							"border-right": "0 solid transparent",
+							"border-top": "0 solid transparent",
+							"padding-bottom": "5px",
+							"padding-left": "0px",
+							"padding-right": "0px",
+							"padding-top": "5px"
+						},
+						"uuid": "c5b527cf-a4f6-48b3-abab-2a6518512d17"
+					},
+					{
+						"grid-columns": 6,
+						"modules": [
+							{
+								"descriptor": {
+									"computedStyle": {
+										"class": "center autowidth",
+										"width": "100%"
+									},
+									"image": {
+										"alt": "Boo",
+										"href": "",
+										"prefix": "",
+										"src": "https://cdn.royalcanin-weshare-online.io/HiJiPmYBaxEApS7LmAfe/v1/ed7a-how-to-buy-a-puppy-article-dog?w=1440&fm=jpg&auto=format%2Ccompress",
+										"target": "_blank"
+									},
+									"style": {
+										"border-radius": "0px",
+										"padding-bottom": "10px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-image",
+								"uuid": "bdb0972c-a231-48a6-8a18-f3e000387d5d"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"heading": {
+										"style": {
+											"color": "#e67e22",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "24px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"link-color": "#e67e22",
+											"text-align": "center"
+										},
+										"text": "Boo",
+										"title": "h3"
+									},
+									"style": {
+										"padding-bottom": "0px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"text-align": "center",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-heading",
+								"uuid": "34d503a8-8c4f-442b-905a-60c1e810c297"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"paragraph": {
+										"computedStyle": {
+											"linkColor": "#e67e22",
+											"paragraphSpacing": "16px"
+										},
+										"html": "A gentle soul looking for a quiet home to share his love.",
+										"style": {
+											"color": "#000000",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "14px",
+											"font-weight": "400",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"text-align": "center"
+										}
+									},
+									"style": {
+										"padding-bottom": "15px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-paragraph",
+								"uuid": "0e7dd092-fea3-49e1-99f8-53128b30309f"
+							}
+						],
+						"style": {
+							"background-color": "#ffffff",
+							"border-bottom": "0 solid transparent",
+							"border-left": "0 solid transparent",
+							"border-right": "0 solid transparent",
+							"border-top": "0 solid transparent",
+							"padding-bottom": "5px",
+							"padding-left": "0px",
+							"padding-right": "0px",
+							"padding-top": "5px"
+						},
+						"uuid": "bb920694-15ee-43df-bb99-6118fd18f5ac"
+					}
+				],
+				"container": {
+					"style": {
+						"background-color": "#f9f9f9",
+						"background-image": "none",
+						"background-position": "top left",
+						"background-repeat": "no-repeat"
+					}
+				},
+				"content": {
+					"computedStyle": {
+						"hideContentOnDesktop": false,
+						"hideContentOnMobile": false,
+						"rowColStackOnMobile": true,
+						"rowReverseColStackOnMobile": false,
+						"verticalAlign": "top"
+					},
+					"style": {
+						"background-color": "#ffffff",
+						"background-image": "none",
+						"background-position": "top left",
+						"background-repeat": "no-repeat",
+						"color": "#000000",
+						"padding-bottom": "25px",
+						"padding-left": "15px",
+						"padding-right": "15px",
+						"padding-top": "25px",
+						"width": "500px"
+					}
+				},
+				"empty": false,
+				"locked": false,
+				"synced": false,
+				"type": "",
+				"uuid": "62388ec8-9903-4463-8059-fcde894d069a"
+			},
+			{
+				"columns": [
+					{
+						"grid-columns": 6,
+						"modules": [
+							{
+								"descriptor": {
+									"computedStyle": {
+										"class": "center autowidth",
+										"width": "100%"
+									},
+									"image": {
+										"alt": "Peanut",
+										"href": "",
+										"prefix": "",
+										"src": "https://www.shutterstock.com/shutterstock/photos/2538615315/display_1500/stock-photo-a-handsome-australian-shepherd-dog-sits-patiently-on-a-clean-white-background-looking-directly-at-2538615315.jpg",
+										"target": "_blank"
+									},
+									"style": {
+										"border-radius": "0px",
+										"padding-bottom": "10px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-image",
+								"uuid": "98ba8ac6-5d58-4b2f-bc5f-ed0d04731df0"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"heading": {
+										"style": {
+											"color": "#e67e22",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "24px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"link-color": "#e67e22",
+											"text-align": "center"
+										},
+										"text": "Peanut",
+										"title": "h3"
+									},
+									"style": {
+										"padding-bottom": "0px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"text-align": "center",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-heading",
+								"uuid": "0aca3f1a-9b1c-4642-ac31-95020c452e11"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"paragraph": {
+										"computedStyle": {
+											"linkColor": "#e67e22",
+											"paragraphSpacing": "16px"
+										},
+										"html": "An intelligent and energetic dog ready for adventures.",
+										"style": {
+											"color": "#000000",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "14px",
+											"font-weight": "400",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"text-align": "center"
+										}
+									},
+									"style": {
+										"padding-bottom": "15px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-paragraph",
+								"uuid": "10709d72-53f6-41c2-a3f1-e330dc7c9deb"
+							}
+						],
+						"style": {
+							"background-color": "#ffffff",
+							"border-bottom": "0 solid transparent",
+							"border-left": "0 solid transparent",
+							"border-right": "0 solid transparent",
+							"border-top": "0 solid transparent",
+							"padding-bottom": "5px",
+							"padding-left": "0px",
+							"padding-right": "0px",
+							"padding-top": "5px"
+						},
+						"uuid": "f25754f7-e9a8-4d10-8449-bb2d6947c962"
+					},
+					{
+						"grid-columns": 6,
+						"modules": [
+							{
+								"descriptor": {
+									"computedStyle": {
+										"class": "center autowidth",
+										"width": "100%"
+									},
+									"image": {
+										"alt": "Sunshine",
+										"href": "",
+										"prefix": "",
+										"src": "https://cdn.outsideonline.com/wp-content/uploads/2023/03/Funny_Dog_H.jpg?crop=16:9&width=960&enable=upscale&quality=100",
+										"target": "_blank"
+									},
+									"style": {
+										"border-radius": "0px",
+										"padding-bottom": "10px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-image",
+								"uuid": "1a86d43d-b7fe-4afc-9ce8-c8bbfc319aec"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"heading": {
+										"style": {
+											"color": "#e67e22",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "24px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"link-color": "#e67e22",
+											"text-align": "center"
+										},
+										"text": "Sunshine",
+										"title": "h3"
+									},
+									"style": {
+										"padding-bottom": "0px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"text-align": "center",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-heading",
+								"uuid": "5e7cde59-8e6f-4124-b0b1-bbbb23385600"
+							},
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"paragraph": {
+										"computedStyle": {
+											"linkColor": "#e67e22",
+											"paragraphSpacing": "16px"
+										},
+										"html": "A cheerful friend who will brighten your darkest days.",
+										"style": {
+											"color": "#000000",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "14px",
+											"font-weight": "400",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"text-align": "center"
+										}
+									},
+									"style": {
+										"padding-bottom": "15px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-paragraph",
+								"uuid": "8377feb6-9d33-49e2-94de-f12dc2261c31"
+							}
+						],
+						"style": {
+							"background-color": "#ffffff",
+							"border-bottom": "0 solid transparent",
+							"border-left": "0 solid transparent",
+							"border-right": "0 solid transparent",
+							"border-top": "0 solid transparent",
+							"padding-bottom": "5px",
+							"padding-left": "0px",
+							"padding-right": "0px",
+							"padding-top": "5px"
+						},
+						"uuid": "23f11c06-9e80-46d0-ac92-d226a2e4a8e3"
+					}
+				],
+				"container": {
+					"style": {
+						"background-color": "#f9f9f9",
+						"background-image": "none",
+						"background-position": "top left",
+						"background-repeat": "no-repeat"
+					}
+				},
+				"content": {
+					"computedStyle": {
+						"hideContentOnDesktop": false,
+						"hideContentOnMobile": false,
+						"rowColStackOnMobile": true,
+						"rowReverseColStackOnMobile": false,
+						"verticalAlign": "top"
+					},
+					"style": {
+						"background-color": "#ffffff",
+						"background-image": "none",
+						"background-position": "top left",
+						"background-repeat": "no-repeat",
+						"color": "#000000",
+						"padding-bottom": "25px",
+						"padding-left": "15px",
+						"padding-right": "15px",
+						"padding-top": "25px",
+						"width": "500px"
+					}
+				},
+				"empty": false,
+				"locked": false,
+				"synced": false,
+				"type": "",
+				"uuid": "04ade2a3-94e8-4001-932b-af240851ba0b"
+			},
+			{
+				"columns": [
+					{
+						"grid-columns": 12,
+						"modules": [
+							{
+								"descriptor": {
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"heading": {
+										"style": {
+											"color": "#e67e22",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "28px",
+											"font-weight": "700",
+											"letter-spacing": "0px",
+											"line-height": "120%",
+											"link-color": "#e67e22",
+											"text-align": "center"
+										},
+										"text": "Ready to Adopt?",
+										"title": "h2"
+									},
+									"style": {
+										"padding-bottom": "15px",
+										"padding-left": "0px",
+										"padding-right": "0px",
+										"padding-top": "0px",
+										"text-align": "center",
+										"width": "100%"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-heading",
+								"uuid": "5ce1e537-b9af-488d-a46a-645ad5d596eb"
+							},
+							{
+								"descriptor": {
+									"button": {
+										"href": "https://www.sdhumane.org/adopt/available-pets/",
+										"label": "<div class=\"txtTinyMce-wrapper\" style=\"\" data-mce-style=\"\"><p style=\"word-break:break-word;\" data-mce-style=\"word-break:break-word;\">ADOPT TODAY</p></div>",
+										"style": {
+											"background-color": "#3AAEE0",
+											"border-bottom": "0 solid transparent",
+											"border-left": "0 solid transparent",
+											"border-radius": "4px",
+											"border-right": "0 solid transparent",
+											"border-top": "0 solid transparent",
+											"color": "#ffffff",
+											"direction": "ltr",
+											"font-family": "inherit",
+											"font-size": "16px",
+											"line-height": "200%",
+											"padding-bottom": "5px",
+											"padding-left": "20px",
+											"padding-right": "20px",
+											"padding-top": "5px",
+											"width": "auto"
+										},
+										"target": "_blank"
+									},
+									"computedStyle": {
+										"hideContentOnDesktop": false,
+										"hideContentOnMobile": false
+									},
+									"style": {
+										"padding-bottom": "10px",
+										"padding-left": "10px",
+										"padding-right": "10px",
+										"padding-top": "10px",
+										"text-align": "center"
+									}
+								},
+								"locked": false,
+								"type": "mailup-bee-newsletter-modules-button",
+								"uuid": "37aedd36-8590-44a6-9b6c-e38a93c772c1"
+							}
+						],
+						"style": {
+							"background-color": "transparent",
+							"border-bottom": "0 solid transparent",
+							"border-left": "0 solid transparent",
+							"border-right": "0 solid transparent",
+							"border-top": "0 solid transparent",
+							"padding-bottom": "5px",
+							"padding-left": "0px",
+							"padding-right": "0px",
+							"padding-top": "5px"
+						},
+						"uuid": "7a3c97aa-25df-4256-a616-3c23df09d1a8"
+					}
+				],
+				"container": {
+					"style": {
+						"background-color": "#fff5e6",
+						"background-image": "none",
+						"background-position": "top left",
+						"background-repeat": "no-repeat"
+					}
+				},
+				"content": {
+					"computedStyle": {
+						"hideContentOnDesktop": false,
+						"hideContentOnMobile": false,
+						"rowColStackOnMobile": true,
+						"rowReverseColStackOnMobile": false,
+						"verticalAlign": "top"
+					},
+					"style": {
+						"background-color": "#ffffff",
+						"background-image": "none",
+						"background-position": "top left",
+						"background-repeat": "no-repeat",
+						"color": "#000000",
+						"padding-bottom": "30px",
+						"padding-left": "15px",
+						"padding-right": "15px",
+						"padding-top": "30px",
+						"width": "500px"
+					}
+				},
+				"empty": false,
+				"locked": false,
+				"synced": false,
+				"type": "",
+				"uuid": "ae311e10-7b32-4182-b35a-93f0ccb289d7"
+			}
+		],
+		"template": {
+			"version": "2.0.0"
+		},
+		"title": ""
+	}
+}
