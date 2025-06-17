@@ -751,7 +751,8 @@
                                 "enum": [
                                   "left",
                                   "center",
-                                  "right"
+                                  "right",
+                                  "justify"
                                 ]
                               },
                               "title": {
