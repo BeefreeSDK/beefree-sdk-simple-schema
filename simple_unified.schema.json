@@ -403,7 +403,7 @@
                                     },
                                     "href": {
                                       "type": "string",
-                                      "format": "urlOrMergeTags"
+                                      "format": "urlOrMergeTagsOrEmpty"
                                     },
                                     "height": {
                                       "type": "string"
