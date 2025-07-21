@@ -609,7 +609,7 @@
                                         },
                                         "href": {
                                           "type": "string",
-                                          "format": "urlOrMergeTags"
+                                          "format": "urlOrMergeTagsOrEmpty"
                                         },
                                         "target": {
                                           "enum": [
