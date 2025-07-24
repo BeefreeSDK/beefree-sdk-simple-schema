@@ -55,34 +55,21 @@
   <script src="https://app-rsrc.getbee.io/plugin/BeePlugin.js"></script>
 
   <script type="text/javascript">
-    var request = function (method, url, data, type, callback) {
-      var req = new XMLHttpRequest();
-      req.onreadystatechange = function () {
-        if (req.readyState === 4 && req.status === 200) {
-          var response = JSON.parse(req.responseText);
-          callback(response);
-        } else if (req.readyState === 4 && req.status !== 200) {
-          console.error(
-            "Access denied, invalid credentials. Please check you entered a valid client_id and client_secret."
-          );
-        }
-      };
-
-      req.open(method, url, true);
-      if (data && type) {
-        if (type === "multipart/form-data") {
-          var formData = new FormData();
-          for (var key in data) {
-            formData.append(key, data[key]);
-          }
-          data = formData;
-        } else {
-          req.setRequestHeader("Content-type", type);
-        }
+    // Check for selected template from localStorage
+    let selectedTemplate = null;
+    try {
+      const storedTemplate = localStorage.getItem('selectedTemplate');
+      if (storedTemplate) {
+        const { id, data } = JSON.parse(storedTemplate);
+        selectedTemplate = data;
+        console.log('Loaded template from storage:', id);
+        
+        // Clear the stored template after loading
+        localStorage.removeItem('selectedTemplate');
       }
-
-      req.send(data);
-    };
+    } catch (e) {
+      console.error('Error parsing template:', e);
+    }
 
     var save = function (filename, content) {
       saveAs(
@@ -230,50 +217,125 @@
         window.localStorage.setItem("newsletter.autosave", jsonFile);
       },
       onSend: function (htmlFile) {
-        //write your send test function here
+        const email = document.getElementById('integrator-test-emails').value;
+        if (email) {
+          alert(`Test email would be sent to: ${email}`);
+        } else {
+          alert("Please enter an email address");
+        }
       },
       onError: function (errorMessage) {
         console.log("onError ", errorMessage);
-      },
+        if (errorMessage.code === 5101 || errorMessage.code === 5102) {
+          // Token expired or needs refresh
+          getBeeToken(function(token) {
+            if (errorMessage.code === 5101) {
+              bee.updateToken(token);
+            } else if (errorMessage.code === 5102) {
+              // Need to create a new instance
+              BeePlugin.create(token, beeConfig, function(beePluginInstance) {
+                bee = beePluginInstance;
+                bee.start(errorMessage.template || {});
+              });
+            }
+          });
+        }
+      }
     };
 
     var bee = null;
 
-    var loadTemplate = function (e) {
-      var templateFile = e.target.files[0];
-      var reader = new FileReader();
-
-      reader.onload = function () {
-        var templateString = reader.result;
-        var template = JSON.parse(templateString);
-        bee.load(template);
-      };
-
-      reader.readAsText(templateFile);
-    };
+    // Function to get Beefree token using V2 auth
+    function getBeeToken(callback) {
+      fetch('http://localhost:3001/proxy/bee-auth', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          client_id: credentials.client_id,
+          client_secret: credentials.client_secret,
+          uid: beeConfig.uid
+        })
+      })
+      .then(response => {
+        if (!response.ok) throw new Error('Auth failed');
+        return response.json();
+      })
+      .then(data => {
+        callback(data);
+      })
+      .catch(error => {
+        console.error('Error getting Beefree token:', error);
+        alert('Failed to authenticate with Beefree. Please try again.');
+      });
+    }
 
     document
       .getElementById("choose-template")
-      .addEventListener("change", loadTemplate, false);
+      .addEventListener("change", function(e) {
+        var templateFile = e.target.files[0];
+        var reader = new FileReader();
 
-    request(
-      "POST",
-      "https://auth.getbee.io/apiauth",
-      `grant_type=password&client_id=${credentials.client_id}&client_secret=${credentials.client_secret}`,
-      "application/x-www-form-urlencoded",
-      function (token) {
-        BeePlugin.create(token, beeConfig, function (beePluginInstance) {
-          bee = beePluginInstance;
+        reader.onload = function () {
+          var templateString = reader.result;
+          var template = JSON.parse(templateString);
+          bee.load(template);
+        };
 
-          // Load the response.json file as the template
-          fetch('response.json')
-            .then(response => response.json())
-            .then(template => {
-              bee.start(template);
-            })
-            .catch(error => console.error('Error loading response.json:', error));
+        reader.readAsText(templateFile);
+      });
+
+    // Initialize Beefree SDK with V2 auth
+    getBeeToken(function(token) {
+      BeePlugin.create(token, beeConfig, function (beePluginInstance) {
+        bee = beePluginInstance;
+
+        // Check if we have a template to load
+        if (selectedTemplate) {
+          try {
+            bee.start(selectedTemplate);
+            console.log('Initialized with stored template');
+          } catch (error) {
+            console.error('Error loading template:', error);
+            // Fallback to response.json
+            loadResponseJson();
+          }
+        } else {
+          // Check for autosave
+          const autosave = localStorage.getItem("newsletter.autosave");
+          if (autosave) {
+            try {
+              bee.start(JSON.parse(autosave));
+              console.log('Loaded autosaved template');
+            } catch (e) {
+              console.error('Error parsing autosave:', e);
+              // Fallback to response.json
+              loadResponseJson();
+            }
+          } else {
+            // Load response.json as the default template
+            loadResponseJson();
+          }
+        }
+      });
+    });
+
+    // Function to load response.json
+    function loadResponseJson() {
+      fetch('response.json')
+        .then(response => response.json())
+        .then(template => {
+          if (bee) {
+            bee.start(template);
+            console.log('Loaded response.json template');
+          }
+        })
+        .catch(error => {
+          console.error('Error loading response.json:', error);
+          // Fallback to empty template
+          if (bee) bee.start();
         });
-      }
-    );
+    }
   </script>
 </html>

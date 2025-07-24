@@ -9,7 +9,6 @@
       rel="stylesheet"
     />
     <style>
-      /* General Styles */
       :root {
         --primary: #7747FF;
         --primary-rgb: 119, 71, 255;
@@ -261,29 +260,39 @@
         margin-top: 0;
       }
 
-      .template-grid {
+      .preview-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
         margin: 20px 0;
       }
 
-      .template-item {
+      .preview-item {
         border: 1px solid #ddd;
         border-radius: 8px;
         overflow: hidden;
         cursor: pointer;
         transition: transform 0.3s ease;
+        background: white;
       }
 
-      .template-item:hover {
+      .preview-item:hover {
         transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       }
 
-      .template-image {
+      .preview-image {
         width: 100%;
         height: 200px;
         object-fit: cover;
+        background-color: #f5f5f5;
+      }
+
+      .template-name {
+        padding: 12px;
+        text-align: center;
+        font-weight: 500;
+        color: var(--body-text);
       }
 
       .template-select-btn {
@@ -302,7 +311,7 @@
           grid-template-columns: 1fr;
         }
         
-        .template-grid {
+        .preview-grid {
           grid-template-columns: 1fr;
         }
       }
@@ -391,9 +400,6 @@
             Knowledge Base
           </a>
         </div>
-        <div class="view-backend-btn">
-          <button id="view-backend-btn" class="btn">View Backend</button>
-        </div>
       </div>
     </div>
 
@@ -427,18 +433,11 @@
     <div class="template-preview" id="template-preview">
       <h2>Choose Your Design</h2>
       <p>Select one of the AI-generated templates to start editing:</p>
-      <div class="template-grid" id="template-grid">
+      <div class="preview-grid" id="preview-grid">
         <!-- Templates will be inserted here -->
       </div>
       <button id="close-preview" class="btn">Close</button>
     </div>
-
-    <!DOCTYPE html>
-<html lang="en">
-  <!-- Head section remains exactly the same as provided -->
-
-  <body>
-    <!-- All existing HTML content remains exactly the same -->
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -446,7 +445,6 @@
         const aiButton = document.getElementById('ai-button');
         const chatbotSend = document.getElementById('chatbot-send');
         const templatePreview = document.getElementById('template-preview');
-        const viewBackendBtn = document.getElementById('view-backend-btn');
         const closePreviewBtn = document.getElementById('close-preview');
 
         aiButton.addEventListener('click', () => {
@@ -454,75 +452,71 @@
         });
 
         chatbotSend.addEventListener('click', async () => {
-      const input = document.getElementById('chatbot-input').value;
-      if (input) {
-        chatbotContainer.style.display = 'none';
-        templatePreview.innerHTML = '<h2>Loading Templates...</h2><p>Your design options are ready</p>';
-        templatePreview.style.display = 'block';
+          const input = document.getElementById('chatbot-input').value;
+          if (input) {
+            chatbotContainer.style.display = 'none';
+            templatePreview.innerHTML = '<h2>Loading Templates...</h2><p>Your design options are ready</p>';
+            templatePreview.style.display = 'block';
 
-        try {
-          const templates = [];
-          // Load local templates from JSON files
-          for (let i = 1; i <= 3; i++) {
-            const response = await fetch(`template_${i}.json`);
-            if (!response.ok) throw new Error('Failed to load template');
-            const jsonData = await response.json();
-            
-            templates.push({
-              id: `template_${i}`,
-              name: `Template ${i}`,
-              json: jsonData,
-              imageUrl: `image${i}.png` // Changed to PNG files
-            });
+            try {
+              const templates = [];
+              // Load local templates from JSON files
+              for (let i = 1; i <= 3; i++) {
+                const response = await fetch(`template_${i}.json`);
+                if (!response.ok) throw new Error('Failed to load template');
+                const jsonData = await response.json();
+                
+                templates.push({
+                  id: `template_${i}`,
+                  name: `Template ${i}`,
+                  json: jsonData,
+                  imageUrl: `template${i}.png` // Use actual preview images
+                });
+              }
+              
+              displayTemplates(templates);
+            } catch (error) {
+              console.error('Error loading templates:', error);
+              templatePreview.innerHTML = '<h2>Error</h2><p>Could not load templates. Please try again.</p>';
+            }
           }
-          
-          displayTemplates(templates);
-        } catch (error) {
-          console.error('Error loading templates:', error);
-          templatePreview.innerHTML = '<h2>Error</h2><p>Could not load templates. Please try again.</p>';
-        }
-      }
-    });
+        });
 
-        closePreviewBtn?.addEventListener('click', () => {
+        closePreviewBtn.addEventListener('click', () => {
           templatePreview.style.display = 'none';
         });
 
-        viewBackendBtn.addEventListener('click', () => {
-          window.location.href = 'backend.html';
-        });
-
         function displayTemplates(templates) {
-      templatePreview.innerHTML = `
-        <h2>Choose Your Design</h2>
-        <p>Select one of the AI-generated templates to start editing:</p>
-        <div class="template-grid" id="template-grid"></div>
-        <button id="close-preview" class="btn">Close</button>
-      `;
-      
-      const grid = document.getElementById('template-grid');
-      templates.forEach(template => {
-        const templateItem = document.createElement('div');
-        templateItem.className = 'template-item';
-        templateItem.innerHTML = `
-          <img src="${template.imageUrl}" class="template-image">
-          <button class="template-select-btn" data-id="${template.id}">Select</button>
-        `;
-        
-        templateItem.querySelector('button').addEventListener('click', () => {
-          localStorage.setItem('selectedTemplate', JSON.stringify({
-            id: template.id,
-            data: template.json
-          }));
-          window.location.href = 'builder.html';
-        });
-        
-        grid.appendChild(templateItem);
+          templatePreview.innerHTML = `
+            <h2>Choose Your Design</h2>
+            <p>Select one of the AI-generated templates to start editing:</p>
+            <div class="preview-grid" id="preview-grid"></div>
+            <button id="close-preview" class="btn">Close</button>
+          `;
+          
+          const grid = document.getElementById('preview-grid');
+          templates.forEach(template => {
+            const templateItem = document.createElement('div');
+            templateItem.className = 'preview-item';
+            templateItem.innerHTML = `
+              <img src="${template.imageUrl}" class="preview-image" alt="${template.name}">
+              <div class="template-name">${template.name}</div>
+              <button class="template-select-btn" data-id="${template.id}">Select</button>
+            `;
+            
+            templateItem.querySelector('button').addEventListener('click', () => {
+              localStorage.setItem('selectedTemplate', template.id);
+              window.location.href = 'builder.html';
+            });
+            
+            grid.appendChild(templateItem);
+          });
+          
+          document.getElementById('close-preview').addEventListener('click', () => {
+            templatePreview.style.display = 'none';
+          });
+        }
       });
-    }
-  });
     </script>
-  </body>
-</html>
   </body>
 </html>
