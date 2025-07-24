@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "name": "beefree-sdk-simple-schema",
+  "version": "0.0.1",
+  "description": "Beefree SDK Simple Schemas repository",
+  "scripts": {
+    "unify-schemas": "npx ts-node ./scripts/unifySchemas.js > simple_unified.schema.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeefreeSDK/beefree-sdk-simple-schema.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BeefreeSDK/beefree-sdk-simple-schema/issues"
+  },
+  "homepage": "https://github.com/BeefreeSDK/beefree-sdk-simple-schema#readme",
+  "dependencies": {
+    "@apidevtools/json-schema-ref-parser": "^14.0.1",
+    "ts-node": "^10.9.2"
+  }
+}

@@ -8,7 +8,7 @@
     "template": {
     "additionalProperties": false,
       "type": "object",
-      "required": ["type", "rows"],
+      "required": ["rows"],
       "properties": {
         "type": {
           "type": "string",
