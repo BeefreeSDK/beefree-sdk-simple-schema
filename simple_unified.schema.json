@@ -403,7 +403,7 @@
                                     },
                                     "href": {
                                       "type": "string",
-                                      "format": "urlOrMergeTags"
+                                      "format": "urlOrMergeTagsOrEmpty"
                                     },
                                     "height": {
                                       "type": "string"
@@ -609,7 +609,7 @@
                                         },
                                         "href": {
                                           "type": "string",
-                                          "format": "urlOrMergeTags"
+                                          "format": "urlOrMergeTagsOrEmpty"
                                         },
                                         "target": {
                                           "enum": [
