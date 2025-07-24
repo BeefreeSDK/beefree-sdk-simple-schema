@@ -40,29 +40,6 @@ app.post('/proxy/bee-auth', async (req, res) => {
   }
 });
 
-// HTML to JSON Conversion (Optional)
-app.post('/proxy/html-to-json', async (req, res) => {
-  try {
-    const response = await axios.post(
-      'https://api.getbee.io/v1/conversion/html-to-json',
-      req.body,
-      {
-        headers: {
-          'Content-Type': 'text/html',
-          'Authorization': `Bearer ${process.env.BEE_API_KEY || credentials.api_key}`
-        }
-      }
-    );
-    res.json(response.data);
-  } catch (error) {
-    console.error("Conversion Error:", error.message);
-    res.status(500).json({ 
-      error: "HTML conversion failed",
-      details: error.response?.data || error.message
-    });
-  }
-});
-
 // Health Check
 app.get('/proxy/health', (req, res) => {
   res.json({ status: "ok", time: new Date().toISOString() });
