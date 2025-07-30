@@ -460,6 +460,9 @@
                               "alt": {
                                 "type": "string"
                               },
+                              "title": {
+                                "type": "string"
+                              },
                               "href": {
                                 "type": "string"
                               },
