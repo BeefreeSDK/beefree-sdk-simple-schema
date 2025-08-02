@@ -1,0 +1,519 @@
+/*
+  "--cs" for custom css override classes
+
+  --- Generals ---
+  - Custom font url | https://fast.fonts.net/cssapi/12006fbc-93aa-46b4-b1a2-436f9d660c2c.css
+  - Custom font family (with font stack - i.e. 'Source Sans Pro', sans-serif) | "Frutiger Next W01",Helvetica,Arial,sans-serif
+  - Custom font size | 12px
+  - Widget bar border color | #c7c7c7
+  - Widget bar & active tab background color | #F9F9F9
+  - Show tab icons [BOOLEAN] - if (true) "inline-block" else "none" | True
+  ***
+  - Custom brand primary color | #4cb9ea
+  - Custom brand primary color - Light | #73c5e9
+  - Custom brand primary color - Dark | #78abc1
+  - Custom brand secondary color | #898989
+
+  --- Stage ---
+  - Stage label text color
+
+  --- Tabs ---
+  - Active tab text & icon color | #516167
+  - Not Active tabs background color | #d6d9dc
+  - Not Active tabs text & icon color | #93989a
+  - Not Active tabs text & icon color :hover | #505659
+
+  --- Tiles ---
+  - Panel default (Widget, Row and Social panels) background color | #FFFFFF
+  - Panel default border color
+  - Panel default border radius value | 4px
+  - Panel :hover box shadow value (i.e. "0 6px 10px rgba(0, 0, 0, 0.1)") | 0 6px 10px rgba(0,0,0,.35)
+
+  --- Properties panel ---
+  - Properties panel title background  | #FFF
+  - Properties panel text & icons color | #505659
+  - Properties panel title border | #E1E4E7
+
+  --- Widgets ---
+  - Widgets section title background | #eaeaea
+  - Widgets section title color | #505659
+  - Widget bottom border color (widget divider) | #e1e4e7
+  - Widget label color | #8f9699
+  *** Inputs ***
+  - Inputs border color | #cccccc
+  - Inputs background color | #ffffff
+  - Inputs text color | #505659
+  *** Toggle ***
+  - Background toggle -> off | #ffffff
+  - Background Switch -> off | #cccccc
+  - Background Switch -> on | #ffffff
+  *** Icons
+  - Color icon base |
+  - Color icon base - Light |
+  - Color icon base - Dark |
+
+  --- Customize Widgets - Icon Organizer widget ---
+  - Icon organizer panel background color | #ffffff
+  - Icon organizer icon thumbnail background | #eeeeee
+  - Icon organizer border color | #dddddd
+  - Icon organizer delete cta color | #bb3636
+  - Icon manager Pop background color | rgba(80,86,89,.95)
+  - Icon manager Pop tabs border-color | #7b7b7b
+  - Icon manager Pop tabs color | #a0a0a0
+  - Icon manager Pop tabs active color | #ffffff
+  - Icon manager Pop icons color | #ffffff
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+html,
+body.bee--cs {
+  font-size: 13px;
+}
+
+html,
+body.bee--cs,
+body.bee--cs .h1,
+body.bee--cs .h2,
+body.bee--cs .h3,
+body.bee--cs .h4,
+body.bee--cs .h5,
+body.bee--cs .h6,
+body.bee--cs .tooltip,
+body.bee--cs h1,
+body.bee--cs h2,
+body.bee--cs h3,
+body.bee--cs h4,
+body.bee--cs h5,
+body.bee--cs h6,
+body.bee--cs .tgl-title {
+  font-family: "Roboto", sans-serif;
+}
+
+.widget-bar.widget-bar--cs,
+.widget-bar.widget-bar--cs .tabset__tab--cs a,
+.widget-bar.widget-bar--cs .tabset__tab--cs.active a,
+.widget-bar.widget-bar--cs .tabset__tab--cs.active a:hover {
+  border-left-color: #202020;
+}
+
+.widget-bar.widget-bar--cs .tabset__tab--cs a {
+  background: #dcdcdc;
+  border-bottom-color: #202020;
+  color: #707070;
+}
+
+.widget-bar.widget-bar--cs .tabset__tab--cs a:hover {
+  background: #dcdcdc;
+  color: #606060;
+}
+
+.widget-bar.widget-bar--cs .tabset__tab--cs.active a,
+.widget-bar.widget-bar--cs .tabset__tab--cs.active a:hover {
+  border-bottom-color: #202020;
+  color: #dcdcdc;
+}
+
+.widget-bar.widget-bar--cs .tabset__tab--cs:first-child a,
+.widget-bar.widget-bar--cs .tabset__tab--cs:first-child a:hover {
+  border-left: 0;
+}
+
+.widget-bar.widget-bar--cs .tabset__tab--cs.active a,
+.widget-bar.widget-bar--cs .tabset__tab--cs.active a:hover,
+.widget-bar.widget-bar--cs .widget-bar__scroll-container--cs,
+.widget-bar.widget-bar--cs .properties-panel__scroll-container--cs {
+  background-color: #202020;
+}
+
+.widget-bar.widget-bar--cs .tabset__tab--cs a:before {
+  display: inline-block;
+}
+
+body.bee--cs .dragging.module,
+body.bee--cs .dragging.row,
+body.bee--cs .dragging.new-row,
+body.bee--cs .dragging.new-module {
+  background-color: #303030;
+}
+
+.widget-bar.widget-bar--cs .panel--default.panel--cs {
+  border-color: #505050;
+}
+
+.widget-bar.widget-bar--cs .radio-button--cs .radio-button__radio,
+.widget-bar.widget-bar--cs .panel--default.panel--cs {
+  background-color: #303030;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.widget-bar.widget-bar--cs .radio-button--cs .radio-button__radio {
+  border-color: #303030;
+}
+
+.widget-bar.widget-bar--cs .panel--default.panel--cs:hover {
+  border: 1px solid #303030;
+  -webkit-box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  box-shadow: 0 6px 10px rgba(0,0,0,.15);
+}
+
+.widget-bar.widget-bar--cs .widgets-section .widgets-section__title--cs {
+  background-color: #303030;
+  color: #f5f5f5;
+}
+
+.widget-bar.widget-bar--cs .panel--default.panel--cs .body__title--cs,
+.widget-bar.widget-bar--cs .widgets-section .widgets-section__title--cs {
+  color: #f5f5f5;
+}
+
+.widget-bar.widget-bar--cs .hr--cs,
+.widget-bar.widget-bar--cs .icon-organizer__panel--cs .panel__content.first-block {
+  border-top: 1px solid #303030;
+}
+
+.widget-bar.widget-bar--cs .widgets-section .widgets-section__columns-container .nav-tabs li.active a,
+.widget-bar.widget-bar--cs .widgets-section .widgets-section__columns-container .nav-tabs li.active a:hover {
+  border-right: 1px solid #303030;
+}
+
+.widget-bar.widget-bar--cs .widgets-section .widgets-section__columns-container .nav-tabs li a {
+  color: #909090;
+  opacity: .6;
+}
+
+.widget-bar.widget-bar--cs .widgets-section .widgets-section__columns-container .nav-tabs li.active a {
+  opacity: 1;
+}
+
+.widget-bar.widget-bar--cs .widgets-section .widgets-section__columns-container .nav-tabs,
+.widget-bar.widget-bar--cs .widgets-section .widgets-section__columns-container .tab-content .tab-pane > div,
+.widget-bar.widget-bar--cs .widgets-section .widgets-section__wrapper > div {
+  border-bottom: 1px solid #303030;
+}
+
+  .widget-bar.widget-bar--cs .widgets-section .widgets-section__wrapper > div:last-child {
+    border-bottom: 0;
+  }
+
+.widget-bar.widget-bar--cs .widget__box .box__label--cs,
+.widget-bar.widget-bar--cs .tgl-container--cs .tgl-title,
+.widget-bar.widget-bar--cs .tgl-container--cs .tgl-label,
+.widget-bar.widget-bar--cs .widget__label--cs,
+.widget-bar.widget-bar--cs .icon-organizer__panel--cs .panel__title {
+  color: #909090;
+}
+
+.widget-bar.widget-bar--cs .properties-panel__title--cs h4 {
+  background: #ffffff;
+  border-top-color: #e1e4e7;
+  border-bottom-color: #e1e4e7;
+}
+
+.widget-bar.widget-bar--cs .properties-panel__title--cs h4,
+.widget-bar.widget-bar--cs .properties-panel__title--cs > .close-panel,
+.widget-bar.widget-bar--cs .properties-panel__title--cs > .icon-delete,
+.widget-bar.widget-bar--cs .properties-panel__title--cs > .icon-duplicate {
+  color: #606060;
+  border-left-color: #e1e4e7;
+}
+
+.widget-bar.widget-bar--cs .properties-panel__title--cs > .close-panel:hover,
+.widget-bar.widget-bar--cs .properties-panel__title--cs > .icon-duplicate:hover {
+  background: #606060;
+  color: #ffffff;
+}
+
+.widget-bar.widget-bar--cs .dropdown-custom--cs .arrows,
+.widget-bar.widget-bar--cs .dropdown-custom--cs .dropdown-toggle,
+.widget-bar.widget-bar--cs .number-selector--cs .btn,
+.widget-bar.widget-bar--cs .width-style-color-container--cs .number-selector--cs .btn,
+.widget-bar.widget-bar--cs .wrapper-color-selector--cs,
+.widget-bar.widget-bar--cs .wrapper-color-selector--cs input[type="text"],
+.widget-bar.widget-bar--cs .href-container--cs input[type="text"],
+.widget-bar.widget-bar--cs .background-image-container--cs input[type="text"],
+.widget-bar.widget-bar--cs .image-selector-container--cs input[type="text"],
+.widget-bar.widget-bar--cs .alternate-txt--cs input[type="text"],
+.widget-bar.widget-bar--cs .href-container--cs .input-group-addon,
+.widget-bar.widget-bar--cs .background-image-container--cs .input-group-addon,
+.widget-bar.widget-bar--cs .icon-organizer__panel--cs input[type="text"],
+.widget-bar.widget-bar--cs .icon-organizer__panel--cs .input-group-addon,
+.widget-bar.widget-bar--cs .icon-manager__add-icon--cs {
+  color: #c0c0c0;
+}
+
+.widget-bar.widget-bar--cs .dropdown-custom--cs .dropdown-toggle,
+.widget-bar.widget-bar--cs .number-selector--cs .btn,
+.widget-bar.widget-bar--cs .width-style-color-container--cs .number-selector--cs .btn-group,
+.widget-bar.widget-bar--cs .width-style-color-container--cs .number-selector--cs .btn,
+.widget-bar.widget-bar--cs .wrapper-color-selector--cs,
+.widget-bar.widget-bar--cs .wrapper-color-selector--cs div,
+.widget-bar.widget-bar--cs .tgl-container--cs .tgl_body,
+.widget-bar.widget-bar--cs .href-container--cs input[type="text"],
+.widget-bar.widget-bar--cs .background-image-container--cs input[type="text"],
+.widget-bar.widget-bar--cs .image-selector-container--cs input[type="text"],
+.widget-bar.widget-bar--cs .alternate-txt--cs input[type="text"],
+.widget-bar.widget-bar--cs .href-container--cs .input-group-addon,
+.widget-bar.widget-bar--cs .background-image-container--cs .input-group-addon,
+.widget-bar.widget-bar--cs .icon-organizer__panel--cs input[type="text"],
+.widget-bar.widget-bar--cs .icon-organizer__panel--cs .input-group-addon {
+  border-color: #202020;
+}
+
+.widget-bar.widget-bar--cs .dropdown-custom--cs .dropdown-toggle,
+.widget-bar.widget-bar--cs .number-selector--cs .btn,
+.widget-bar.widget-bar--cs .width-style-color-container--cs .number-selector--cs .btn,
+.widget-bar.widget-bar--cs .wrapper-color-selector--cs,
+.widget-bar.widget-bar--cs .wrapper-color-selector--cs input[type="text"],
+.widget-bar.widget-bar--cs .href-container--cs input[type="text"],
+.widget-bar.widget-bar--cs .background-image-container--cs input[type="text"],
+.widget-bar.widget-bar--cs .image-selector-container--cs input[type="text"],
+.widget-bar.widget-bar--cs .alternate-txt--cs input[type="text"],
+.widget-bar.widget-bar--cs .href-container--cs .input-group-addon,
+.widget-bar.widget-bar--cs .background-image-container--cs .input-group-addon,
+.widget-bar.widget-bar--cs .icon-organizer__panel--cs input[type="text"],
+.widget-bar.widget-bar--cs .icon-organizer__panel--cs .input-group-addon,
+.widget-bar.widget-bar--cs .icon-manager__add-icon--cs {
+  background-color: #696969;
+}
+
+.widget-bar.widget-bar--cs .icon-manager__add-icon--cs:hover {
+  color: #696969;
+  background-color: #c0c0c0;
+}
+
+.widget-bar.widget-bar--cs .href-container--cs a {
+  border-right: 1px solid #202020;
+}
+
+.widget-bar.widget-bar--cs .icon-organizer__panel--cs {
+  background: #202020;
+  border-color: #202020;
+}
+
+.widget-bar.widget-bar--cs .icon-type-selector .dropdown-toggle--social .dropdown-toggle__set,
+.widget-bar.widget-bar--cs .icon-organizer__panel--cs .panel__icon-preview-wrapper--cs {
+  background: #505050;
+}
+
+.widget-bar.widget-bar--cs .icon-organizer__panel--cs .icon-remove {
+  color: #c0c0c0;
+}
+
+.widget-bar.widget-bar--cs .icons-manager__pop--cs {
+  background: rgba(192,192,192,1);
+}
+
+.widget-bar.widget-bar--cs .icons-manager__pop--cs:after {
+  border-top-color: rgba(192,192,192,1);
+}
+
+.widget-bar.widget-bar--cs .icons-manager__pop--cs .nav-tabs > li > a {
+  color: rgba(255,255,255,0.6);
+  border-left-color: rgba(255,255,255,0.2);
+  border-bottom-color: rgba(255,255,255,0.2);
+}
+
+.widget-bar.widget-bar--cs .icons-manager__pop--cs .nav-tabs > li.active > a {
+  color: #f8f8f8;
+}
+
+.widget-bar.widget-bar--cs .icons-manager__pop--cs .tab-content .tab-pane > div > a {
+  color: #f8f8f8;
+}
+
+.widget-bar.widget-bar--cs .tgl-container--cs .tgl .tgl_bgd-negative {
+  background-color: #505050;
+}
+
+.widget-bar.widget-bar--cs .tgl-container--cs .tgl .tgl_switch {
+  background-color: #bebebe;
+}
+
+.widget-bar.widget-bar--cs .tgl-container--cs .tgl > :not(:checked) ~ .tgl_body > .tgl_switch {
+  background-color: #e0e0e0;
+}
+
+body.bee--cs .dragging.module svg path,
+body.bee--cs .dragging.row svg .icon--color-base,
+body.bee--cs .dragging.new-row svg .icon--color-base,
+body.bee--cs .dragging.new-module svg path,
+.widget-bar.widget-bar--cs svg path,
+.widget-bar.widget-bar--cs svg rect,
+.widget-bar.widget-bar--cs svg .icon--color-base {
+  fill: #909090 !important;
+}
+
+body.bee--cs .dragging.row svg .icon--color-light,
+body.bee--cs .dragging.new-row svg .icon--color-light,
+.widget-bar.widget-bar--cs svg .icon--color-light {
+  fill: #404040 !important;
+}
+
+body.bee--cs .dragging.row svg .icon--color-dark,
+body.bee--cs .dragging.new-row svg .icon--color-dark,
+.widget-bar.widget-bar--cs svg .icon--color-dark {
+  fill: rgba(32,32,32,1) !important;
+}
+
+  /* BRAND PRIMARY
+ --------------------------------------- */
+ body.bee--cs .selected.module-box:before,
+body.bee--cs .selected.row-container .row-selector:before,
+body.bee--cs .selected.module-box > .icon-move,
+body.bee--cs .selected.row-container > .icon-move,
+body.bee--cs .row-container > .edit-icons,
+body.bee--cs .module-box > .edit-icons,
+body.bee--cs .btn-primary,
+body.bee--cs .btn-primary:hover,
+body.bee--cs .btn-primary:active,
+body.bee--cs .btn-primary:focus,
+.widget-bar.widget-bar--cs .tgl-container--cs .tgl_bgd,
+.widget-bar.widget-bar--cs .padding-container .square,
+.widget-bar.widget-bar--cs .hideon-container .tgl-label.active,
+.lock-container--cs.locked {
+  background-color: #c0c0c0;
+}
+
+.widget-bar.widget-bar--cs .widgets-section .widgets-section__columns-container .nav-tabs li.active a,
+.widget-bar.widget-bar--cs .widgets-section .widgets-section__columns-container .nav-tabs li.active a:hover {
+  border-bottom-color: #c0c0c0;
+}
+
+.widget-bar.widget-bar--cs .href-container--cs a {
+  color: #c0c0c0;
+}
+
+body.bee--cs .module-box:after,
+body.bee--cs .row-container .row-selector:after {
+  outline: 2px solid #696969;
+  background-color: rgba(105, 105, 105, 0.15);;
+  opacity: 0;
+}
+
+body.bee--cs .structure-shows .row-container .row-selector:after {
+  outline: #ccc dashed 1px;
+  opacity: 1;
+  background: 0 0;
+}
+
+body.bee--cs .structure-shows .row-container .row-selector:hover::after {
+  outline: 2px solid #696969;
+	background-color: rgba(105, 105, 105, 0.15);;
+}
+
+body.bee--cs .page-stage table .row-container:not(.no-hover):hover .row-selector,
+body.bee--cs .page-stage table .row-container:not(.no-hover):hover .row-selector:after {
+  opacity: 1;
+  z-index: 1;
+}
+
+body.bee--cs .module-box:before,
+body.bee--cs .row-container .row-selector:before,
+body.bee--cs .module-box > .icon-move,
+body.bee--cs .row-container > .icon-move {
+  background-color:#696969;
+}
+
+body.bee--cs .page-stage .selected.module-box:after,
+body.bee--cs .page-stage .selected.module-box .row-selector:after,
+body.bee--cs .page-stage .selected.row-container:after,
+body.bee--cs .page-stage .selected.row-container .row-selector:after {
+  outline: 2px solid #c0c0c0;
+  background: 0 0;
+  opacity: 1;
+}
+
+body.bee--cs .module-box > .edit-icons li,
+body.bee--cs .row-container > .edit-icons li {
+  border-right-color: #a9a9a9;
+}
+
+body.bee--cs .btn-primary,
+body.bee--cs .btn-primary:hover,
+body.bee--cs .btn-primary:active,
+body.bee--cs .btn-primary:focus {
+  border-color: #c0c0c0;
+}
+
+.lock-container--cs,
+body.bee--cs .btn-default {
+  background: #808080;
+}
+
+body.bee--cs .btn-default {
+  border-color: #808080;
+}
+
+body.bee--cs .row-container > .edit-icons li:hover,
+body.bee--cs .module-box > .edit-icons li:hover {
+  background-color: #696969;
+}
+
+body.bee--cs .comp-tree-placeholder:after {
+  outline: 3px solid #c0c0c0;
+}
+
+body.bee--cs .comp-tree-placeholder:before {
+  background-color: #c0c0c0;
+  color: #ffffff;
+}
+
+body.bee--cs .module-box:before,
+body.bee--cs .row-container .row-selector:before,
+body.bee--cs .module-box > .icon-move,
+body.bee--cs .row-container > .icon-move,
+body.bee--cs .row-container > .edit-icons li,
+body.bee--cs .module-box > .edit-icons li {
+  color: StageLabelTextColor;
+}
+
+body.bee--cs .module-empty {
+  outline: 1px dashed #c0c0c0;
+  background: #a9a9a9;
+}
+
+body.bee--cs .module-empty:before {
+  color: #c0c0c0;
+}
+
+/* Range Selector */
+body.bee--cs .range-selector input[type=range]::-webkit-slider-runnable-track {
+  background: #c0c0c0;
+}
+
+body.bee--cs .range-selector input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #c0c0c0;
+}
+
+body.bee--cs .range-selector input[type=range]::-moz-range-track {
+  background: #c0c0c0;
+}
+
+body.bee--cs .range-selector input[type=range]::-ms-track {
+  background: transparent;
+}
+
+body.bee--cs .range-selector input[type=range]::-ms-fill-lower {
+  background: #c0c0c0;
+}
+
+body.bee--cs .range-selector input[type=range]:focus::-ms-fill-lower {
+  background: #c0c0c0;
+}
+
+body.bee--cs .range-selector input[type=range]::-ms-fill-upper {
+  background: #c0c0c0;
+}
+
+body.bee--cs .range-selector input[type=range]:focus::-ms-fill-upper {
+  background: #c0c0c0;
+}
+
+.undo-redo--cs .undo-redo__history .history__step.history__step--active:before,
+.undo-redo--cs .undo-redo__history .history__step.history__step--focused:after,
+.undo-redo--cs .undo-redo__history .history__step.history__step--focused:before,
+.undo-redo--cs .undo-redo__history .history__step:hover:before {
+  background: #c0c0c0;
+}

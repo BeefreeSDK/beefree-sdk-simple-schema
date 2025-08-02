@@ -1,181 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Beefree SDK - Email Builder</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style type="text/css">
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      overflow: hidden;
-      background-color: #f5f5f5;
-    }
-    #bee-plugin-container {
-      position: absolute;
-      top: 0;
-      bottom: 30px;
-      left: 0;
-      right: 0;
-    }
-    #integrator-bottom-bar {
-      position: absolute;
-      height: 30px;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      padding: 0 15px;
-      background: #f5f5f5;
-      border-top: 1px solid #ddd;
-    }
-    #integrator-bottom-bar input {
-      padding: 3px 8px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    }
-  </style>
-</head>
-<body>
-  <div id="bee-plugin-container"></div>
-  <div id="integrator-bottom-bar">
-    Select template: <input id="choose-template" type="file" accept=".json" />
-    Test email to: <input id="test-email" type="email" placeholder="email@example.com" />
-  </div>
+  <head>
+    <title>Beefree SDK - Email Builder</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-  <script src="credentials.js"></script>
-  <script src="https://app-rsrc.getbee.io/plugin/BeePlugin.js"></script>
+      body {
+        overflow: hidden;
+        background-color: #f5f5f5;
+        color: #000000;
+        font-family: Arial, sans-serif;
+      }
 
-  <script>
-    // Load saved template if available
-    let savedTemplate = localStorage.getItem('bee-autosave');
-    if (savedTemplate) {
+      #bee-plugin-container {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+      }
+
+      .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background-color: #7747FF;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .back-button:hover {
+        background-color: #6a3fe6;
+      }
+
+      .email-title {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #333;
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 16px;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+        color: #666;
+      }
+
+      .error {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 16px;
+        color: #d32f2f;
+        text-align: center;
+        max-width: 400px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button class="back-button" onclick="returnToChat()">
+      ← Return to Chat
+    </button>
+    <div class="email-title" id="emailTitle">Email Builder</div>
+    <div id="bee-plugin-container"></div>
+
+    <!-- Include the Beefree SDK -->
+    <script src="https://app-rsrc.getbee.io/plugin/BeePlugin.js"></script>
+
+    <script type="text/javascript">
+      // Check for email data from localStorage
+      let selectedTemplate = null;
+      let currentEmailName = 'Email';
+      
       try {
-        savedTemplate = JSON.parse(savedTemplate);
+        const emailData = localStorage.getItem('currentEmailData');
+        const emailName = localStorage.getItem('currentEmailName');
+        
+        if (emailData) {
+          selectedTemplate = JSON.parse(emailData);
+          currentEmailName = emailName || 'Email';
+          console.log('Loaded email data from storage:', selectedTemplate);
+          console.log('Email name:', currentEmailName);
+          
+          // Update the title
+          document.getElementById('emailTitle').textContent = `${currentEmailName} Email Builder`;
+          
+          // Don't clear the stored data - keep it for navigation between emails
+          // localStorage.removeItem('currentEmailData');
+          // localStorage.removeItem('currentEmailName');
+        }
       } catch (e) {
-        console.error("Failed to parse saved template", e);
-        savedTemplate = null;
+        console.error('Error parsing email data:', e);
       }
-    }
-    
-    // Check for template selection from index.html
-    let selectedTemplateId = localStorage.getItem('selectedTemplate');
-    let selectedTemplateData = null;
-    
-    // Beefree Configuration
-    const beeConfig = {
-      container: "bee-plugin-container",
-      language: "en-US",
-      trackChanges: true,
-      specialLinks: [
-        { type: "unsubscribe", label: "Unsubscribe", link: "[unsubscribe]" },
-        { type: "subscribe", label: "Subscribe", link: "[subscribe]" }
-      ],
-      onSave: (json, html) => saveFile("design.html", html),
-      onSaveAsTemplate: (json) => saveFile("design.json", json),
-      onAutoSave: (json) => localStorage.setItem('bee-autosave', json),
-      onSend: () => {
-        const email = document.getElementById('test-email').value;
-        if (email) alert(`Would send test email to: ${email}`);
-        else alert("Please enter an email address");
-      },
-      onError: (error) => {
-        console.error("Bee Error:", error);
-        if (error.code === 5101 || error.code === 5102) {
-          getBeeToken(token => {
-            if (error.code === 5101) bee.updateToken(token);
-            else initBee(token);
-          });
-        }
-      }
-    };
 
-    let bee = null;
-
-    // Load selected template
-    async function loadSelectedTemplate() {
-      if (!selectedTemplateId) return null;
-      
-      try {
-        const response = await fetch(`${selectedTemplateId}.json`);
-        if (!response.ok) throw new Error('Failed to load template');
-        const templateData = await response.json();
-        
-        // Clear the selection so it doesn't reload on refresh
-        localStorage.removeItem('selectedTemplate');
-        
-        return templateData;
-      } catch (error) {
-        console.error('Error loading template:', error);
-        return null;
-      }
-    }
-
-    // Initialize Bee Plugin
-    async function initBee(token) {
-      const templateToLoad = await loadSelectedTemplate();
-      
-      BeePlugin.create(token, beeConfig, instance => {
-        bee = instance;
-        
-        if (templateToLoad) {
-          bee.start(templateToLoad);
-          console.log('Loaded selected template:', selectedTemplateId);
-        } else if (savedTemplate) {
-          bee.start(savedTemplate);
-          console.log('Loaded autosaved template');
-        } else {
-          bee.start();
-          console.log('Started with empty template');
-        }
-      });
-    }
-
-    // Get Authentication Token
-    function getBeeToken(callback) {
-      fetch('http://localhost:3001/proxy/bee-auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          client_id: credentials.client_id,
-          client_secret: credentials.client_secret,
-          uid: credentials.uid
-        })
-      })
-      .then(res => res.json())
-      .then(callback)
-      .catch(err => console.error("Auth failed:", err));
-    }
-
-    // File Handling
-    function saveFile(filename, content) {
-      const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
-      saveAs(blob, filename);
-    }
-
-    document.getElementById('choose-template').addEventListener('change', e => {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        try {
-          const template = JSON.parse(reader.result);
-          if (bee) bee.load(template);
-        } catch (err) {
-          alert("Invalid template file");
-          console.error(err);
+      // Beefree configuration
+      const beeConfig = {
+        container: 'bee-plugin-container',
+        uid: 'demo-user-' + Date.now(),
+        language: 'en-US',
+        specialLinks: [
+          {
+            type: "unsubscribe",
+            label: "Unsubscribe",
+            link: "http://[unsubscribe]/",
+          },
+          {
+            type: "subscribe",
+            label: "Subscribe",
+            link: "http://[subscribe]/",
+          },
+        ],
+        mergeTags: [
+          {
+            name: "First Name",
+            value: "[first_name]",
+          },
+          {
+            name: "Last Name",
+            value: "[last_name]",
+          },
+          {
+            name: "Email",
+            value: "[email]",
+          },
+        ],
+        onSave: function (jsonFile, htmlFile) {
+          console.log("Template saved:", jsonFile);
+          // You can implement custom save logic here
+        },
+        onAutoSave: function (jsonFile) {
+          console.log("Auto-saving template...");
+          localStorage.setItem("email.autosave", jsonFile);
+        },
+        onSend: function (htmlFile) {
+          console.log("Email ready to send:", htmlFile);
+          // You can implement custom send logic here
+        },
+        onError: function (errorMessage) {
+          console.error("Beefree SDK error:", errorMessage);
+          document.getElementById('bee-plugin-container').innerHTML = 
+            '<div class="error">Error loading Beefree SDK: ' + errorMessage.message + '</div>';
         }
       };
-      reader.readAsText(file);
-    });
 
-    // Initialize
-    getBeeToken(initBee);
-  </script>
-</body>
+      // Function to get Beefree token using our proxy
+      function getBeeToken(callback) {
+        fetch('/api/beefree/auth', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            client_id: 'fa75c918-7634-4313-849b-8ae79632ebc0',
+            client_secret: 'NVWjIkIwQRXRBUqJSXAKCTVpjB1539Qo5pEY9jBeA5i2CbqaFgMS',
+            uid: beeConfig.uid
+          })
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Auth failed: ' + response.status);
+          return response.json();
+        })
+        .then(data => {
+          callback(data);
+        })
+        .catch(error => {
+          console.error('Error getting Beefree token:', error);
+          document.getElementById('bee-plugin-container').innerHTML = 
+            '<div class="error">Failed to authenticate with Beefree. Please check your credentials and try again.</div>';
+        });
+      }
+
+      // Initialize Beefree SDK
+      function initializeBeefree(authResponse) {
+        BeePlugin.create(authResponse, beeConfig, function (beePluginInstance) {
+          console.log('Beefree SDK initialized successfully');
+          
+          // Check if we have a template to load
+          if (selectedTemplate) {
+            try {
+              beePluginInstance.start(selectedTemplate);
+              console.log('Loaded template from localStorage');
+            } catch (error) {
+              console.error('Error loading template:', error);
+              // Fallback to empty template
+              beePluginInstance.start();
+            }
+          } else {
+            // Check for autosave
+            const autosave = localStorage.getItem("email.autosave");
+            if (autosave) {
+              try {
+                beePluginInstance.start(JSON.parse(autosave));
+                console.log('Loaded autosaved template');
+              } catch (e) {
+                console.error('Error parsing autosave:', e);
+                // Fallback to empty template
+                beePluginInstance.start();
+              }
+            } else {
+              // Start with empty template
+              beePluginInstance.start();
+              console.log('Started with empty template');
+            }
+          }
+        });
+      }
+
+      // Function to return to chat
+      function returnToChat() {
+        window.location.href = 'index.html';
+      }
+
+      // Start the initialization process
+      getBeeToken(initializeBeefree);
+    </script>
+  </body>
 </html>

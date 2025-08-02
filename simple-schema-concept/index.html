@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AI Email Design Dashboard</title>
+    <title>AI Email Creation Assistant</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -20,6 +20,16 @@
         --light-shapes: #F1F0EE;
         --body-text: #272D3D;
         --alt-text: #140231;
+        --chat-bg: #FFFFFF;
+        --chat-border: #E5E7EB;
+        --user-message-bg: #7747FF;
+        --assistant-message-bg: #F3F4F6;
+        --user-message-text: #FFFFFF;
+        --assistant-message-text: #374151;
+      }
+      
+      * {
+        box-sizing: border-box;
       }
       
       body {
@@ -29,414 +39,762 @@
         background-color: var(--background);
         color: var(--body-text);
         line-height: 1.6;
-      }
-
-      .dashboard {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 30px;
-      }
-
-      .metrics-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-      }
-
-      .metric-card {
-        background-color: white;
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      }
-
-      .metric-card h3 {
-        color: var(--primary);
-        margin-top: 0;
-        font-size: 1rem;
-      }
-
-      .metric-value {
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--dark-bg);
-        margin: 10px 0;
-      }
-
-      .metric-change {
-        color: var(--accent);
-        font-weight: 600;
-        font-size: 0.9rem;
-      }
-
-      .graph-placeholder {
-        height: 150px;
-        background-color: var(--light-shapes);
-        border-radius: 8px;
-        margin-top: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--body-text);
-        position: relative;
+        height: 100vh;
         overflow: hidden;
       }
 
-      .graph-bar {
-        position: absolute;
-        bottom: 20px;
-        width: 15%;
-        background-color: var(--primary);
+      .main-container {
+        display: flex;
+        height: 100vh;
       }
 
-      .content-area {
-        background-color: white;
-        border-radius: 12px;
-        padding: 30px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      /* Chat Section */
+      .chat-section {
+        width: 400px;
+        background-color: var(--chat-bg);
+        border-right: 1px solid var(--chat-border);
+        display: flex;
+        flex-direction: column;
+        position: relative;
       }
 
-      h1 {
-        font-size: 2rem;
+      .chat-header {
+        padding: 20px;
+        border-bottom: 1px solid var(--chat-border);
+        background-color: var(--chat-bg);
+      }
+
+      .chat-header h1 {
+        margin: 0;
+        font-size: 1.5rem;
         color: var(--dark-bg);
-        margin-bottom: 15px;
+        font-weight: 600;
       }
 
-      .subtitle {
+      .chat-header p {
+        margin: 5px 0 0 0;
+        color: var(--body-text);
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      .chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .message {
+        max-width: 85%;
+        padding: 12px 16px;
+        border-radius: 18px;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        word-wrap: break-word;
+      }
+
+      .message.user {
+        background-color: var(--user-message-bg);
+        color: var(--user-message-text);
+        align-self: flex-end;
+        margin-left: auto;
+      }
+
+      .message.assistant {
+        background-color: var(--assistant-message-bg);
+        color: var(--assistant-message-text);
+        align-self: flex-start;
+      }
+
+      .message.typing {
+        background-color: var(--assistant-message-bg);
+        color: var(--assistant-message-text);
+        align-self: flex-start;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .typing-dots {
+        display: flex;
+        gap: 4px;
+      }
+
+      .typing-dot {
+        width: 6px;
+        height: 6px;
+        background-color: var(--assistant-message-text);
+        border-radius: 50%;
+        animation: typing 1.4s infinite ease-in-out;
+      }
+
+      .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+      .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+      @keyframes typing {
+        0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+        40% { transform: scale(1); opacity: 1; }
+      }
+
+      .chat-input {
+        padding: 20px;
+        border-top: 1px solid var(--chat-border);
+        background-color: var(--chat-bg);
+      }
+
+      .input-container {
+        display: flex;
+        gap: 10px;
+        align-items: flex-end;
+      }
+
+      .input-field {
+        flex: 1;
+        border: 1px solid var(--chat-border);
+        border-radius: 12px;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        resize: none;
+        min-height: 44px;
+        max-height: 120px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+
+      .input-field:focus {
+        border-color: var(--primary);
+      }
+
+      .send-button {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        min-width: 60px;
+      }
+
+      .send-button:hover {
+        background-color: #6a3fe6;
+      }
+
+      .send-button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      /* Builder Section */
+      .builder-section {
+        flex: 1;
+        background-color: var(--background);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+      }
+
+      .welcome-state {
+        text-align: center;
+        max-width: 500px;
+      }
+
+      .welcome-state h3 {
+        color: var(--dark-bg);
+        font-size: 2rem;
+        margin-bottom: 16px;
+        font-weight: 600;
+      }
+
+      .welcome-state p {
         color: var(--body-text);
         font-size: 1.1rem;
-        margin-bottom: 30px;
+        margin-bottom: 32px;
+        line-height: 1.6;
       }
 
-      .hero-image {
-        width: 100%;
-        max-height: 200px;
-        object-fit: cover;
-        border-radius: 10px;
-        margin-bottom: 30px;
-      }
-
-      .button-group {
+      .action-buttons {
         display: flex;
-        justify-content: flex-start;
-        gap: 15px;
-        margin-bottom: 30px;
-      }
-
-      .ai-button-container {
-        margin-bottom: 30px;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
       }
 
       .btn {
         padding: 12px 24px;
-        font-size: 1rem;
-        font-weight: 600;
-        color: white;
-        background-color: var(--primary);
         border: none;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: all 0.3s ease;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 500;
         cursor: pointer;
-      }
-
-      .btn:hover {
-        background-color: rgba(var(--primary-rgb), 0.9);
-        transform: translateY(-2px);
+        transition: all 0.2s;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
       }
 
       .btn-accent {
         background-color: var(--accent);
+        color: var(--dark-bg);
       }
 
       .btn-accent:hover {
-        background-color: rgba(var(--accent-rgb), 0.9);
+        background-color: #6fd894;
+        transform: translateY(-2px);
       }
 
-      /* Chatbot Section */
-      .chatbot-container {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 30px;
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        width: 90%;
-        max-width: 500px;
-        transition: all 0.3s ease;
-        display: none;
-        z-index: 1000;
-      }
-
-      .chatbot-header {
-        margin-bottom: 20px;
-      }
-
-      .chatbot-header h2 {
-        color: var(--dark-bg);
-        margin: 0 0 10px 0;
-      }
-
-      .chatbot-header p {
-        color: var(--body-text);
-        margin: 0;
-        font-size: 0.9rem;
-      }
-
-      .chatbot-tips {
+      .btn-secondary {
         background-color: var(--light-shapes);
-        padding: 15px;
-        border-radius: 8px;
-        margin-bottom: 20px;
+        color: var(--body-text);
       }
 
-      .chatbot-tips h4 {
-        color: var(--primary);
-        margin-top: 0;
-        margin-bottom: 10px;
+      .btn-secondary:hover {
+        background-color: #e5e3e0;
+        transform: translateY(-2px);
       }
 
-      .chatbot-tips ul {
-        padding-left: 20px;
-        margin: 0;
-      }
-
-      .chatbot-tips li {
-        margin-bottom: 8px;
-        font-size: 0.9rem;
-      }
-
-      .chatbot-input {
-        display: flex;
-        gap: 10px;
-      }
-
-      #chatbot-input {
-        flex: 1;
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-family: 'Inter', sans-serif;
-      }
-
-      #chatbot-send {
-        padding: 12px 20px;
-        font-size: 1rem;
-        color: white;
+      .btn-primary {
         background-color: var(--primary);
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+        color: white;
       }
 
-      #chatbot-send:hover {
-        background-color: rgba(var(--primary-rgb), 0.9);
+      .btn-primary:hover {
+        background-color: #6a3fe6;
+        transform: translateY(-2px);
       }
 
-      /* Confirmation Dialog */
-      .confirmation-dialog {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+      .email-preview {
         background-color: white;
-        padding: 30px;
         border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        width: 90%;
-        max-width: 500px;
+        padding: 24px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 24px;
         text-align: center;
+      }
+
+      .email-preview h4 {
+        color: var(--dark-bg);
+        margin-bottom: 16px;
+        font-size: 1.3rem;
+      }
+
+      .email-preview-content {
+        color: var(--body-text);
+      }
+
+      .hidden {
         display: none;
-        z-index: 1001;
-      }
-
-      .confirmation-dialog h2 {
-        color: var(--primary);
-        margin-top: 0;
-      }
-
-      .confirmation-dialog p {
-        margin-bottom: 25px;
-      }
-
-      /* View Backend Button */
-      .view-backend-btn {
-        margin-top: 30px;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .dashboard {
-          grid-template-columns: 1fr;
-        }
       }
     </style>
   </head>
 
   <body>
-    <div class="dashboard">
-      <div class="metrics-grid">
-        <div class="metric-card">
-          <h3>Email Open Rate</h3>
-          <div class="metric-value">24.7%</div>
-          <div class="metric-change">↑ 3.2% from last month</div>
-          <div class="graph-placeholder">
-            <div class="graph-bar" style="left: 15%; height: 40%;"></div>
-            <div class="graph-bar" style="left: 35%; height: 60%;"></div>
-            <div class="graph-bar" style="left: 55%; height: 30%; opacity: 0.5;"></div>
-            <div class="graph-bar" style="left: 75%; height: 80%;"></div>
-          </div>
+    <div class="main-container">
+      <!-- Chat Section -->
+      <div class="chat-section">
+        <div class="chat-header">
+          <h1>AI Email Assistant</h1>
+          <p>Describe your email and I'll create it for you</p>
         </div>
-        <div class="metric-card">
-          <h3>Click-Through Rate</h3>
-          <div class="metric-value">5.8%</div>
-          <div class="metric-change">↑ 1.1% from last month</div>
-          <div class="graph-placeholder">
-            <div class="graph-bar" style="left: 15%; height: 30%;"></div>
-            <div class="graph-bar" style="left: 35%; height: 45%;"></div>
-            <div class="graph-bar" style="left: 55%; height: 40%; opacity: 0.5;"></div>
-            <div class="graph-bar" style="left: 75%; height: 50%;"></div>
-          </div>
+        
+        <div class="chat-messages" id="chatMessages">
+          <!-- Messages will be added here -->
         </div>
-        <div class="metric-card">
-          <h3>Campaigns This Month</h3>
-          <div class="metric-value">12</div>
-          <div class="metric-change">3 in progress</div>
-          <div class="graph-placeholder">
-            <div class="graph-bar" style="left: 15%; height: 40%;"></div>
-            <div class="graph-bar" style="left: 35%; height: 60%;"></div>
-            <div class="graph-bar" style="left: 55%; height: 30%; opacity: 0.5;"></div>
-            <div class="graph-bar" style="left: 75%; height: 80%;"></div>
-          </div>
-        </div>
-        <div class="metric-card">
-          <h3>List Growth</h3>
-          <div class="metric-value">+1,243</div>
-          <div class="metric-change">↑ 8% from last month</div>
-          <div class="graph-placeholder">
-            <div class="graph-bar" style="left: 15%; height: 50%;"></div>
-            <div class="graph-bar" style="left: 35%; height: 70%;"></div>
-            <div class="graph-bar" style="left: 55%; height: 40%; opacity: 0.5;"></div>
-            <div class="graph-bar" style="left: 75%; height: 90%;"></div>
+        
+        <div class="chat-input">
+          <div class="input-container">
+            <textarea 
+              class="input-field" 
+              id="userInput" 
+              placeholder="Describe the email you want to create..."
+              rows="1"
+            ></textarea>
+            <button class="send-button" id="sendButton" onclick="sendMessage()">
+              Send
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="content-area">
-        <img
-          class="hero-image"
-          src="https://blog.ongig.com/wp-content/uploads/2021/10/Social-Media-Influencer-Job-Description.jpg"
-          alt="Creative marketing design"
-        />
-        <h1>Welcome to the Future of Email Design!</h1>
-        <p class="subtitle">
-          Calling all <strong>marketers</strong>, <strong>designers</strong>, and
-          <strong>content creators</strong>! Unleash your creativity and craft
-          stunning emails effortlessly.
-        </p>
-        <div class="ai-button-container">
-          <button id="ai-button" class="btn btn-accent">
-            🤖 Use AI to build your first design
-          </button>
+      <!-- Builder Section -->
+      <div class="builder-section">
+        <div class="welcome-state" id="welcomeState">
+          <h3>Welcome to Your Email Builder!</h3>
+          <p>
+            Start a conversation with our AI assistant on the left to create your perfect email. 
+            The assistant will guide you through the process and generate your email design.
+          </p>
+          <div class="action-buttons">
+            <button class="btn btn-accent" onclick="startNewEmail()">
+              🚀 Start New Email
+            </button>
+          </div>
         </div>
-        <div class="button-group">
-          <a
-            href="https://docs.beefree.io/beefree-sdk/rows/reusable-content/create/save/implement-hosted-saved-rows"
-            target="_blank"
-            class="btn"
-          >
-            Quick Start
-          </a>
-          <a
-            href="https://github.com/mailupinc/beefreeSDKwhiteLabelDocs"
-            target="_blank"
-            class="btn"
-          >
-            Knowledge Base
-          </a>
-        </div>
-        <div class="view-backend-btn">
-          <button id="view-backend-btn" class="btn">View Backend</button>
+        
+        <div id="emailResult" class="hidden">
+          <!-- Email result will be displayed here -->
         </div>
       </div>
-    </div>
-
-    <!-- Chatbot Section -->
-    <div class="chatbot-container" id="chatbot-container">
-      <div class="chatbot-header">
-        <h2>AI Email Design Assistant</h2>
-        <p>Describe your email design and our AI will create it for you</p>
-      </div>
-      <div class="chatbot-tips">
-        <h4>Tips for best results:</h4>
-        <ul>
-          <li>Be specific about the purpose (promotional, newsletter, etc.)</li>
-          <li>Mention any important content sections you want included</li>
-          <li>Describe the style or mood (professional, playful, etc.)</li>
-          <li>Reference any brand colors or design elements</li>
-          <li>Specify if you need mobile-optimized or responsive design</li>
-        </ul>
-      </div>
-      <div class="chatbot-input">
-        <input
-          id="chatbot-input"
-          type="text"
-          placeholder="Example: Create a promotional email for our summer sale with product images, discount codes, and a bright, colorful design..."
-        />
-        <button id="chatbot-send">Generate</button>
-      </div>
-    </div>
-
-    <!-- Confirmation Dialog -->
-    <div class="confirmation-dialog" id="confirmation-dialog">
-      <h2>Hooray! 🎉</h2>
-      <p>Your AI-generated email design is ready!</p>
-      <button id="customize-btn" class="btn btn-accent">Customize my new email</button>
     </div>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const chatbotContainer = document.getElementById('chatbot-container');
-        const aiButton = document.getElementById('ai-button');
-        const chatbotSend = document.getElementById('chatbot-send');
-        const confirmationDialog = document.getElementById('confirmation-dialog');
-        const customizeBtn = document.getElementById('customize-btn');
-        const viewBackendBtn = document.getElementById('view-backend-btn');
+      const chatMessages = document.getElementById('chatMessages');
+      const userInput = document.getElementById('userInput');
+      const sendButton = document.getElementById('sendButton');
+      const welcomeState = document.getElementById('welcomeState');
+      const emailResult = document.getElementById('emailResult');
 
-        // Open chatbot popup when AI button is clicked
-        aiButton.addEventListener('click', () => {
-          chatbotContainer.style.display = 'block';
-        });
+      let isProcessing = false;
 
-        // Chatbot Logic
-        chatbotSend.addEventListener('click', () => {
-          const input = document.getElementById('chatbot-input').value;
-          if (input) {
-            // Hide the chatbox
-            chatbotContainer.style.display = 'none';
-            
-            // Show confirmation dialog
-            confirmationDialog.style.display = 'block';
-          }
-        });
+      // Initialize the chat
+      startNewEmail();
 
-        // Customize button - go to builder
-        customizeBtn.addEventListener('click', () => {
-          window.location.href = 'builder.html';
-        });
-
-        // View backend button
-        viewBackendBtn.addEventListener('click', () => {
-          window.location.href = 'backend.html';
-        });
+      // Handle Enter key in textarea
+      userInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
       });
+
+      // Auto-resize textarea
+      userInput.addEventListener('input', () => {
+        userInput.style.height = 'auto';
+        userInput.style.height = Math.min(userInput.scrollHeight, 120) + 'px';
+      });
+
+      function sendMessage() {
+        if (isProcessing) return;
+        
+        const message = userInput.value.trim();
+        if (!message) return;
+
+        addMessage('user', message);
+        userInput.value = '';
+        userInput.style.height = 'auto';
+        
+        processEmailRequest(message);
+      }
+
+      async function processEmailRequest(userDescription) {
+        isProcessing = true;
+        sendButton.disabled = true;
+        showTypingIndicator();
+
+        try {
+          // Create the prompt for Anthropic
+          const prompt = `Use this email marketer's description of their dream email to design a stunning email that meets all of the requirements they outlined in their description. Here is the description: "${userDescription}". The email you deliver should meet industry best practices in email marketing and adhere to trending design tips from the best email designers in the industry. The final output should be in Beefree SDK's simple template schema format. 
+
+IMPORTANT: Return ONLY a valid JSON object that follows this exact schema structure:
+
+{
+  "template": {
+    "type": "email",
+    "rows": [
+      {
+        "name": "Row Name",
+        "columns": [
+          {
+            "weight": 12,
+            "modules": [
+              {
+                "type": "title",
+                "text": "Your title here"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "settings": {
+      "linkColor": "#0066CC",
+      "background-color": "#ffffff",
+      "contentAreaBackgroundColor": "#ffffff",
+      "width": 600
+    },
+    "metadata": {
+      "title": "Email Template",
+      "description": "Generated email template",
+      "subject": "Your Email Subject",
+      "preheader": "Email preheader text"
+    }
+  }
+}
+
+Available module types: title, paragraph, button, image, divider, html, list, menu, icons
+
+For each module type, include appropriate content. For example:
+- title: {"type": "title", "text": "Your title text"}
+- paragraph: {"type": "paragraph", "text": "Your paragraph text"}
+- button: {"type": "button", "text": "Button text", "href": "https://example.com"}
+- image: {"type": "image", "src": "https://example.com/image.jpg", "alt": "Image description"}
+- divider: {"type": "divider"}
+- html: {"type": "html", "html": "<p>Your HTML content</p>"}
+- list: {"type": "list", "text": "List item text"}
+- menu: {"type": "menu", "items": [{"text": "Link 1", "href": "https://example.com"}]}
+- icons: {"type": "icons", "items": [{"type": "facebook", "href": "https://facebook.com"}]}
+
+Do NOT invent any properties or structures that do not exist in this simple unified schema, strictly use only what is available here. The final email should be delivered in the response as a simple schema template. Make sure the JSON is valid and complete.`;
+
+          // Call Anthropic API
+          const response = await fetch('/api/anthropic', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              prompt: prompt
+            })
+          });
+
+          if (!response.ok) {
+            const errorData = await response.text();
+            console.error('Anthropic API error:', errorData);
+            throw new Error(`Failed to generate email: ${response.status} ${response.statusText}`);
+          }
+
+          const data = await response.json();
+          console.log('Anthropic API response:', data);
+          
+          // Extract the text content from the response
+          let emailJsonText = '';
+          if (data.content && data.content.length > 0) {
+            const textBlock = data.content.find(block => block.type === 'text');
+            if (textBlock) {
+              emailJsonText = textBlock.text;
+            } else {
+              throw new Error('No text content found in API response');
+            }
+          } else {
+            throw new Error('Invalid response structure from Anthropic API');
+          }
+
+          // Parse the JSON from the response
+          let emailJson;
+          try {
+            // First try to find JSON in code blocks
+            const jsonMatch = emailJsonText.match(/```json\s*([\s\S]*?)\s*```/) || 
+                             emailJsonText.match(/```\s*([\s\S]*?)\s*```/);
+            
+            if (jsonMatch) {
+              emailJson = JSON.parse(jsonMatch[1]);
+            } else {
+              // If no code blocks, try to find JSON object in the text
+              const jsonObjectMatch = emailJsonText.match(/\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}/);
+              if (jsonObjectMatch) {
+                emailJson = JSON.parse(jsonObjectMatch[0]);
+              } else {
+                throw new Error('No JSON found in response');
+              }
+            }
+            
+            // Validate that we have the required template structure
+            if (!emailJson.template || !emailJson.template.rows) {
+              throw new Error('Invalid template structure - missing template or rows');
+            }
+            
+            console.log('Parsed email JSON:', emailJson);
+          } catch (parseError) {
+            console.error('JSON parsing error:', parseError);
+            console.error('Raw response text:', emailJsonText);
+            throw new Error(`Invalid JSON format in response: ${parseError.message}`);
+          }
+
+          // Convert simple JSON to full JSON using Beefree API
+          const beefreeResponse = await fetch('/api/beefree/simple-to-full', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              template: emailJson.template
+            })
+          });
+
+          if (!beefreeResponse.ok) {
+            const errorData = await beefreeResponse.text();
+            console.error('Beefree API error:', errorData);
+            
+            // Parse the error details for feedback
+            let errorDetails = '';
+            try {
+              const errorJson = JSON.parse(errorData);
+              errorDetails = errorJson.details || errorData;
+            } catch (e) {
+              errorDetails = errorData;
+            }
+            
+            // Send error feedback to Anthropic for correction
+            addMessage('assistant', 'I need to fix some formatting issues. Let me correct the template...');
+            
+            const correctionPrompt = `The previous template I generated had validation errors from the Beefree API. Here are the specific errors that need to be fixed:
+
+${errorDetails}
+
+The original user request was: "${userDescription}"
+
+Please generate a corrected template that follows the exact Beefree SDK simple schema format. Here are the key corrections needed:
+
+1. For image modules: use "src" instead of "url", "alt" is allowed
+2. For title modules: use "text" instead of "content" 
+3. For paragraph modules: use "text" instead of "content"
+4. For button modules: use "text" instead of "content", "href" instead of "url"
+5. Only include properties that are explicitly defined in the schema
+
+IMPORTANT: Return ONLY a valid JSON object that follows this exact schema structure:
+
+{
+  "template": {
+    "type": "email",
+    "rows": [
+      {
+        "name": "Row Name",
+        "columns": [
+          {
+            "weight": 12,
+            "modules": [
+              {
+                "type": "title",
+                "text": "Your title here"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "settings": {
+      "linkColor": "#0066CC",
+      "background-color": "#ffffff",
+      "contentAreaBackgroundColor": "#ffffff",
+      "width": 600
+    },
+    "metadata": {
+      "title": "Email Template",
+      "description": "Generated email template",
+      "subject": "Your Email Subject",
+      "preheader": "Email preheader text"
+    }
+  }
+}
+
+Available module types and their correct properties:
+- title: {"type": "title", "text": "Your title text"}
+- paragraph: {"type": "paragraph", "text": "Your paragraph text"}
+- button: {"type": "button", "text": "Button text", "href": "https://example.com"}
+- image: {"type": "image", "src": "https://example.com/image.jpg", "alt": "Image description"}
+- divider: {"type": "divider"}
+- html: {"type": "html", "html": "<p>Your HTML content</p>"}
+- list: {"type": "list", "text": "List item text"}
+- menu: {"type": "menu", "items": [{"text": "Link 1", "href": "https://example.com"}]}
+- icons: {"type": "icons", "items": [{"type": "facebook", "href": "https://facebook.com"}]}
+
+Make sure the JSON is valid and follows the exact schema structure.`;
+
+            // Call Anthropic API again with correction prompt
+            const correctionResponse = await fetch('/api/anthropic', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                prompt: correctionPrompt
+              })
+            });
+
+            if (!correctionResponse.ok) {
+              const correctionErrorData = await correctionResponse.text();
+              console.error('Anthropic correction API error:', correctionErrorData);
+              throw new Error(`Failed to correct template: ${correctionResponse.status} ${correctionResponse.statusText}`);
+            }
+
+            const correctionData = await correctionResponse.json();
+            console.log('Anthropic correction response:', correctionData);
+            
+            // Extract and parse the corrected JSON
+            let correctedEmailJsonText = '';
+            if (correctionData.content && correctionData.content.length > 0) {
+              const textBlock = correctionData.content.find(block => block.type === 'text');
+              if (textBlock) {
+                correctedEmailJsonText = textBlock.text;
+              } else {
+                throw new Error('No text content found in correction response');
+              }
+            } else {
+              throw new Error('Invalid response structure from Anthropic correction API');
+            }
+
+            // Parse the corrected JSON
+            let correctedEmailJson;
+            try {
+              const jsonMatch = correctedEmailJsonText.match(/```json\s*([\s\S]*?)\s*```/) || 
+                               correctedEmailJsonText.match(/```\s*([\s\S]*?)\s*```/);
+              
+              if (jsonMatch) {
+                correctedEmailJson = JSON.parse(jsonMatch[1]);
+              } else {
+                const jsonObjectMatch = correctedEmailJsonText.match(/\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}/);
+                if (jsonObjectMatch) {
+                  correctedEmailJson = JSON.parse(jsonObjectMatch[0]);
+                } else {
+                  throw new Error('No JSON found in correction response');
+                }
+              }
+              
+              if (!correctedEmailJson.template || !correctedEmailJson.template.rows) {
+                throw new Error('Invalid corrected template structure - missing template or rows');
+              }
+              
+              console.log('Corrected email JSON:', correctedEmailJson);
+              
+              // Try the Beefree API again with corrected template
+              const correctedBeefreeResponse = await fetch('/api/beefree/simple-to-full', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  template: correctedEmailJson.template
+                })
+              });
+
+              if (!correctedBeefreeResponse.ok) {
+                const correctedErrorData = await correctedBeefreeResponse.text();
+                console.error('Beefree API error after correction:', correctedErrorData);
+                throw new Error(`Failed to convert corrected template: ${correctedBeefreeResponse.status} ${correctedBeefreeResponse.statusText}`);
+              }
+
+              const fullJson = await correctedBeefreeResponse.json();
+              console.log('Full JSON from Beefree after correction:', fullJson);
+
+              // Store the full JSON locally
+              localStorage.setItem('fullEmailJson', JSON.stringify(fullJson));
+
+              // Display success message and show builder button
+              hideTypingIndicator();
+              addMessage('assistant', '🎉 Your email has been created successfully!');
+              
+              // Show the builder button
+              displayBuilderButton();
+              
+            } catch (parseError) {
+              console.error('JSON parsing error in correction:', parseError);
+              console.error('Raw correction response text:', correctedEmailJsonText);
+              throw new Error(`Invalid JSON format in correction response: ${parseError.message}`);
+            }
+            
+          } else {
+            const fullJson = await beefreeResponse.json();
+            console.log('Full JSON from Beefree:', fullJson);
+
+            // Store the full JSON locally
+            localStorage.setItem('fullEmailJson', JSON.stringify(fullJson));
+
+            // Display success message and show builder button
+            hideTypingIndicator();
+            addMessage('assistant', '🎉 Your email has been created successfully!');
+            
+            // Show the builder button
+            displayBuilderButton();
+          }
+
+        } catch (error) {
+          console.error('Error processing email:', error);
+          hideTypingIndicator();
+          addMessage('assistant', `Sorry, there was an error creating your email: ${error.message}`);
+        } finally {
+          isProcessing = false;
+          sendButton.disabled = false;
+        }
+      }
+
+      function displayBuilderButton() {
+        welcomeState.classList.add('hidden');
+        emailResult.classList.remove('hidden');
+        
+        emailResult.innerHTML = `
+          <div class="email-preview">
+            <h4>Your Email is Ready!</h4>
+            <div class="email-preview-content">
+              <p>Your email template has been generated and is ready for customization.</p>
+            </div>
+          </div>
+          <div class="action-buttons">
+            <button class="btn btn-primary" onclick="openInBuilder()">
+              🎨 Edit your design in the builder
+            </button>
+            <button class="btn btn-secondary" onclick="startNewEmail()">
+              ➕ Create Another Email
+            </button>
+          </div>
+        `;
+      }
+
+      function addMessage(sender, text) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}`;
+        messageDiv.textContent = text;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message typing';
+        typingDiv.id = 'typing-indicator';
+        typingDiv.innerHTML = `
+          <span>AI is thinking</span>
+          <div class="typing-dots">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        `;
+        chatMessages.appendChild(typingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function hideTypingIndicator() {
+        const typingIndicator = document.getElementById('typing-indicator');
+        if (typingIndicator) {
+          typingIndicator.remove();
+        }
+      }
+
+      function startNewEmail() {
+        isProcessing = false;
+        sendButton.disabled = false;
+        
+        chatMessages.innerHTML = '';
+        welcomeState.classList.remove('hidden');
+        emailResult.classList.add('hidden');
+
+        setTimeout(() => {
+          addMessage('assistant', 'Welcome to your AI-powered Email Creation Assistant! 👋');
+          setTimeout(() => {
+            addMessage('assistant', 'Describe the email you want to create, and I\'ll generate it for you.');
+          }, 1000);
+        }, 500);
+      }
+
+      function openInBuilder() {
+        const fullJson = localStorage.getItem('fullEmailJson');
+        if (fullJson) {
+          // Store the email data in localStorage for the builder
+          localStorage.setItem('emailData', encodeURIComponent(fullJson));
+          window.location.href = 'builder.html';
+        } else {
+          alert('No email data found. Please create an email first.');
+        }
+      }
     </script>
   </body>
 </html>
