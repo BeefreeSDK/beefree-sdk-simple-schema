@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Beefree SDK - Hosted Saved Rows Integration Example</title>
+    <title>Beefree SDK - Email Builder</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Link to the static styles.css file -->
-    <link rel="stylesheet" href="simple-schema-concept/styles.css" />
     <style type="text/css">
       * {
         margin: 0px;
@@ -14,328 +12,178 @@
 
       body {
         overflow: hidden;
-        background-color: #cccccc;
+        background-color: #f5f5f5;
         color: #000000;
+        font-family: Arial, sans-serif;
       }
 
       #bee-plugin-container {
         position: absolute;
-        top: 5px;
-        bottom: 30px;
-        left: 5px;
-        right: 5px;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
       }
 
-      #integrator-bottom-bar {
+      .loading {
         position: absolute;
-        height: 25px;
-        bottom: 0px;
-        left: 5px;
-        right: 0px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+        color: #666;
+      }
+
+      .error {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 16px;
+        color: #d32f2f;
+        text-align: center;
+        max-width: 400px;
       }
     </style>
   </head>
 
   <body>
     <div id="bee-plugin-container"></div>
-    <div id="integrator-bottom-bar">
-      <!-- You can change the download function to get the JSON and use this input to load it -->
-      Select template to load:
-      <input id="choose-template" type="file" />
-      <!-- You need to provide a send function to use this input field -->
-      Send test e-mail to:
-      <input id="integrator-test-emails" type="text" />
-    </div>
-  </body>
 
-  <script src="Blob.js"></script>
-  <script src="fileSaver.js"></script>
-  <script src="credentials.js"></script>
-  <!-- Include the new credentials file -->
-  <script src="https://app-rsrc.getbee.io/plugin/BeePlugin.js"></script>
+    <!-- Include the Beefree SDK -->
+    <script src="https://app-rsrc.getbee.io/plugin/BeePlugin.js"></script>
 
-  <script type="text/javascript">
-    // Check for selected template from localStorage
-    let selectedTemplate = null;
-    try {
-      const storedTemplate = localStorage.getItem('selectedTemplate');
-      if (storedTemplate) {
-        const { id, data } = JSON.parse(storedTemplate);
-        selectedTemplate = data;
-        console.log('Loaded template from storage:', id);
-        
-        // Clear the stored template after loading
-        localStorage.removeItem('selectedTemplate');
+    <script type="text/javascript">
+      // Check for email data from localStorage
+      let selectedTemplate = null;
+      try {
+        const emailData = localStorage.getItem('fullEmailJson');
+        if (emailData) {
+          selectedTemplate = JSON.parse(emailData);
+          console.log('Loaded email data from storage:', selectedTemplate);
+          
+          // Clear the stored data after loading
+          localStorage.removeItem('fullEmailJson');
+        }
+      } catch (e) {
+        console.error('Error parsing email data:', e);
       }
-    } catch (e) {
-      console.error('Error parsing template:', e);
-    }
 
-    var save = function (filename, content) {
-      saveAs(
-        new Blob([content], { type: "text/plain;charset=utf-8" }),
-        filename
-      );
-    };
-
-    var specialLinks = [
-      {
-        type: "unsubscribe",
-        label: "SpecialLink.Unsubscribe",
-        link: "http://[unsubscribe]/",
-      },
-      {
-        type: "subscribe",
-        label: "SpecialLink.Subscribe",
-        link: "http://[subscribe]/",
-      },
-    ];
-
-    var mergeTags = [
-      {
-        name: "tag 1",
-        value: "[tag1]",
-      },
-      {
-        name: "tag 2",
-        value: "[tag2]",
-      },
-    ];
-
-    var mergeContents = [
-      {
-        name: "content 1",
-        value: "[content1]",
-      },
-      {
-        name: "content 2",
-        value: "[content2]",
-      },
-    ];
-
-    function userInput(message, sample) {
-      return function handler(resolve, reject) {
-        var data = prompt(message, JSON.stringify(sample));
-        return data == null || data == ""
-          ? reject()
-          : resolve(JSON.parse(data));
+      // Beefree configuration
+      const beeConfig = {
+        container: 'bee-plugin-container',
+        uid: 'demo-user-' + Date.now(),
+        language: 'en-US',
+        specialLinks: [
+          {
+            type: "unsubscribe",
+            label: "Unsubscribe",
+            link: "http://[unsubscribe]/",
+          },
+          {
+            type: "subscribe",
+            label: "Subscribe",
+            link: "http://[subscribe]/",
+          },
+        ],
+        mergeTags: [
+          {
+            name: "First Name",
+            value: "[first_name]",
+          },
+          {
+            name: "Last Name",
+            value: "[last_name]",
+          },
+          {
+            name: "Email",
+            value: "[email]",
+          },
+        ],
+        onSave: function (jsonFile, htmlFile) {
+          console.log("Template saved:", jsonFile);
+          // You can implement custom save logic here
+        },
+        onAutoSave: function (jsonFile) {
+          console.log("Auto-saving template...");
+          localStorage.setItem("email.autosave", jsonFile);
+        },
+        onSend: function (htmlFile) {
+          console.log("Email ready to send:", htmlFile);
+          // You can implement custom send logic here
+        },
+        onError: function (errorMessage) {
+          console.error("Beefree SDK error:", errorMessage);
+          document.getElementById('bee-plugin-container').innerHTML = 
+            '<div class="error">Error loading Beefree SDK: ' + errorMessage.message + '</div>';
+        }
       };
-    }
 
-    // Change this uid to switch user
-    var uid = "Designer";
-
-    var beeConfig = {
-      uid: uid, // [mandatory]
-      container: "bee-plugin-container", // [mandatory]
-      language: "en-US",
-      trackChanges: true,
-      specialLinks: specialLinks,
-      mergeTags: mergeTags,
-      mergeContents: mergeContents,
-      translations: {
-        "hosted-content": {
-          "save-row-modal-title": "Hello Row",
-          "save-row-modal-content-title": "Enjoy your new saved row!",
-        },
-      },
-      saveRows: uid === "Admin" || uid === "Designer",
-      defaultTabsOrder: ["rows", "settings", "content"],
-      customCss: 'styles.css',
-      contentDialog: {
-        specialLinks: {
-          label: "Add a custom Special Link",
-          handler: userInput("Enter the deep link:", {
-            type: "custom",
-            label: "external special link",
-            link: "http://www.example.com",
-          }),
-        },
-        mergeTags: {
-          label: "Add custom tag 2",
-          handler: userInput("Enter the merge tag:", {
-            name: "name",
-            value: "[name]",
-          }),
-        },
-        mergeContents: {
-          label: "Choose a custom merge content",
-          handler: userInput("Enter the merge content:", {
-            name: "my custom content",
-            value: "{my-custom-content}",
-          }),
-        },
-        rowDisplayConditions: {
-          label: "Open builder",
-          handler: userInput("Enter the row display condition:", {
-            type: "People",
-            label: "Person is a developer",
-            description: "Check if a person is a developer",
-            before: "{if job == 'developer'}",
-            after: "{endif}",
-          }),
-        },
-      },
-      advancedPermissions: {
-        rows: {
-          behaviors: {
-            canDeleteHostedRow: uid === "Admin",
-            canEditHostedRow: uid === "Admin" || uid === "Designer",
-            canManageHostedRowCategory: uid === "Admin",
-            canAddHostedRowCategory: uid === "Admin",
+      // Function to get Beefree token using our proxy
+      function getBeeToken(callback) {
+        fetch('/api/beefree/auth', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
           },
-        },
-        tabs: {
-          rows: {
-            locked: false,
-            show: true,
-          },
-          settings: {
-            locked: false,
-            show: true,
-          },
-          content: {
-            locked: false,
-            show: true,
-          },
-        },
-      },
-      onChange: function (jsonFile, response) {
-        console.log("json", jsonFile);
-        console.log("response", response);
-      },
-      onSave: function (jsonFile, htmlFile) {
-        save("newsletter.html", htmlFile);
-      },
-      onSaveAsTemplate: function (jsonFile) {
-        // + thumbnail?
-        save("newsletter-template.json", jsonFile);
-      },
-      onAutoSave: function (jsonFile) {
-        // + thumbnail?
-        console.log(new Date().toISOString() + " autosaving...");
-        window.localStorage.setItem("newsletter.autosave", jsonFile);
-      },
-      onSend: function (htmlFile) {
-        const email = document.getElementById('integrator-test-emails').value;
-        if (email) {
-          alert(`Test email would be sent to: ${email}`);
-        } else {
-          alert("Please enter an email address");
-        }
-      },
-      onError: function (errorMessage) {
-        console.log("onError ", errorMessage);
-        if (errorMessage.code === 5101 || errorMessage.code === 5102) {
-          // Token expired or needs refresh
-          getBeeToken(function(token) {
-            if (errorMessage.code === 5101) {
-              bee.updateToken(token);
-            } else if (errorMessage.code === 5102) {
-              // Need to create a new instance
-              BeePlugin.create(token, beeConfig, function(beePluginInstance) {
-                bee = beePluginInstance;
-                bee.start(errorMessage.template || {});
-              });
-            }
-          });
-        }
-      }
-    };
-
-    var bee = null;
-
-    // Function to get Beefree token using V2 auth
-    function getBeeToken(callback) {
-      fetch('http://localhost:3001/proxy/bee-auth', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          client_id: credentials.client_id,
-          client_secret: credentials.client_secret,
-          uid: beeConfig.uid
+          body: JSON.stringify({
+            client_id: 'fa75c918-7634-4313-849b-8ae79632ebc0',
+            client_secret: 'NVWjIkIwQRXRBUqJSXAKCTVpjB1539Qo5pEY9jBeA5i2CbqaFgMS',
+            uid: beeConfig.uid
+          })
         })
-      })
-      .then(response => {
-        if (!response.ok) throw new Error('Auth failed');
-        return response.json();
-      })
-      .then(data => {
-        callback(data);
-      })
-      .catch(error => {
-        console.error('Error getting Beefree token:', error);
-        alert('Failed to authenticate with Beefree. Please try again.');
-      });
-    }
-
-    document
-      .getElementById("choose-template")
-      .addEventListener("change", function(e) {
-        var templateFile = e.target.files[0];
-        var reader = new FileReader();
-
-        reader.onload = function () {
-          var templateString = reader.result;
-          var template = JSON.parse(templateString);
-          bee.load(template);
-        };
-
-        reader.readAsText(templateFile);
-      });
-
-    // Initialize Beefree SDK with V2 auth
-    getBeeToken(function(token) {
-      BeePlugin.create(token, beeConfig, function (beePluginInstance) {
-        bee = beePluginInstance;
-
-        // Check if we have a template to load
-        if (selectedTemplate) {
-          try {
-            bee.start(selectedTemplate);
-            console.log('Initialized with stored template');
-          } catch (error) {
-            console.error('Error loading template:', error);
-            // Fallback to response.json
-            loadResponseJson();
-          }
-        } else {
-          // Check for autosave
-          const autosave = localStorage.getItem("newsletter.autosave");
-          if (autosave) {
-            try {
-              bee.start(JSON.parse(autosave));
-              console.log('Loaded autosaved template');
-            } catch (e) {
-              console.error('Error parsing autosave:', e);
-              // Fallback to response.json
-              loadResponseJson();
-            }
-          } else {
-            // Load response.json as the default template
-            loadResponseJson();
-          }
-        }
-      });
-    });
-
-    // Function to load response.json
-    function loadResponseJson() {
-      fetch('response.json')
-        .then(response => response.json())
-        .then(template => {
-          if (bee) {
-            bee.start(template);
-            console.log('Loaded response.json template');
-          }
+        .then(response => {
+          if (!response.ok) throw new Error('Auth failed: ' + response.status);
+          return response.json();
+        })
+        .then(data => {
+          callback(data);
         })
         .catch(error => {
-          console.error('Error loading response.json:', error);
-          // Fallback to empty template
-          if (bee) bee.start();
+          console.error('Error getting Beefree token:', error);
+          document.getElementById('bee-plugin-container').innerHTML = 
+            '<div class="error">Failed to authenticate with Beefree. Please check your credentials and try again.</div>';
         });
-    }
-  </script>
+      }
+
+      // Initialize Beefree SDK
+      function initializeBeefree(authResponse) {
+        BeePlugin.create(authResponse, beeConfig, function (beePluginInstance) {
+          console.log('Beefree SDK initialized successfully');
+          
+          // Check if we have a template to load
+          if (selectedTemplate) {
+            try {
+              beePluginInstance.start(selectedTemplate);
+              console.log('Loaded template from localStorage');
+            } catch (error) {
+              console.error('Error loading template:', error);
+              // Fallback to empty template
+              beePluginInstance.start();
+            }
+          } else {
+            // Check for autosave
+            const autosave = localStorage.getItem("email.autosave");
+            if (autosave) {
+              try {
+                beePluginInstance.start(JSON.parse(autosave));
+                console.log('Loaded autosaved template');
+              } catch (e) {
+                console.error('Error parsing autosave:', e);
+                // Fallback to empty template
+                beePluginInstance.start();
+              }
+            } else {
+              // Start with empty template
+              beePluginInstance.start();
+              console.log('Started with empty template');
+            }
+          }
+        });
+      }
+
+      // Start the initialization process
+      getBeeToken(initializeBeefree);
+    </script>
+  </body>
 </html>
