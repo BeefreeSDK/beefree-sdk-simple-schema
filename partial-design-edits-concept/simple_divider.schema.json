@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "simple_divider.schema.json",
+    "title": "Simple Divider",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "type": {
+        "const": "divider"
+      },
+      "color":{
+        "type": "string"
+      },
+       "height": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 30
+      },
+      "width": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "padding-top": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-right": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-bottom": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-left": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "locked": {
+        "type": "boolean"
+      },
+      "customFields": {
+        "type": "object"
+      }
+    }
+  }

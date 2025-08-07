@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "simple_button.schema.json",
+  "title": "Simple Button",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "const": "button"
+    },
+    "label": {
+      "type": "string",
+      "format": "noAnchorTags"
+    },
+    "text": {
+      "type": "string",
+      "format": "noAnchorTags"
+    },
+    "align": {
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    },
+    "href": {
+      "type": "string"
+    },
+    "target": {
+      "enum": [
+        "_blank",
+        "_self",
+        "_top"
+      ]
+    },
+    "size": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "color": {
+      "type": "string"
+    },
+    "background-color": {
+      "type": "string"
+    },
+    "padding-top": {
+      "$ref": "definitions.schema.json#/definitions/padding"
+    },
+    "padding-right": {
+      "$ref": "definitions.schema.json#/definitions/padding"
+    },
+    "padding-bottom": {
+      "$ref": "definitions.schema.json#/definitions/padding"
+    },
+    "padding-left": {
+      "$ref": "definitions.schema.json#/definitions/padding"
+    },
+    "contentPaddingTop": {
+      "$ref": "definitions.schema.json#/definitions/padding"
+    },
+    "contentPaddingRight": {
+      "$ref": "definitions.schema.json#/definitions/padding"
+    },
+    "contentPaddingLeft": {
+      "$ref": "definitions.schema.json#/definitions/padding"
+    },
+    "contentPaddingBottom": {
+      "$ref": "definitions.schema.json#/definitions/padding"
+    },
+    "hoverBackgroundColor": {
+      "type": "string"
+    },
+    "hoverColor": {
+      "type": "string"
+    },
+    "hoverBorderColor": {
+      "type": "string"
+    },
+    "hoverBorderWidth": {
+      "$ref": "definitions.schema.json#/definitions/borderWidth"
+    },
+    "locked": {
+      "type": "boolean"
+    },
+    "border-radius": {
+      "$ref": "definitions.schema.json#/definitions/borderRadius"
+    },
+    "border-color": {
+      "type": "string"
+    },
+    "border-width": {
+      "$ref": "definitions.schema.json#/definitions/borderWidth"
+    },
+    "customFields": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "simple_icons.schema.json",
+    "title": "Simple Icons",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "type": {
+        "const": "icons"
+      },
+      "icons": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "image",
+            "textPosition",
+            "width",
+            "height"
+          ],
+          "properties": {
+            "alt": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string",
+              "format": "urlOrMergeTags"
+            },
+            "href": {
+              "type": "string",
+              "format": "urlOrMergeTagsOrEmpty"
+            },
+            "height": {
+              "type": "string"
+            },
+            "width": {
+              "type": "string"
+            },
+            "target": {
+              "enum": [
+                "_blank",
+                "_self",
+                "_top"
+              ]
+            },
+            "textPosition": {
+              "enum": [
+                "left",
+                "right",
+                "top",
+                "bottom"
+              ]
+            }
+          }
+        }
+      },
+      "padding-top": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-right": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-bottom": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-left": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "locked": {
+        "type": "boolean"
+      },
+      "customFields": {
+        "type": "object"
+      }
+    }
+  }
