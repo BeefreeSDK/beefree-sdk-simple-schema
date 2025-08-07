@@ -1,0 +1,89 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "simple_column.schema.json",
+    "title": "Simple Column",
+    "type": "object",
+    "required": [
+      "weight",
+      "modules"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "weight": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 12
+      },
+      "background-color": {
+        "type": "string"
+      },
+      "padding-top": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-right": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-bottom": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-left": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "border-color": {
+        "type": "string"
+      },
+      "border-width": {
+        "$ref": "definitions.schema.json#/definitions/borderWidth"
+      },
+      "modules": {
+        "type": "array",
+        "minItems": 0,
+        "items": {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "discriminator": {
+            "propertyName": "type"
+          },
+          "properties": {
+            "type": {
+              "$ref": "definitions.schema.json#/definitions/typeOfModules"
+            }
+          },
+          "oneOf": [
+            {
+              "$ref": "simple_button.schema.json"
+            },
+            {
+              "$ref": "simple_divider.schema.json"
+            },
+            {
+              "$ref": "simple_html.schema.json"
+            },
+            {
+              "$ref": "simple_icons.schema.json"
+            },
+            {
+              "$ref": "simple_image.schema.json"
+            },
+            {
+              "$ref": "simple_list.schema.json"
+            },
+            {
+              "$ref": "simple_menu.schema.json"
+            },
+            {
+              "$ref": "simple_paragraph.schema.json"
+            },
+            {
+              "$ref": "simple_title.schema.json"
+            }
+          ]
+        }
+      },
+      "customFields": {
+        "type": "object"
+      }
+    }
+  }

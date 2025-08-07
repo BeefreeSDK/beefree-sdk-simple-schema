@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AI Email Creation Assistant</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* General Styles */
+      :root {
+        --primary: #7747FF;
+        --primary-rgb: 119, 71, 255;
+        --accent: #82EDA8;
+        --accent-rgb: 130, 237, 168;
+        --background: #FBF9FF;
+        --dark-bg: #26045D;
+        --light-shapes: #F1F0EE;
+        --body-text: #272D3D;
+        --alt-text: #140231;
+        --chat-bg: #FFFFFF;
+        --chat-border: #E5E7EB;
+        --user-message-bg: #7747FF;
+        --assistant-message-bg: #F3F4F6;
+        --user-message-text: #FFFFFF;
+        --assistant-message-text: #374151;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background);
+        color: var(--body-text);
+        line-height: 1.6;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .main-container {
+        display: flex;
+        height: 100vh;
+      }
+
+      /* Header Section */
+      .header-section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background-color: var(--chat-bg);
+        border-bottom: 1px solid var(--chat-border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        z-index: 1000;
+      }
+
+      .header-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--dark-bg);
+      }
+
+      .upload-section {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .upload-button {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .upload-button:hover {
+        background-color: #6a3fe6;
+      }
+
+      .file-input {
+        display: none;
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-content {
+        background-color: var(--chat-bg);
+        margin: 5% auto;
+        padding: 30px;
+        border-radius: 12px;
+        width: 80%;
+        max-width: 600px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .modal-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--dark-bg);
+        margin: 0;
+      }
+
+      .close-button {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--body-text);
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background-color 0.2s;
+      }
+
+      .close-button:hover {
+        background-color: var(--light-shapes);
+      }
+
+      .modal-body {
+        margin-bottom: 20px;
+      }
+
+      .modal-textarea {
+        width: 100%;
+        min-height: 300px;
+        padding: 15px;
+        border: 2px solid var(--chat-border);
+        border-radius: 8px;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 14px;
+        line-height: 1.4;
+        resize: vertical;
+        background-color: var(--background);
+      }
+
+      .modal-textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+
+      .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+
+      .modal-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .modal-button.primary {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .modal-button.primary:hover {
+        background-color: #6a3fe6;
+      }
+
+      .modal-button.secondary {
+        background-color: var(--light-shapes);
+        color: var(--body-text);
+      }
+
+      .modal-button.secondary:hover {
+        background-color: #e5e5e5;
+      }
+
+      /* Chat Section */
+      .chat-section {
+        width: 33.33%;
+        background-color: var(--chat-bg);
+        border-right: 1px solid var(--chat-border);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-top: 60px;
+        height: calc(100vh - 60px);
+      }
+
+      .chat-header {
+        padding: 20px;
+        border-bottom: 1px solid var(--chat-border);
+        background-color: var(--chat-bg);
+      }
+
+      .chat-header h1 {
+        margin: 0;
+        font-size: 1.3rem;
+        color: var(--dark-bg);
+        font-weight: 600;
+      }
+
+      .chat-header p {
+        margin: 5px 0 0 0;
+        color: var(--body-text);
+        font-size: 0.85rem;
+        opacity: 0.8;
+      }
+
+      .chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .message {
+        max-width: 85%;
+        padding: 12px 16px;
+        border-radius: 18px;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        word-wrap: break-word;
+      }
+
+      .message.user {
+        background-color: var(--user-message-bg);
+        color: var(--user-message-text);
+        align-self: flex-end;
+        margin-left: auto;
+      }
+
+      .message.assistant {
+        background-color: var(--assistant-message-bg);
+        color: var(--assistant-message-text);
+        align-self: flex-start;
+      }
+
+      .message.typing {
+        background-color: var(--assistant-message-bg);
+        color: var(--assistant-message-text);
+        align-self: flex-start;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .typing-dots {
+        display: flex;
+        gap: 4px;
+      }
+
+      .typing-dot {
+        width: 6px;
+        height: 6px;
+        background-color: var(--assistant-message-text);
+        border-radius: 50%;
+        animation: typing 1.4s infinite ease-in-out;
+      }
+
+      .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+      .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+      @keyframes typing {
+        0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+        40% { transform: scale(1); opacity: 1; }
+      }
+
+      .chat-input {
+        padding: 20px;
+        border-top: 1px solid var(--chat-border);
+        background-color: var(--chat-bg);
+      }
+
+      .input-container {
+        display: flex;
+        gap: 10px;
+        align-items: flex-end;
+      }
+
+      .input-field {
+        flex: 1;
+        border: 1px solid var(--chat-border);
+        border-radius: 12px;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        font-family: inherit;
+        resize: none;
+        min-height: 44px;
+        max-height: 120px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+
+      .input-field:focus {
+        border-color: var(--primary);
+      }
+
+      .send-button {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        min-width: 60px;
+      }
+
+      .send-button:hover {
+        background-color: #6a3fe6;
+      }
+
+      .send-button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      /* Builder Section */
+      .builder-section {
+        width: 66.67%;
+        background-color: var(--background);
+        margin-top: 60px;
+        height: calc(100vh - 60px);
+        position: relative;
+      }
+
+      #bee-plugin-container {
+        width: 100%;
+        height: 100%;
+      }
+
+      .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+        color: #666;
+      }
+
+      .error {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 16px;
+        color: #d32f2f;
+        text-align: center;
+        max-width: 400px;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <div class="header-section">
+      <div class="header-title">AI Email Creation Assistant</div>
+      <div class="upload-section">
+        <input type="file" id="templateFile" class="file-input" accept=".json" />
+        <button class="upload-button" onclick="document.getElementById('templateFile').click()">
+          📁 Upload Template
+        </button>
+        <button class="upload-button" onclick="openPasteModal()">
+          📋 Paste Template JSON
+        </button>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <!-- Chat Section -->
+      <div class="chat-section">
+        <div class="chat-header">
+          <h1>AI Assistant</h1>
+          <p>Chat with AI to edit your design</p>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+          <!-- Messages will be added here -->
+        </div>
+        
+        <div class="chat-input">
+          <div class="input-container">
+            <textarea 
+              class="input-field" 
+              id="userInput" 
+              placeholder="First save your design. Then, start chatting here to apply edits to parts of your design."
+              rows="1"
+            ></textarea>
+            <button class="send-button" id="sendButton" onclick="sendMessage()">
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Builder Section -->
+      <div class="builder-section">
+        <div id="bee-plugin-container"></div>
+      </div>
+    </div>
+
+    <!-- Paste Template JSON Modal -->
+    <div id="pasteModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Paste Template JSON</h3>
+          <button class="close-button" onclick="closePasteModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p style="margin-bottom: 15px; color: var(--body-text);">
+            Paste your full template JSON here. The JSON should be in the complete Beefree format with all styling and content.
+          </p>
+          <textarea 
+            id="jsonTextarea" 
+            class="modal-textarea" 
+            placeholder="Paste your template JSON here..."
+          ></textarea>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-button secondary" onclick="closePasteModal()">Cancel</button>
+          <button class="modal-button primary" onclick="loadPastedTemplate()">Load Template</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Include the Beefree SDK -->
+    <script src="https://app-rsrc.getbee.io/plugin/BeePlugin.js"></script>
+
+    <script>
+      const chatMessages = document.getElementById('chatMessages');
+      const userInput = document.getElementById('userInput');
+      const sendButton = document.getElementById('sendButton');
+      const templateFile = document.getElementById('templateFile');
+      const pasteModal = document.getElementById('pasteModal');
+      const jsonTextarea = document.getElementById('jsonTextarea');
+
+      let isProcessing = false;
+      let beePluginInstance = null;
+      let currentTemplateData = null;
+      let hasBeenSaved = false;
+      let lastTemplateChange = null; // Store the latest template from onChange
+
+      // Initialize the chat
+      initializeChat();
+
+      // Handle Enter key in textarea
+      userInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+
+      // Auto-resize textarea
+      userInput.addEventListener('input', () => {
+        userInput.style.height = 'auto';
+        userInput.style.height = Math.min(userInput.scrollHeight, 120) + 'px';
+      });
+
+      // Handle file upload
+      templateFile.addEventListener('change', handleFileUpload);
+
+      function initializeChat() {
+        addMessage('assistant', 'First save your design. Then, start chatting here to apply edits to parts of your design.');
+      }
+
+      function handleFileUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          try {
+            const templateData = JSON.parse(e.target.result);
+            currentTemplateData = templateData;
+            
+            // Store in localStorage
+            localStorage.setItem('currentTemplate', JSON.stringify(templateData));
+            
+            // Load into Beefree SDK
+            if (beePluginInstance) {
+              beePluginInstance.start(templateData);
+              addMessage('assistant', '✅ Template uploaded and loaded successfully! You can now save it and start chatting to make edits.');
+            } else {
+              addMessage('assistant', '✅ Template uploaded! The editor will load it once ready.');
+            }
+          } catch (error) {
+            console.error('Error parsing template file:', error);
+            addMessage('assistant', '❌ Error: Invalid JSON file. Please check your template file.');
+          }
+        };
+        reader.readAsText(file);
+      }
+
+      // Modal functions for pasting template JSON
+      function openPasteModal() {
+        pasteModal.style.display = 'block';
+        jsonTextarea.value = '';
+        jsonTextarea.focus();
+      }
+
+      function closePasteModal() {
+        pasteModal.style.display = 'none';
+        jsonTextarea.value = '';
+      }
+
+      function loadPastedTemplate() {
+        const jsonText = jsonTextarea.value.trim();
+        if (!jsonText) {
+          alert('Please paste some JSON content first.');
+          return;
+        }
+
+        try {
+          const templateData = JSON.parse(jsonText);
+          currentTemplateData = templateData;
+          
+          // Store in localStorage
+          localStorage.setItem('currentTemplate', JSON.stringify(templateData));
+          
+          // Load into Beefree SDK
+          if (beePluginInstance) {
+            beePluginInstance.start(templateData);
+            addMessage('assistant', '✅ Template pasted and loaded successfully! You can now save it and start chatting to make edits.');
+          } else {
+            addMessage('assistant', '✅ Template pasted! The editor will load it once ready.');
+          }
+          
+          // Close the modal
+          closePasteModal();
+        } catch (error) {
+          console.error('Error parsing pasted JSON:', error);
+          alert('❌ Error: Invalid JSON format. Please check your template JSON and try again.');
+        }
+      }
+
+      // Close modal when clicking outside of it
+      window.onclick = function(event) {
+        if (event.target === pasteModal) {
+          closePasteModal();
+        }
+      }
+
+      function sendMessage() {
+        if (isProcessing) return;
+        
+        const message = userInput.value.trim();
+        if (!message) return;
+
+        if (!hasBeenSaved) {
+          addMessage('assistant', 'Please save your design first by clicking the Save button in the editor, then try chatting again.');
+          userInput.value = '';
+          userInput.style.height = 'auto';
+          return;
+        }
+
+        addMessage('user', message);
+        userInput.value = '';
+        userInput.style.height = 'auto';
+        
+        processEditRequest(message);
+      }
+
+      async function processEditRequest(userRequest) {
+        isProcessing = true;
+        sendButton.disabled = true;
+        showTypingIndicator();
+        
+        let updatedFullJson; // Declare the variable here
+
+        try {
+          // Step 1: Get the full JSON template from onChange (clean data)
+          addMessage('assistant', '🔄 Loading your current template...');
+          
+          // Use the clean template data from onChange if available, otherwise fall back to localStorage
+          let fullTemplate;
+          if (lastTemplateChange) {
+            console.log('Using clean template data from onChange');
+            fullTemplate = lastTemplateChange;
+          } else {
+            console.log('Falling back to localStorage template');
+            const currentTemplate = localStorage.getItem('currentTemplate');
+            if (!currentTemplate) {
+              throw new Error('No template found. Please upload or create a template first.');
+            }
+            
+            try {
+              fullTemplate = JSON.parse(currentTemplate);
+            } catch (error) {
+              console.error('Error parsing template from localStorage:', error);
+              throw new Error('Invalid template data in localStorage');
+            }
+          }
+          
+          console.log('Full template loaded:', fullTemplate);
+
+          // Step 2: Convert full JSON to simple JSON using Beefree API
+          addMessage('assistant', '🔄 Converting template to simple format...');
+          console.log('Converting full JSON to simple JSON...');
+          console.log('Full template type:', typeof fullTemplate);
+          console.log('Full template keys:', Object.keys(fullTemplate || {}));
+          
+          // If fullTemplate is already a string, parse it first
+          let templateToSend = fullTemplate;
+          if (typeof fullTemplate === 'string') {
+            try {
+              templateToSend = JSON.parse(fullTemplate);
+            } catch (error) {
+              console.error('Error parsing template string:', error);
+              throw new Error('Invalid template data format');
+            }
+          }
+          
+          const simpleResponse = await fetch('/api/beefree/full-to-simple', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(templateToSend)
+          });
+
+          if (!simpleResponse.ok) {
+            const errorData = await simpleResponse.text();
+            console.error('Beefree full-to-simple API error:', errorData);
+            throw new Error(`Failed to convert template: ${simpleResponse.status} ${simpleResponse.statusText}`);
+          }
+
+          const simpleData = await simpleResponse.json();
+          console.log('Simple JSON received from Beefree:', simpleData);
+          
+          // Small delay to show the conversion step
+          await new Promise(resolve => setTimeout(resolve, 1000));
+
+          // Step 3: Call Anthropic API with instructions, prompt, schema reference, simple JSON, and user request
+          addMessage('assistant', '🤖 AI is analyzing your request and making changes...');
+          console.log('Calling Anthropic API with edit request...');
+          
+          // Load the unified schema for reference
+          const schemaResponse = await fetch('/simple_unified.schema.json');
+          const unifiedSchema = await schemaResponse.json();
+          
+          // Calculate template size and determine if we need special handling
+          const templateSize = JSON.stringify(simpleData, null, 2).length;
+          const isLargeTemplate = templateSize > 10000; // 10k+ chars needs special handling
+          
+          let templateToShow = simpleData;
+          let sizeWarning = '';
+          
+          if (isLargeTemplate) {
+            sizeWarning = `🚨 CRITICAL WARNING: This template has ${templateSize} characters. DO NOT RECREATE THE ENTIRE TEMPLATE - THIS WILL CAUSE ERRORS AND TRUNCATION.`;
+          }
+
+          const anthropicPrompt = `🚨 CRITICAL: YOU MUST RETURN A COMPLETE, VALID JSON RESPONSE
+
+TEMPLATE SIZE: ${templateSize} characters (${Math.round(templateSize/50)} lines approx.)
+${isLargeTemplate ? '⚠️ THIS IS A LARGE TEMPLATE - DO NOT RECREATE IT!' : ''}
+
+🎯 YOUR TASK:
+1. Take the existing simple JSON template provided below
+2. Apply ONLY the user's requested edit: "${userRequest}"
+3. Return the COMPLETE template with the edit applied
+4. Ensure the response is VALID JSON that follows simple_template.schema.json
+
+📋 SCHEMA REFERENCE:
+You must follow the simple_unified.schema.json structure:
+- Root: {"template": {...}}
+- Required: "rows" array with at least 1 row
+- Each row needs: "name" (string) and "columns" (array)
+- Each column needs: "weight" (1-12) and "modules" (array)
+- Valid module types: title, paragraph, button, image, divider, html, list, menu, icons
+
+🔴 CRITICAL RULES:
+1. DO NOT RECREATE the template - edit the existing one
+2. DO NOT truncate or cut off the JSON response
+3. DO NOT include markdown formatting (no \`\`\`json blocks)
+4. DO NOT add properties not in the schema
+5. PRESERVE all existing content except what needs to be edited
+
+✅ EDITING APPROACH:
+- If user says "add X": Find the appropriate location and ADD X
+- If user says "change Y to Z": Find Y and CHANGE only that to Z
+- If user says "remove X": Find X and REMOVE only that
+- Everything else stays EXACTLY the same
+
+🚫 FORBIDDEN PROPERTIES:
+- "locked", "uuid", "descriptor", "computedStyle"
+- "href" or "target" for images
+- Complex "link" objects in menu items
+- Any property not defined in the schema
+
+⚠️ RESPONSE SIZE PRIORITY:
+This is your TOP PRIORITY - you MUST return the COMPLETE JSON, even for templates up to 2000 lines.
+To ensure this:
+1. Make MINIMAL edits only
+2. Don't add unnecessary formatting or properties
+3. Focus on the specific change requested
+4. Keep your response efficient
+
+EXISTING TEMPLATE TO EDIT:
+${JSON.stringify(templateToShow, null, 2)}
+
+USER REQUEST: "${userRequest}"
+
+📋 SIMPLE MODULE EXAMPLES:
+PARAGRAPH: {"type": "paragraph", "text": "content", "align": "center", "size": 16, "color": "#000000"}
+TITLE: {"type": "title", "text": "title text", "align": "center", "size": 24, "color": "#000000"}  
+BUTTON: {"type": "button", "text": "button text", "href": "https://example.com", "align": "center", "color": "#ffffff", "background-color": "#0066CC"}
+IMAGE: {"type": "image", "src": "https://example.com/image.jpg", "alt": "description"}
+DIVIDER: {"type": "divider"}
+
+NEW ROW: {"name": "Row Name", "columns": [{"weight": 12, "modules": [/* modules */]}]}
+
+🔧 ERROR HANDLING:
+If the first API call fails, you'll receive detailed Beefree SDK error messages.
+These errors are specific and helpful - use them to fix ONLY the validation issues.
+
+📝 FINAL OUTPUT:
+Return ONLY the complete JSON object - no markdown, no explanations.
+The JSON must be parseable by JSON.parse() and valid according to simple_template.schema.json.
+
+REMEMBER: Your #1 priority is returning a COMPLETE, VALID JSON response up to 2000 lines.`;
+
+          const anthropicResponse = await fetch('/api/anthropic', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              prompt: anthropicPrompt
+            })
+          });
+
+          if (!anthropicResponse.ok) {
+            const errorData = await anthropicResponse.text();
+            console.error('Anthropic API error:', errorData);
+            throw new Error(`Failed to process edit request: ${anthropicResponse.status} ${anthropicResponse.statusText}`);
+          }
+
+          const anthropicData = await anthropicResponse.json();
+          console.log('Anthropic API response:', anthropicData);
+          
+          // Extract the updated simple JSON from Anthropic response
+          let updatedSimpleJsonText = '';
+          if (anthropicData.content && anthropicData.content.length > 0) {
+            const textBlock = anthropicData.content.find(block => block.type === 'text');
+            if (textBlock) {
+              updatedSimpleJsonText = textBlock.text;
+            } else {
+              throw new Error('No text content found in Anthropic API response');
+            }
+          } else {
+            throw new Error('Invalid response structure from Anthropic API');
+          }
+
+          console.log('Raw Anthropic response text:', updatedSimpleJsonText);
+
+          // Parse the updated simple JSON
+          let updatedSimpleJson;
+          try {
+            // Try to find JSON in code blocks first
+            const jsonMatch = updatedSimpleJsonText.match(/```json\s*([\s\S]*?)\s*```/) || 
+                             updatedSimpleJsonText.match(/```\s*([\s\S]*?)\s*```/);
+            
+            if (jsonMatch) {
+              updatedSimpleJson = JSON.parse(jsonMatch[1]);
+            } else {
+              // If no code blocks, try to parse the entire text as JSON
+              updatedSimpleJson = JSON.parse(updatedSimpleJsonText.trim());
+            }
+            
+            console.log('Updated simple JSON parsed:', updatedSimpleJson);
+          
+          // Validate that the AI returned a proper template structure
+          if (!updatedSimpleJson.template) {
+            throw new Error('AI response missing template property. Please ensure the AI returns a complete template object.');
+          }
+          
+          // Small delay to show the AI processing step
+          await new Promise(resolve => setTimeout(resolve, 1000));
+            
+          } catch (parseError) {
+            console.error('JSON parsing error:', parseError);
+            console.error('Raw response text:', updatedSimpleJsonText);
+            throw new Error(`Invalid JSON format in response: ${parseError.message}`);
+          }
+
+          // Step 4: Convert updated simple JSON to full JSON using Beefree API
+          addMessage('assistant', '🔄 Converting changes back to full template format...');
+          console.log('Converting updated simple JSON to full JSON...');
+          
+          const fullResponse = await fetch('/api/beefree/simple-to-full', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedSimpleJson)
+          });
+
+          if (!fullResponse.ok) {
+            const errorData = await fullResponse.text();
+            console.error('Beefree simple-to-full API error:', errorData);
+            
+            // Parse the error details for feedback
+            let errorDetails = '';
+            try {
+              const errorJson = JSON.parse(errorData);
+              errorDetails = errorJson.details || errorData;
+            } catch (e) {
+              errorDetails = errorData;
+            }
+            
+            // Send error feedback to Anthropic for correction
+            addMessage('assistant', 'I need to fix some formatting issues. Let me correct the template...');
+            
+            const correctionPrompt = `🔧 ERROR CORRECTION - FIX VALIDATION ERRORS ONLY
+
+TEMPLATE SIZE: ${JSON.stringify(simpleData, null, 2).length} characters
+⚠️ DO NOT RECREATE - ONLY FIX THE SPECIFIC ERRORS
+
+BEEFREE SDK VALIDATION ERRORS:
+${errorDetails}
+
+USER'S ORIGINAL REQUEST: "${userRequest}"
+
+🎯 YOUR TASK:
+1. Take the original template below
+2. Fix ONLY the properties causing validation errors
+3. Keep everything else EXACTLY the same
+4. Return the COMPLETE corrected template
+
+ORIGINAL TEMPLATE TO FIX:
+${JSON.stringify(simpleData, null, 2)}
+
+📋 COMMON ERRORS TO FIX:
+- Invalid properties: "locked", "uuid", "descriptor", "computedStyle"
+- Wrong property names (e.g., "href" on images, complex "link" objects)
+- Missing required properties (name, columns, weight, modules)
+- Invalid module types or structures
+
+🔧 FIX STRATEGY:
+- Remove forbidden properties
+- Fix property names
+- Add missing required properties
+- Keep ALL other content exactly the same
+
+📝 FINAL OUTPUT:
+Return ONLY the complete corrected JSON - no markdown, no explanations.
+The JSON must be valid according to simple_template.schema.json.
+
+REMEMBER: Fix ONLY the validation errors. Everything else stays the same.`;
+
+            // Call Anthropic API again with correction prompt
+            const correctionResponse = await fetch('/api/anthropic', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                prompt: correctionPrompt
+              })
+            });
+
+            if (!correctionResponse.ok) {
+              const correctionErrorData = await correctionResponse.text();
+              console.error('Anthropic correction API error:', correctionErrorData);
+              throw new Error(`Failed to get correction: ${correctionResponse.status} ${correctionResponse.statusText}`);
+            }
+
+            const correctionData = await correctionResponse.json();
+            console.log('Anthropic correction API response:', correctionData);
+            
+            // Extract the corrected simple JSON from Anthropic response
+            let correctedSimpleJsonText = '';
+            if (correctionData.content && correctionData.content.length > 0) {
+              const textBlock = correctionData.content.find(block => block.type === 'text');
+              if (textBlock) {
+                correctedSimpleJsonText = textBlock.text;
+              } else {
+                throw new Error('No text content found in Anthropic correction API response');
+              }
+            } else {
+              throw new Error('Invalid response structure from Anthropic correction API');
+            }
+
+            console.log('Raw Anthropic correction response text:', correctedSimpleJsonText);
+
+            // Parse the corrected simple JSON
+            let correctedSimpleJson;
+            try {
+              // Try to find JSON in code blocks first
+              const jsonMatch = correctedSimpleJsonText.match(/```json\s*([\s\S]*?)\s*```/) || 
+                               correctedSimpleJsonText.match(/```\s*([\s\S]*?)\s*```/);
+              
+              if (jsonMatch) {
+                correctedSimpleJson = JSON.parse(jsonMatch[1]);
+              } else {
+                // Try to parse the entire response as JSON
+                correctedSimpleJson = JSON.parse(correctedSimpleJsonText);
+              }
+            } catch (parseError) {
+              console.error('Corrected JSON parsing error:', parseError);
+              console.error('Raw correction response text:', correctedSimpleJsonText);
+              throw new Error(`Invalid JSON format in correction response: ${parseError.message}`);
+            }
+
+            console.log('Corrected simple JSON:', correctedSimpleJson);
+
+            // Try the simple-to-full conversion again with the corrected template
+            addMessage('assistant', '🔄 Converting corrected template to full format...');
+            
+            const correctedFullResponse = await fetch('/api/beefree/simple-to-full', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(correctedSimpleJson)
+            });
+
+            if (!correctedFullResponse.ok) {
+              const correctedErrorData = await correctedFullResponse.text();
+              console.error('Beefree corrected simple-to-full API error:', correctedErrorData);
+              throw new Error(`Failed to convert corrected template: ${correctedFullResponse.status} ${correctedFullResponse.statusText}`);
+            }
+
+            updatedFullJson = await correctedFullResponse.json();
+            console.log('Updated full JSON from Beefree (corrected):', updatedFullJson);
+          } else {
+            updatedFullJson = await fullResponse.json();
+            console.log('Updated full JSON from Beefree:', updatedFullJson);
+          }
+
+          // Step 5: Store the updated full JSON and load it in the builder
+          addMessage('assistant', '🔄 Loading updated template into the editor...');
+          
+          // Store the clean template data
+          lastTemplateChange = updatedFullJson;
+          currentTemplateData = updatedFullJson;
+          localStorage.setItem('currentTemplate', JSON.stringify(updatedFullJson));
+
+          // Load the updated template into the Beefree SDK editor
+          if (beePluginInstance) {
+            beePluginInstance.start(updatedFullJson);
+          }
+
+          // Display success message
+          hideTypingIndicator();
+          addMessage('assistant', '✅ Your design has been updated successfully! The changes have been applied to your template.');
+
+        } catch (error) {
+          console.error('Error processing edit request:', error);
+          hideTypingIndicator();
+          addMessage('assistant', `❌ Sorry, there was an error applying your changes: ${error.message}`);
+        } finally {
+          isProcessing = false;
+          sendButton.disabled = false;
+        }
+      }
+
+      function addMessage(sender, text) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}`;
+        messageDiv.textContent = text;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message typing';
+        typingDiv.id = 'typing-indicator';
+        typingDiv.innerHTML = `
+          <span>AI is working on applying your edits to your design</span>
+          <div class="typing-dots">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        `;
+        chatMessages.appendChild(typingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function hideTypingIndicator() {
+        const typingIndicator = document.getElementById('typing-indicator');
+        if (typingIndicator) {
+          typingIndicator.remove();
+        }
+      }
+
+      // Beefree configuration
+      const beeConfig = {
+        container: 'bee-plugin-container',
+        uid: 'demo-user-' + Date.now(),
+        language: 'en-US',
+        trackChanges: true, // Enable onChange tracking
+        specialLinks: [
+          {
+            type: "unsubscribe",
+            label: "Unsubscribe",
+            link: "http://[unsubscribe]/",
+          },
+          {
+            type: "subscribe",
+            label: "Subscribe",
+            link: "http://[subscribe]/",
+          },
+        ],
+        mergeTags: [
+          {
+            name: "First Name",
+            value: "[first_name]",
+          },
+          {
+            name: "Last Name",
+            value: "[last_name]",
+          },
+          {
+            name: "Email",
+            value: "[email]",
+          },
+        ],
+        onSave: function (jsonFile, htmlFile) {
+          console.log("Template saved:", jsonFile);
+          
+          // Store the saved template
+          localStorage.setItem('currentTemplate', JSON.stringify(jsonFile));
+          currentTemplateData = jsonFile;
+          
+          // Mark as saved so user can start chatting
+          hasBeenSaved = true;
+          
+          // Show success message in chat
+          addMessage('assistant', '✅ Design saved successfully! You can now start chatting to apply edits to your design.');
+          
+          // Update the placeholder text
+          userInput.placeholder = "Describe the changes you'd like AI to apply to your design. Include the location of where AI should apply these changes in your design. For example: \"Rewrite the paragraph in row 3 column 2\" or \"Add another row promoting our latest blog posts at the end of the design. The three we want to promote are Simple Schema: @https://developers.beefree.io/blog/simple-schema-a-streamlined-path-to-ai-powered-email-creation-with-beefree-sdk ,   Build and SDK Developer Love: @https://developers.beefree.io/blog/best-practices-for-ai-integrations-and-customization , and Reusable Content: @https://developers.beefree.io/blog/save-and-reuse-content-blocks \"";
+        },
+        onChange: function (jsonFile, response) {
+          console.log("Template changed:", jsonFile);
+          console.log("Change response:", response);
+          
+          // Store the clean template data directly from onChange (no stringification)
+          lastTemplateChange = jsonFile;
+          currentTemplateData = jsonFile;
+          
+          // Also store in localStorage for persistence (but this is the clean version)
+          localStorage.setItem('currentTemplate', JSON.stringify(jsonFile));
+        },
+
+        onSend: function (htmlFile) {
+          console.log("Email ready to send:", htmlFile);
+        },
+        onError: function (errorMessage) {
+          console.error("Beefree SDK error:", errorMessage);
+          document.getElementById('bee-plugin-container').innerHTML = 
+            '<div class="error">Error loading Beefree SDK: ' + errorMessage.message + '</div>';
+        }
+      };
+
+      // Function to get Beefree token using our proxy
+      function getBeeToken(callback) {
+        fetch('/api/beefree/auth', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            client_id: 'fa75c918-7634-4313-849b-8ae79632ebc0',
+            client_secret: 'NVWjIkIwQRXRBUqJSXAKCTVpjB1539Qo5pEY9jBeA5i2CbqaFgMS',
+            uid: beeConfig.uid
+          })
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Auth failed: ' + response.status);
+          return response.json();
+        })
+        .then(data => {
+          callback(data);
+        })
+        .catch(error => {
+          console.error('Error getting Beefree token:', error);
+          document.getElementById('bee-plugin-container').innerHTML = 
+            '<div class="error">Failed to authenticate with Beefree. Please check your credentials and try again.</div>';
+        });
+      }
+
+      // Initialize Beefree SDK
+      function initializeBeefree(authResponse) {
+        BeePlugin.create(authResponse, beeConfig, function (beePlugin) {
+          console.log('Beefree SDK initialized successfully');
+          beePluginInstance = beePlugin;
+          
+          // Check if we have a template to load
+          const savedTemplate = localStorage.getItem('currentTemplate');
+          if (savedTemplate) {
+            try {
+              const templateData = JSON.parse(savedTemplate);
+              beePlugin.start(templateData);
+              currentTemplateData = templateData;
+              console.log('Loaded saved template');
+            } catch (error) {
+              console.error('Error loading saved template:', error);
+              beePlugin.start();
+            }
+          } else {
+            // Start with empty template
+            beePlugin.start();
+            console.log('Started with empty template');
+          }
+        });
+      }
+
+      // Start the initialization process
+      getBeeToken(initializeBeefree);
+    </script>
+  </body>
+</html>

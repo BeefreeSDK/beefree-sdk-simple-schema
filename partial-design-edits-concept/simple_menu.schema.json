@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "simple_menu.schema.json",
+    "title": "Simple Menu",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "type": {
+        "const": "menu"
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "menu-item"
+            },
+            "text": {
+              "type": "string"
+            },
+            "link": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "href": {
+                  "type": "string",
+                  "format": "urlOrMergeTagsOrEmpty"
+                },
+                "target": {
+                  "enum": [
+                    "_blank",
+                    "_self",
+                    "_top"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "padding-top": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-right": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-bottom": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "padding-left": {
+        "$ref": "definitions.schema.json#/definitions/padding"
+      },
+      "locked": {
+        "type": "boolean"
+      },
+      "customFields": {
+        "type": "object"
+      }
+    }
+  }

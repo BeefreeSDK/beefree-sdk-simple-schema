@@ -1,0 +1,871 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "simple_template.schema.json",
+  "definitions": {
+    "padding": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 60
+    },
+    "borderRadius": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 60
+    },
+    "borderWidth": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 30
+    },
+    "typeOfModules": {
+      "enum": [
+        "button",
+        "divider",
+        "heading",
+        "html",
+        "icons",
+        "image",
+        "list",
+        "menu",
+        "paragraph",
+        "title"
+      ]
+    }
+  },
+  "title": "Simple Template",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "template": {
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "type",
+        "rows"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "email",
+            "page",
+            "popup"
+          ]
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "title": "Simple Row",
+            "type": "object",
+            "required": [
+              "name",
+              "columns"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "locked": {
+                "type": "boolean"
+              },
+              "colStackOnMobile": {
+                "type": "boolean"
+              },
+              "rowReverseColStackOnMobile": {
+                "type": "boolean"
+              },
+              "contentAreaBackgroundColor": {
+                "type": "string"
+              },
+              "background-color": {
+                "type": "string"
+              },
+              "background-image": {
+                "type": "string"
+              },
+              "background-position": {
+                "type": "string"
+              },
+              "background-repeat": {
+                "type": "string"
+              },
+              "customFields": {
+                "type": "object"
+              },
+              "border-radius": {
+                "$ref": "#/definitions/borderRadius"
+              },
+              "border-color": {
+                "type": "string"
+              },
+              "border-width": {
+                "$ref": "#/definitions/borderWidth"
+              },
+              "columnsBorderRadius": {
+                "$ref": "#/definitions/borderRadius"
+              },
+              "columnsSpacing": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 99
+              },
+              "vertical-align": {
+                "type": "string",
+                "enum": [
+                  "top",
+                  "middle",
+                  "bottom"
+                ]
+              },
+              "display-condition": {
+                "type": "object",
+                "required": [
+                  "type"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "before": {
+                    "type": "string"
+                  },
+                  "after": {
+                    "type": "string"
+                  }
+                }
+              },
+              "metadata": {
+                "type": "object"
+              },
+              "padding-top": {
+                "$ref": "#/definitions/padding"
+              },
+              "padding-right": {
+                "$ref": "#/definitions/padding"
+              },
+              "padding-bottom": {
+                "$ref": "#/definitions/padding"
+              },
+              "padding-left": {
+                "$ref": "#/definitions/padding"
+              },
+              "columns": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "title": "Simple Column",
+                  "type": "object",
+                  "required": [
+                    "weight",
+                    "modules"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "weight": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 12
+                    },
+                    "background-color": {
+                      "type": "string"
+                    },
+                    "padding-top": {
+                      "$ref": "#/definitions/padding"
+                    },
+                    "padding-right": {
+                      "$ref": "#/definitions/padding"
+                    },
+                    "padding-bottom": {
+                      "$ref": "#/definitions/padding"
+                    },
+                    "padding-left": {
+                      "$ref": "#/definitions/padding"
+                    },
+                    "border-color": {
+                      "type": "string"
+                    },
+                    "border-width": {
+                      "$ref": "#/definitions/borderWidth"
+                    },
+                    "modules": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "discriminator": {
+                          "propertyName": "type"
+                        },
+                        "properties": {
+                          "type": {
+                            "$ref": "#/definitions/typeOfModules"
+                          }
+                        },
+                        "oneOf": [
+                          {
+                            "title": "Simple Button",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "type": {
+                                "const": "button"
+                              },
+                              "label": {
+                                "type": "string",
+                                "format": "noAnchorTags"
+                              },
+                              "text": {
+                                "type": "string",
+                                "format": "noAnchorTags"
+                              },
+                              "align": {
+                                "enum": [
+                                  "left",
+                                  "center",
+                                  "right"
+                                ]
+                              },
+                              "href": {
+                                "type": "string"
+                              },
+                              "target": {
+                                "enum": [
+                                  "_blank",
+                                  "_self",
+                                  "_top"
+                                ]
+                              },
+                              "size": {
+                                "type": "integer",
+                                "minimum": 1
+                              },
+                              "color": {
+                                "type": "string"
+                              },
+                              "background-color": {
+                                "type": "string"
+                              },
+                              "padding-top": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-right": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-bottom": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-left": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "contentPaddingTop": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "contentPaddingRight": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "contentPaddingLeft": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "contentPaddingBottom": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "hoverBackgroundColor": {
+                                "type": "string"
+                              },
+                              "hoverColor": {
+                                "type": "string"
+                              },
+                              "hoverBorderColor": {
+                                "type": "string"
+                              },
+                              "hoverBorderWidth": {
+                                "$ref": "#/definitions/borderWidth"
+                              },
+                              "locked": {
+                                "type": "boolean"
+                              },
+                              "border-radius": {
+                                "$ref": "#/definitions/borderRadius"
+                              },
+                              "border-color": {
+                                "type": "string"
+                              },
+                              "border-width": {
+                                "$ref": "#/definitions/borderWidth"
+                              },
+                              "customFields": {
+                                "type": "object"
+                              }
+                            }
+                          },
+                          {
+                            "title": "Simple Divider",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "type": {
+                                "const": "divider"
+                              },
+                              "color": {
+                                "type": "string"
+                              },
+                              "height": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 30
+                              },
+                              "width": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 100
+                              },
+                              "padding-top": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-right": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-bottom": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-left": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "locked": {
+                                "type": "boolean"
+                              },
+                              "customFields": {
+                                "type": "object"
+                              }
+                            }
+                          },
+                          {
+                            "title": "Simple Html",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "type": {
+                                "const": "html"
+                              },
+                              "html": {
+                                "type": "string"
+                              },
+                              "customFields": {
+                                "type": "object"
+                              },
+                              "locked": {
+                                "type": "boolean"
+                              }
+                            }
+                          },
+                          {
+                            "title": "Simple Icons",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "type": {
+                                "const": "icons"
+                              },
+                              "icons": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "required": [
+                                    "image",
+                                    "textPosition",
+                                    "width",
+                                    "height"
+                                  ],
+                                  "properties": {
+                                    "alt": {
+                                      "type": "string"
+                                    },
+                                    "text": {
+                                      "type": "string"
+                                    },
+                                    "title": {
+                                      "type": "string"
+                                    },
+                                    "image": {
+                                      "type": "string",
+                                      "format": "urlOrMergeTags"
+                                    },
+                                    "href": {
+                                      "type": "string",
+                                      "format": "urlOrMergeTagsOrEmpty"
+                                    },
+                                    "height": {
+                                      "type": "string"
+                                    },
+                                    "width": {
+                                      "type": "string"
+                                    },
+                                    "target": {
+                                      "enum": [
+                                        "_blank",
+                                        "_self",
+                                        "_top"
+                                      ]
+                                    },
+                                    "textPosition": {
+                                      "enum": [
+                                        "left",
+                                        "right",
+                                        "top",
+                                        "bottom"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "padding-top": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-right": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-bottom": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-left": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "locked": {
+                                "type": "boolean"
+                              },
+                              "customFields": {
+                                "type": "object"
+                              }
+                            }
+                          },
+                          {
+                            "title": "Simple Image",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "type": {
+                                "const": "image"
+                              },
+                              "alt": {
+                                "type": "string"
+                              },
+                              "href": {
+                                "type": "string"
+                              },
+                              "src": {
+                                "type": "string",
+                                "format": "urlOrMergeTags"
+                              },
+                              "dynamicSrc": {
+                                "type": "string"
+                              },
+                              "target": {
+                                "enum": [
+                                  "_blank",
+                                  "_self",
+                                  "_top"
+                                ]
+                              },
+                              "padding-top": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-right": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-bottom": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-left": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "locked": {
+                                "type": "boolean"
+                              },
+                              "customFields": {
+                                "type": "object"
+                              }
+                            }
+                          },
+                          {
+                            "title": "Simple List",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "type": {
+                                "const": "list"
+                              },
+                              "underline": {
+                                "type": "boolean"
+                              },
+                              "italic": {
+                                "type": "boolean"
+                              },
+                              "bold": {
+                                "type": "boolean"
+                              },
+                              "html": {
+                                "type": "string"
+                              },
+                              "text": {
+                                "type": "string"
+                              },
+                              "align": {
+                                "enum": [
+                                  "left",
+                                  "center",
+                                  "right"
+                                ]
+                              },
+                              "tag": {
+                                "enum": [
+                                  "ol",
+                                  "ul"
+                                ]
+                              },
+                              "size": {
+                                "type": "integer",
+                                "minimum": 1
+                              },
+                              "color": {
+                                "type": "string"
+                              },
+                              "linkColor": {
+                                "type": "string"
+                              },
+                              "letter-spacing": {
+                                "type": "integer",
+                                "minimum": -99,
+                                "maximum": 99
+                              },
+                              "line-height": {
+                                "type": "number",
+                                "minimum": 0.5,
+                                "maximum": 3,
+                                "multipleOf": 0.00001
+                              },
+                              "padding-top": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-right": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-bottom": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-left": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "locked": {
+                                "type": "boolean"
+                              },
+                              "direction": {
+                                "enum": [
+                                  "ltr",
+                                  "rtl"
+                                ]
+                              },
+                              "customFields": {
+                                "type": "object"
+                              }
+                            }
+                          },
+                          {
+                            "title": "Simple Menu",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "type": {
+                                "const": "menu"
+                              },
+                              "items": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "type": {
+                                      "const": "menu-item"
+                                    },
+                                    "text": {
+                                      "type": "string"
+                                    },
+                                    "link": {
+                                      "type": "object",
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "title": {
+                                          "type": "string"
+                                        },
+                                        "href": {
+                                          "type": "string",
+                                          "format": "urlOrMergeTagsOrEmpty"
+                                        },
+                                        "target": {
+                                          "enum": [
+                                            "_blank",
+                                            "_self",
+                                            "_top"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "padding-top": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-right": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-bottom": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-left": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "locked": {
+                                "type": "boolean"
+                              },
+                              "customFields": {
+                                "type": "object"
+                              }
+                            }
+                          },
+                          {
+                            "title": "Simple Paragraph",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "type": {
+                                "const": "paragraph"
+                              },
+                              "underline": {
+                                "type": "boolean"
+                              },
+                              "italic": {
+                                "type": "boolean"
+                              },
+                              "bold": {
+                                "type": "boolean"
+                              },
+                              "html": {
+                                "type": "string"
+                              },
+                              "text": {
+                                "type": "string"
+                              },
+                              "align": {
+                                "enum": [
+                                  "left",
+                                  "center",
+                                  "right",
+                                  "justify"
+                                ]
+                              },
+                              "size": {
+                                "type": "integer",
+                                "minimum": 1
+                              },
+                              "color": {
+                                "type": "string"
+                              },
+                              "linkColor": {
+                                "type": "string"
+                              },
+                              "letter-spacing": {
+                                "type": "integer",
+                                "minimum": -99,
+                                "maximum": 99
+                              },
+                              "line-height": {
+                                "type": "number",
+                                "minimum": 0.5,
+                                "maximum": 3,
+                                "multipleOf": 0.00001
+                              },
+                              "direction": {
+                                "enum": [
+                                  "ltr",
+                                  "rtl"
+                                ]
+                              },
+                              "padding-top": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-right": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-bottom": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-left": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "locked": {
+                                "type": "boolean"
+                              },
+                              "customFields": {
+                                "type": "object"
+                              }
+                            }
+                          },
+                          {
+                            "title": "Simple Title",
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "type": {
+                                "enum": [
+                                  "title",
+                                  "heading"
+                                ]
+                              },
+                              "underline": {
+                                "type": "boolean"
+                              },
+                              "italic": {
+                                "type": "boolean"
+                              },
+                              "bold": {
+                                "type": "boolean"
+                              },
+                              "html": {
+                                "type": "string"
+                              },
+                              "text": {
+                                "type": "string"
+                              },
+                              "align": {
+                                "enum": [
+                                  "left",
+                                  "center",
+                                  "right",
+                                  "justify"
+                                ]
+                              },
+                              "title": {
+                                "enum": [
+                                  "h1",
+                                  "h2",
+                                  "h3"
+                                ]
+                              },
+                              "size": {
+                                "type": "integer",
+                                "minimum": 1
+                              },
+                              "color": {
+                                "type": "string"
+                              },
+                              "linkColor": {
+                                "type": "string"
+                              },
+                              "letter-spacing": {
+                                "type": "integer",
+                                "minimum": -99,
+                                "maximum": 99
+                              },
+                              "line-height": {
+                                "type": "number",
+                                "minimum": 0.5,
+                                "maximum": 3,
+                                "multipleOf": 0.00001
+                              },
+                              "direction": {
+                                "enum": [
+                                  "ltr",
+                                  "rtl"
+                                ]
+                              },
+                              "padding-top": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-right": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-bottom": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "padding-left": {
+                                "$ref": "#/definitions/padding"
+                              },
+                              "locked": {
+                                "type": "boolean"
+                              },
+                              "customFields": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "customFields": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "settings": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "linkColor": {
+              "type": "string"
+            },
+            "background-color": {
+              "type": "string"
+            },
+            "contentAreaBackgroundColor": {
+              "type": "string"
+            },
+            "width": {
+              "type": "integer",
+              "minimum": 320,
+              "maximum": 1440
+            }
+          }
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "lang": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "preheader": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "template"
+  ]
+}

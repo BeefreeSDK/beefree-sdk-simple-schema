@@ -1,0 +1,29 @@
+{
+    "name": "beefree-partial-design-edits",
+    "version": "1.0.0",
+    "description": "AI-powered partial design editing with Beefree SDK",
+    "main": "index.html",
+    "scripts": {
+        "start": "node proxy-server.js",
+        "dev": "node proxy-server.js",
+        "serve": "serve"
+    },
+    "keywords": [
+        "beefree",
+        "email",
+        "ai",
+        "design",
+        "editing"
+    ],
+    "author": "Beefree SDK Team",
+    "license": "MIT",
+    "devDependencies": {
+        "serve": "11.2.0"
+    },
+    "dependencies": {
+        "axios": "^1.11.0",
+        "cors": "^2.8.5",
+        "express": "^5.1.0",
+        "node-fetch": "^2.7.0"
+    }
+}

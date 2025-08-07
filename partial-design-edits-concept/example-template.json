@@ -1,0 +1,144 @@
+{
+  "template": {
+    "type": "email",
+    "rows": [
+      {
+        "name": "header_row",
+        "columns": [
+          {
+            "weight": 12,
+            "modules": [
+              {
+                "type": "title",
+                "text": "Welcome to Our Newsletter",
+                "title": "h1",
+                "size": 24,
+                "line-height": 1,
+                "bold": true,
+                "align": "center",
+                "color": "#1A5276",
+                "padding-top": 20,
+                "padding-bottom": 10
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "intro_row",
+        "columns": [
+          {
+            "weight": 12,
+            "modules": [
+              {
+                "type": "paragraph",
+                "text": "Thank you for subscribing to our newsletter! We're excited to share the latest updates, tips, and insights with you.",
+                "align": "center",
+                "color": "#333333",
+                "size": 16
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "content_row",
+        "columns": [
+          {
+            "weight": 6,
+            "modules": [
+              {
+                "type": "title",
+                "text": "Latest News",
+                "title": "h2",
+                "size": 20,
+                "bold": true,
+                "color": "#2980B9",
+                "padding-bottom": 10
+              },
+              {
+                "type": "paragraph",
+                "text": "Stay up to date with our latest product releases and company announcements.",
+                "color": "#555555",
+                "size": 14
+              }
+            ]
+          },
+          {
+            "weight": 6,
+            "modules": [
+              {
+                "type": "title",
+                "text": "Tips & Tricks",
+                "title": "h2",
+                "size": 20,
+                "bold": true,
+                "color": "#2980B9",
+                "padding-bottom": 10
+              },
+              {
+                "type": "paragraph",
+                "text": "Discover helpful tips and best practices to make the most of our products.",
+                "color": "#555555",
+                "size": 14
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "cta_row",
+        "columns": [
+          {
+            "weight": 12,
+            "modules": [
+              {
+                "type": "button",
+                "text": "Read More",
+                "href": "https://example.com",
+                "color": "#FFFFFF",
+                "background-color": "#3498DB"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "footer_row",
+        "columns": [
+          {
+            "weight": 12,
+            "modules": [
+              {
+                "type": "divider",
+                "color": "#DDDDDD",
+                "height": 1,
+                "width": 80
+              },
+              {
+                "type": "paragraph",
+                "text": "© 2025 Example Company. All rights reserved.",
+                "align": "center",
+                "color": "#7F8C8D",
+                "size": 12
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "settings": {
+      "linkColor": "#3498DB",
+      "background-color": "#F5F5F5",
+      "contentAreaBackgroundColor": "#FFFFFF",
+      "width": 600
+    },
+    "metadata": {
+      "lang": "en",
+      "title": "Welcome Newsletter",
+      "description": "Welcome email template for new subscribers",
+      "subject": "Welcome to Our Newsletter!",
+      "preheader": "Get started with our latest updates and tips"
+    }
+  }
+} 
