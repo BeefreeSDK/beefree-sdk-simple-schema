@@ -465,8 +465,11 @@
       </div>
     </div>
 
-    <!-- Include the Beefree SDK -->
-    <script src="https://app-rsrc.getbee.io/plugin/BeePlugin.js"></script>
+    <!-- Include the Beefree SDK (v2) -->
+    <script type="module">
+      import BeefreeSDK from 'https://cdn.jsdelivr.net/npm/@beefree.io/sdk/+esm';
+      window.BeefreeSDK = BeefreeSDK;
+    </script>
 
     <script>
       const chatMessages = document.getElementById('chatMessages');
@@ -477,7 +480,8 @@
       const jsonTextarea = document.getElementById('jsonTextarea');
 
       let isProcessing = false;
-      let beePluginInstance = null;
+      let beePluginInstance = null; // legacy variable used by rest of file
+      let BeefreeSDKInstance = null;
       let currentTemplateData = null;
       let hasBeenSaved = false;
       let lastTemplateChange = null; // Store the latest template from onChange
@@ -1126,34 +1130,60 @@ REMEMBER: Fix ONLY the validation errors. Everything else stays the same.`;
         });
       }
 
-      // Initialize Beefree SDK
-      function initializeBeefree(authResponse) {
-        BeePlugin.create(authResponse, beeConfig, function (beePlugin) {
-          console.log('Beefree SDK initialized successfully');
-          beePluginInstance = beePlugin;
-          
-          // Check if we have a template to load
-          const savedTemplate = localStorage.getItem('currentTemplate');
-          if (savedTemplate) {
-            try {
-              const templateData = JSON.parse(savedTemplate);
-              beePlugin.start(templateData);
-              currentTemplateData = templateData;
-              console.log('Loaded saved template');
-            } catch (error) {
-              console.error('Error loading saved template:', error);
-              beePlugin.start();
-            }
-          } else {
-            // Start with empty template
-            beePlugin.start();
-            console.log('Started with empty template');
-          }
+      // Initialize Beefree SDK (do not use .create or BeePlugin)
+      async function getToken() {
+        const res = await fetch('/api/beefree/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            client_id: 'fa75c918-7634-4313-849b-8ae79632ebc0',
+            client_secret: 'NVWjIkIwQRXRBUqJSXAKCTVpjB1539Qo5pEY9jBeA5i2CbqaFgMS',
+            uid: beeConfig.uid
+          })
         });
+        if (!res.ok) throw new Error('Auth failed: ' + res.status);
+        const data = await res.json();
+        // Expect loginV2 response; normalize to required shape
+        if (data && data.access_token) {
+          return { access_token: data.access_token, v2: true };
+        }
+        if (data && data.token) {
+          return { access_token: data.token, v2: true };
+        }
+        if (typeof data === 'string') {
+          return { access_token: data, v2: true };
+        }
+        throw new Error('Invalid token response');
+      }
+
+      async function getTemplate() {
+        const savedTemplate = localStorage.getItem('currentTemplate');
+        if (savedTemplate) {
+          try { return JSON.parse(savedTemplate); } catch {}
+        }
+        const autosave = localStorage.getItem("email.autosave");
+        if (autosave) { try { return JSON.parse(autosave); } catch {} }
+        return undefined;
+      }
+
+      async function initializeBeefree() {
+        try {
+          const json = await getTemplate();
+          const token = await getToken();
+          BeefreeSDKInstance = new BeefreeSDK(token);
+          BeefreeSDKInstance
+            .start(beeConfig, json, "", { shared: false })
+            .then((instance) => {
+              // Keep legacy variable in sync for rest of file usage
+              beePluginInstance = instance;
+            });
+        } catch (error) {
+          console.error("error during initialization --> ", error);
+        }
       }
 
       // Start the initialization process
-      getBeeToken(initializeBeefree);
+      initializeBeefree();
     </script>
   </body>
 </html>

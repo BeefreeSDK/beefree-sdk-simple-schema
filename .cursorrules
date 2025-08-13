@@ -1,0 +1,30 @@
+Always initialize Beefree SDK using BeefreeSDK, never BeePlugin.create.
+
+Policy:
+- Do NOT use BeePlugin or .create anywhere.
+- Use a globally scoped variable named BeefreeSDKInstance for the SDK instance.
+- Initialize the editor like this:
+
+```javascript
+try {
+  const json = await getTemplate(); // your function to get the template
+  const token = await getToken(); // your function to get the token from BE
+  const BeefreeSDKInstance = new BeefreeSDK(token);
+  BeefreeSDKInstance
+    .start(beeConfig, json, "", { shared: false })
+    .then((instance) => {
+      // Do things here after the editor is initialized
+    });
+} catch (error) {
+  console.error("error during initialization --> ", error);
+}
+```
+
+Refactoring guidance:
+- Replace any occurrences of BeePlugin.create(authResponse, beeConfig, cb) with the pattern above.
+- If legacy code references beePluginInstance, store the resolved `instance` and use that for subsequent calls (e.g., instance.start(json)). Prefer renaming to editorInstance when feasible.
+- Remove any helper flows that fetch a token and then call initialize via callbacks; prefer async/await and a dedicated getToken() helper returning the token.
+- Code samples in Markdown must follow this pattern and name the global SDK variable exactly `BeefreeSDKInstance`.
+
+Linting/checks:
+- Grep for BeePlugin and .create to ensure no residual usage remains after edits.
