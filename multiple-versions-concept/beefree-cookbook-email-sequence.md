@@ -671,27 +671,20 @@ const beeConfig = {
   }
 };
 
-// Initialize Beefree SDK
-function initializeBeefree(authResponse) {
-  BeePlugin.create(authResponse, beeConfig, function (beePluginInstance) {
-    console.log('Beefree SDK initialized successfully');
-    
-    // Check if we have a template to load
-    if (selectedTemplate) {
-      try {
-        beePluginInstance.start(selectedTemplate);
-        console.log('Loaded template from localStorage');
-      } catch (error) {
-        console.error('Error loading template:', error);
-        // Fallback to empty template
-        beePluginInstance.start();
-      }
-    } else {
-      // Start with empty template
-      beePluginInstance.start();
-      console.log('Started with empty template');
-    }
-  });
+// Initialize Beefree SDK (do not use .create or BeePlugin)
+async function initializeBeefree() {
+  try {
+    const json = await getTemplate(); // your function to get the template
+    const token = await getToken(); // your function to get the token from BE
+    const BeefreeSDKInstance = new BeefreeSDK(token);
+    BeefreeSDKInstance
+      .start(beeConfig, json, "", { shared: false })
+      .then((instance) => {
+        // Do things here after the editor is initialized
+      });
+  } catch (error) {
+    console.error("error during initialization --> ", error);
+  }
 }
 ```
 
