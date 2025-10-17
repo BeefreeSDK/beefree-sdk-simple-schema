@@ -57,6 +57,9 @@
                 "top",
                 "bottom"
               ]
+            },
+            "customAttributes": {
+              "$ref": "definitions.schema.json#/definitions/customAttributes"
             }
           }
         }
@@ -78,6 +81,9 @@
       },
       "customFields": {
         "type": "object"
+      },
+      "customAttributes": {
+        "$ref": "definitions.schema.json#/definitions/customAttributes"
       }
     }
   }
