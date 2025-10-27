@@ -41,7 +41,10 @@
               }
             },
             "customAttributes": {
-              "$ref": "definitions.schema.json#/definitions/customAttributes"
+              "type": "array",
+              "items": {
+                "$ref": "definitions.schema.json#/definitions/customAttribute"
+              }
             }
           }
         }
@@ -65,7 +68,10 @@
         "type": "object"
       },
       "customAttributes": {
-        "$ref": "definitions.schema.json#/definitions/CustomAttributes"
+        "type": "array",
+        "items": {
+          "$ref": "definitions.schema.json#/definitions/customAttribute"
+        }
       }
     }
   }

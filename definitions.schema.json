@@ -32,24 +32,23 @@
           "title"
         ]
       },
-      "customAttributes": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "key": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "target": {
-              "type": "string"
-            },
-            "value": {
-              "type": "string"
-            }
+      "customAttribute": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["key", "name", "target"],
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string",
+            "enum": ["link", "tag"]
+          },
+          "value": {
+            "type": "string"
           }
         }
       }

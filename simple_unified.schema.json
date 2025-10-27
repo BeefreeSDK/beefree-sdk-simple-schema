@@ -376,6 +376,12 @@
                               "type": {
                                 "const": "icons"
                               },
+                              "customAttributes": {
+                                "type": "array",
+                                "items": {
+                                  "$ref": "definitions.schema.json#/definitions/customAttribute"
+                                }
+                              },
                               "icons": {
                                 "type": "array",
                                 "items": {
@@ -425,6 +431,12 @@
                                         "top",
                                         "bottom"
                                       ]
+                                    },
+                                    "customAttributes": {
+                                      "type": "array",
+                                      "items": {
+                                        "$ref": "definitions.schema.json#/definitions/customAttribute"
+                                      }
                                     }
                                   }
                                 }
@@ -588,6 +600,12 @@
                               "type": {
                                 "const": "menu"
                               },
+                              "customAttributes": {
+                                "type": "array",
+                                "items": {
+                                  "$ref": "definitions.schema.json#/definitions/customAttribute"
+                                }
+                              },
                               "items": {
                                 "type": "array",
                                 "items": {
@@ -618,6 +636,12 @@
                                             "_top"
                                           ]
                                         }
+                                      }
+                                    },
+                                    "customAttributes": {
+                                      "type": "array",
+                                      "items": {
+                                        "$ref": "definitions.schema.json#/definitions/customAttribute"
                                       }
                                     }
                                   }
