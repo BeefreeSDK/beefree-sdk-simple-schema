@@ -31,6 +31,26 @@
           "paragraph",
           "title"
         ]
+      },
+      "customAttribute": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["key", "name", "target"],
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string",
+            "enum": ["link", "tag"]
+          },
+          "value": {
+            "type": "string"
+          }
+        }
       }
     }
   }

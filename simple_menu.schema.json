@@ -39,6 +39,12 @@
                   ]
                 }
               }
+            },
+            "customAttributes": {
+              "type": "array",
+              "items": {
+                "$ref": "definitions.schema.json#/definitions/customAttribute"
+              }
             }
           }
         }
@@ -60,6 +66,12 @@
       },
       "customFields": {
         "type": "object"
+      },
+      "customAttributes": {
+        "type": "array",
+        "items": {
+          "$ref": "definitions.schema.json#/definitions/customAttribute"
+        }
       }
     }
   }
